@@ -9,7 +9,7 @@
 .button__wrapper{
    display: flex;
    justify-content: space-around;
-   margin: 10% 0&;
+   margin: 10% 0%;
 }
 .button__1{
    background-color: #7126B5;

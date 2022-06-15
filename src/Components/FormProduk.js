@@ -29,7 +29,7 @@ const FormProduk = (props) => {
 
                   <Form.Group className="mb-3" controlId="formBasicEmail">
                      <Form.Label>Harga Produk</Form.Label>
-                     <Form.Control type="text" placeholder="Harga Produk" className=' form___'/>
+                     <Form.Control type="number" placeholder="Harga Produk" className=' form___'/>
                   </Form.Group>
 
                   <Form.Group className="mb-3" controlId="formBasicPassword">
