@@ -1,7 +1,29 @@
-.App {
-  text-align: center;
-}
 
 a{
   text-decoration: none;
+}
+
+li{
+  list-style: none;
+}
+
+textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus,
+button:focus,
+button:active,
+button:hover,
+select:focus,
+select:active,
+select:hover,
+label:focus,
+.btn:active,
+.btn.active
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
 }
