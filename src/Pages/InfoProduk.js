@@ -10,3 +10,5 @@ export const InfoProduk = () => {
      </>
   )
 }
+
+export default InfoProduk
