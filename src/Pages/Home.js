@@ -20,15 +20,32 @@ const Home = () => {
     <>
         <div className='container'>
           <Swiper 
+              centeredSlide={true}
               freeMode={true}
               rewind={true}
               grabCursor={true}
               centeredSlides={true}
+              loop={true}
+              height={500}
+              autoplay={
+                {
+                  delay:2500,
+                  disableOnInteraction: false,
+                }
+              }
+              breakpoints={{
+                320:{
+                  slidesPerView: 1,
+                  spaceBetween: 20,
+                },
+                1024: {
+                  slidesPerView: 2,
+                  spaceBetween: 700,
+                },
+              }}
               pagination={{clickable:true}}
               modules={[FreeMode ,Pagination]}
               className='mySwiper my-4'
-              slidesPerView={1}
-              spaceBetween={10}
           >
             <SwiperSlide>
               <img src='Img/img-banner.png'/>
