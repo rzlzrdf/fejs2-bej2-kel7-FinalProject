@@ -1,0 +1,21 @@
+.card__modals__terima{
+   background-color: #EEEEEE;
+   border: none;
+   border-radius: 16px;
+}
+
+.img__modals__profil{
+   width: 48px;
+
+}
+
+.btn__send__wa{
+   background-color: #7126B5;
+   border-color: #7126B5;
+   border-radius: 12px;
+   height: 120%;
+}
+
+.text__modals__send{
+   margin-top: -15px;
+}
