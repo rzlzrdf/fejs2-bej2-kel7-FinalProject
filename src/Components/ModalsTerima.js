@@ -23,21 +23,21 @@ const ModalsTerima = (props) => {
            <Card className='card__modals__terima' >
               <Card.Body>
                  <Row >
-                    <Col lg={12} className='d-flex justify-content-center my-2 fs-4'>
+                    <Col lg={12} className='d-flex justify-content-center fs-4'>
                        <p className='fw-bolder'>Produk Match</p>
                     </Col>
-                     <Col lg={3} md={3} sm={3}>
-                        <img alt='' src='./Img/profile.png' className='img__modals__profil'/>
+                     <Col lg={3} md={3} sm={2}>
+                        <img alt='' src='./Img/profile.png' className='mx-auto img__modals__profil'/>
                      </Col>
-                     <Col lg={9} md={9} sm={9} className=''>
-                        <p className='fw-bolder '>Nama Pembeli</p>
+                     <Col lg={9} md={9} sm={10} className=''>
+                        <p className='fw-bolder texts__modals__send'>Nama Pembeli</p>
                         <p className='text-muted text__modals__send'>Kota</p>
                      </Col>
-                     <Col lg={3} md={3} sm={3} className='mt-3'>
-                        <img alt='' src='./Img/jam.svg' className='img__modals__profil'/>
-                     </Col>
-                     <Col lg={9} md={9} sm={9} className='mt-2'>
-                        <p className=''>Jam Tangan Casio</p>
+                     <Col lg={3} md={3} sm={2} className='mt-2'>
+                        <img alt='' src='./Img/jam.svg' className='mx-auto img__modals__profil'/>
+                     </Col >
+                     <Col lg={9} md={9} sm={10} className='mt-2'>
+                        <p className='texts__modals__send'>Jam Tangan Casio</p>
                         <p className='text__modals__send'><strike>Rp. 250.000</strike></p>
                         <p className='text__modals__send'>Rp. 200.000</p>
                      </Col>
