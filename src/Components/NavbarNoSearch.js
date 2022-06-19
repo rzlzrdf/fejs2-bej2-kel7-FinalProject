@@ -2,7 +2,7 @@ import React from 'react'
 import './NavbarNoSearch.css'
 import {IoArrowBackOutline} from 'react-icons/io5'
 
-const NavbarNoSearch = () => {
+const NavbarNoSearch = (props) => {
   return (
     <>
       <nav className="navbar navbar-light bg-white shadow-sm d-block">
@@ -11,7 +11,7 @@ const NavbarNoSearch = () => {
                <img src="/Img/logo.svg" alt="" className='' />
             </a>
             <a href='/' className='back__button'><IoArrowBackOutline /></a>
-            <span href='/' className='navbar-text mx-auto'>Info Profil</span>
+            <span href='/' className='navbar-text mx-auto'>{props.title}</span>
          </div>
       </nav>
     </>
