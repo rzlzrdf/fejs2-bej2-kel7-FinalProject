@@ -11,9 +11,9 @@ const ModalsTerima = (props) => {
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
                 >
-                <Modal.Header closeButton>
+                <Modal.Header closeButton className='modals__tolak__header'>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body >
                     <p className='fw-bold'>Perbarui status penjualan produkmu</p>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="transaksi" id="terima" value='terima' />
