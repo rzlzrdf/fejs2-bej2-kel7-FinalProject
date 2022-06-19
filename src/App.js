@@ -1,5 +1,5 @@
-import './App.css';
-import InfoPenawaran from './Pages/InfoPenawaran';
+import "./App.css";
+import InfoPenawaran from "./Pages/InfoPenawaran";
 
 
 function App() {
