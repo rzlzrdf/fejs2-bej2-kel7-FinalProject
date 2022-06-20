@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+
+:root {
+	--primary: #7126b5;
+}
+
+.login-container {
+	max-height: 100vh;
+  }
+  
+ .hero-login {
+	background-color: #7126B5;
+	-ms-flex-preferred-size: 50%;
+	flex-basis: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden
+  }
+  
+ .hero-login img {
+	flex-shrink: 0;
+	 min-width: 100%;
+	 min-height: 100%
+  }
+  
+  .login-form {
+	font-family: Poppins;
+	padding: 8% 10%;
+	-ms-flex-preferred-size: 50%;
+		flex-basis: 50%;
+	max-height: 100vh;
+  }
+  
+  .login-form button {
+	background-color: #7126B5;
+	border: none;
+  }
+ 
+  .btn-signin{
+	background-color: #7126B5;
+	border-color: #7126B5;
+	border-radius: 16px;
+  }
+
+  .register{
+	text-decoration: none;;
+	margin-left: 5px;
+	color: var(--primary);
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 20px;
+	letter-spacing: 0em;
+	text-align: left;
+	text-transform: capitalize;
+  }

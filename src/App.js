@@ -1,9 +1,10 @@
 import './App.css';
+import Login from './Pages/Login';
 
 function App() {
   return (
     <div className="App">
-      <h1>FEJS2 x BEJS2 FINAL PROJECT</h1>
+      <Login/>
       
     </div>
   );
