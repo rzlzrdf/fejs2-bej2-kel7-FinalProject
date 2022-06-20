@@ -73,12 +73,12 @@ const FormProfile = (props) => {
                   </aside>
                </section>
 
-               <Form.Group className="mb-3" controlId="formBasicEmail">
+               <Form.Group className="mb-3" htmlFor="formBasicEmail">
                   <Form.Label htmlFor='nama'>Nama *</Form.Label>
                   <Form.Control type="text" placeholder="Nama" className=' form__' name='nama' id='nama' ref={inputNama} required/>
                </Form.Group>
 
-               <Form.Group className="mb-3" controlId="formBasicPassword">
+               <Form.Group className="mb-3" htmlFor="formBasicPassword">
                   <Form.Label htmlFor='kota'>Kota *</Form.Label>
                   <select className="form-select form__" aria-label="Default select example" name='kota' id='kota' ref={inputKota} required>
                      <option>Pilih Kota</option>
@@ -90,12 +90,12 @@ const FormProfile = (props) => {
                   </select>
                </Form.Group>
                  
-               <Form.Group className="mb-3" controlId="formBasicPassword">
+               <Form.Group className="mb-3" htmlFor="formBasicPassword">
                   <Form.Label htmlFor='alamat'>Alamat *</Form.Label>
                   <textarea className="form-control form__" id="alamat" placeholder='Contoh: Jalan Ikan Hiu 33' rows="3" name='alamat' ref={inputAlamat} required></textarea>
                </Form.Group>
                  
-               <Form.Group className="mb-3" controlId="formBasicPassword">
+               <Form.Group className="mb-3" htmlFor="formBasicPassword">
                   <Form.Label htmlFor='hp'>No. Handphone *</Form.Label>
                   <Form.Control type="number" placeholder="contoh: +628123456789" className=' form__' name='hp' id='hp' ref={inputHandphone} required/>
                </Form.Group>
