@@ -1,10 +1,10 @@
 import './App.css';
+import SellerHalamanProduk from './Pages/SellerHalamanProduk';
 
 function App() {
   return (
     <div className="App">
-      <h1>FEJS2 x BEJS2 FINAL PROJECT</h1>
-      
+      <SellerHalamanProduk/>
     </div>
   );
 }
