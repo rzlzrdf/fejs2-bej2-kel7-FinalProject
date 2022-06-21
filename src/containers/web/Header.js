@@ -16,8 +16,8 @@ const Header = ({ page }) => {
                 <SearchField />
             </Box>
             <Box width={'6rem'} display='flex' justifyContent='space-between'>
-                <Link href='/list-produk' color={'inherit'}>
-                    <ListIcon color={page === 'list-produk' ? 'primary' : 'textPrimary'} />
+                <Link href='/daftar-jual' color={'inherit'}>
+                    <ListIcon color={page === 'daftar-jual' ? 'primary' : 'textPrimary'} />
                 </Link>
                 <NotificationsIcon />
                 <Link href='/login' color={'inherit'}>

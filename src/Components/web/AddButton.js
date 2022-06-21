@@ -3,7 +3,7 @@ import AddIcon from '@mui/icons-material/Add';
 
 const AddButton = () => {
     return (
-        <Box component={Link} href={'/list-produk/add'} sx={{
+        <Box component={Link} href={'/daftar-jual/add'} sx={{
             borderRadius: '10px',
             color: 'black',
             display: 'flex',

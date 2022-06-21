@@ -1,13 +1,13 @@
-import { Box, Link, Typography } from "@mui/material"
+import { Box, Typography } from "@mui/material"
 import ViewInArIcon from '@mui/icons-material/ViewInAr';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
 
-const KategoryPage = ({ page, name, active }) => {
+const KategoryPage = ({ name, setPage, page }) => {
 
     return (
-        <Box component={Link} display='flex' alignItems='center' py={1} color={active ? '#7126B5' : '#D0D0D0'} justifyContent='space-between' href={'/' + page} sx={{
+        <Box display='flex' alignItems='center' py={1} color={page === name ? '#7126B5' : '#000'} justifyContent='space-between' onClick={() => setPage(name)} sx={{
             cursor: 'pointer',
             textDecoration: 'none',
             '&:hover': {
@@ -15,10 +15,10 @@ const KategoryPage = ({ page, name, active }) => {
             }
         }}>
             <Box display='flex' alignItems='center'>
-                {page === 'list-produk' && <ViewInArIcon />}
-                {page === 'wishlist' && <FavoriteBorderIcon />}
-                {page === 'list-transaksi' && <MonetizationOnOutlinedIcon />}
-                <Typography ml={1} variant='subtitle1' color={active ? '#7126B5' : 'black'}>{name}</Typography>
+                {name === 'Semua Produk' && <ViewInArIcon />}
+                {name === 'Diminati' && <FavoriteBorderIcon />}
+                {name === 'Terjual' && <MonetizationOnOutlinedIcon />}
+                <Typography ml={1} variant='subtitle1' color={page === name ? '#7126B5' : '#000'}>{name}</Typography>
             </Box>
             <ArrowForwardIosOutlinedIcon />
         </Box >

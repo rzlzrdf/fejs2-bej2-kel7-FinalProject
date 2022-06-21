@@ -4,7 +4,7 @@ import React from 'react'
 const CardProduk = () => {
     const id = '1'
     return (
-        <Box component={Link} href={'/list-produk/' + id} p={1}
+        <Box component={Link} href={'/daftar-jual/' + id} p={1}
             sx={{
                 width: '352px',
                 textDecoration: 'none',

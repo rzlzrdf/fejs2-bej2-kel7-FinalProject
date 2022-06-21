@@ -6,8 +6,8 @@ const ProfileListM = () => {
             <Box display='flex' alignItems='center'>
                 <Box component={'img'} src={'https://via.placeholder.com/5'} width={'2.5rem'} height={'2.5rem'} borderRadius={'5px'} />
                 <Box display='flex' flexDirection='column' ml={2}>
-                    <Typography variant='subtitle1' fontWeight={'600'} fontSize={'.8rem'}>Budi</Typography>
-                    <Typography variant='body2' color='textSecondary' fontSize={'.6rem'}>Jakarta</Typography>
+                    <Typography variant='subtitle1' fontWeight={'600'} fontSize={'.8rem'}>Dila</Typography>
+                    <Typography variant='body2' color='textSecondary' fontSize={'.6rem'}>Lampung</Typography>
                 </Box>
             </Box>
             <Box >

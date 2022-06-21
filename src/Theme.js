@@ -13,13 +13,21 @@ export const Theme = createTheme({
     palette: {
         primary: {
             main: '#4B1979',
+            light: '#4B1979',
+            dark: '#4B1979',
         },
         secondary: {
             main: '#F1F3FF',
+            light: '#F1F3FF',
+            dark: '#F1F3FF',
         },
         success: {
             main: '#5CB85F',
         },
+        action: {
+            active: '#4B1979',
+            hover: '#4B1979',
+        }
     },
     typography: {
         fontFamily: '"Poppins", sans-serif',
@@ -101,10 +109,11 @@ export const Theme = createTheme({
         },
         button: {
             fontSize: '0.875rem',
-            fontWeight: 500,
+            fontWeight: 300,
             letterSpacing: '-.02em',
             lineHeight: '1.334',
             margin: 0,
+            textTransform: 'none',
         },
         caption: {
             fontSize: '0.75rem',

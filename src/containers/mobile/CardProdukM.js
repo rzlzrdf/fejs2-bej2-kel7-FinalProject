@@ -3,7 +3,7 @@ import { Box, Link, Typography } from '@mui/material'
 const CardProdukM = () => {
     const id = '1'
     return (
-        <Box component={Link} href={'/list-produk/' + id} p={1} sx={{
+        <Box component={Link} href={'/daftar-jual/' + id} p={1} sx={{
             width: '8.6rem',
             height: 'calc(10.5rem + 2px)',
             textDecoration: 'none',

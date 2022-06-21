@@ -8,7 +8,7 @@ const ProfileList = () => {
                 <Box component={'img'} src={'https://via.placeholder.com/5'} width={'4rem'} height={'4rem'} borderRadius={'20px'} />
                 <Box display='flex' flexDirection='column' ml={2}>
                     <Typography variant='subtitle1'>Dila</Typography>
-                    <Typography variant='body2' color='textSecondary'>Lampung</Typography>
+                    <Typography variant='body2' color='textSecondary'>Bandar Lampung</Typography>
                 </Box>
             </Box>
             <Box >
