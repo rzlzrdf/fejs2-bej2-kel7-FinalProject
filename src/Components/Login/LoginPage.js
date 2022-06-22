@@ -5,10 +5,10 @@ const LoginPage = () => {
    return (
      <>
        <div id="" className="d-flex login-container">
-          <div className="hero-login">
+          <div className="hero-login d-lg-flex d-xs-none">
                 <img className="hero-image-login" src="./Img/img.svg" alt="" />
           </div>  
-          <div id="" className="login-form">
+          <div id="" className="login-form col-lg-6 col-sm-12">
              <img src="./Img/logo.svg" alt="" className="py-4" />
              <h3 className="fw-bold my-3">Masuk</h3>
              <form className="form" method="post">
