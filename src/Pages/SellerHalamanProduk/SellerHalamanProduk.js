@@ -1,8 +1,8 @@
 import React from 'react'
-import Cards from '../Components/Seller-halaman-produk/Cards'
-import Corousel from '../Components/Seller-halaman-produk/Corousel'
-import Deskripsi from '../Components/Seller-halaman-produk/Deskripsi'
-import Profile from '../Components/Seller-halaman-produk/Profile'
+import Cards from '../../Components/Seller-halaman-produk/Cards'
+import Corousel from '../../Components/Seller-halaman-produk/Corousel'
+import Deskripsi from '../../Components/Seller-halaman-produk/Deskripsi'
+import Profile from '../../Components/Seller-halaman-produk/Profile'
 import style from './SellerHalamanProduk.module.css'
 
 const SellerHalamanProduk = () => {

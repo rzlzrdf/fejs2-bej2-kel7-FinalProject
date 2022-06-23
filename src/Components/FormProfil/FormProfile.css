@@ -1,0 +1,24 @@
+.button__{
+   background-color: #7126B5;
+   border: #7126B5;
+   border-radius: 12px; 
+}
+
+
+.form__{
+   border-radius: 12px;
+}
+
+.back{
+   color: #000000;
+   position: relative;
+   top: 5%;
+   left: -10%;
+}
+
+@media only screen and (max-width: 768px) {
+   .back{
+      display: none;
+   }
+   
+ }
