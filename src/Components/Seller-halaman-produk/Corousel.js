@@ -17,8 +17,8 @@ const Corousel = () => {
         modules={[Pagination, Navigation,]}
         className={`mySwiper ${style.swiper}`}
       >
-        <SwiperSlide><img src='Img/Rectangle.png'/></SwiperSlide>
-        <SwiperSlide><img src='Img/Rectangle.png'/></SwiperSlide>
+        <SwiperSlide><img src='Img/Rectangle.png'  alt=''/></SwiperSlide>
+        <SwiperSlide><img src='Img/Rectangle.png'  alt=''/></SwiperSlide>
       </Swiper>
     </div>
   )

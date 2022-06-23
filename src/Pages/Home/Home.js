@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Cards from '../Components/Cards'
-import KategoriButton from '../Components/KategoriButton'
+import Cards from '../../Components/CardProduk/Cards'
+import KategoriButton from '../../Components/Category/KategoriButton'
 import homestyle from './Home.module.css'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -48,16 +48,16 @@ const Home = () => {
               className='mySwiper my-4'
           >
             <SwiperSlide>
-              <img src='Img/img-banner.png'/>
+              <img src='Img/img-banner.png' alt='' />
             </SwiperSlide>
             <SwiperSlide>
-              <img src='Img/img-banner.png'/>
+              <img src='Img/img-banner.png'  alt='' />
             </SwiperSlide>
             <SwiperSlide>
-              <img src='Img/img-banner.png'/>
+              <img src='Img/img-banner.png'  alt='' />
             </SwiperSlide>
             <SwiperSlide>
-              <img src='Img/img-banner.png'/>
+              <img src='Img/img-banner.png'  alt='' />
             </SwiperSlide>
           </Swiper>
           <h5><b>Telusuri Kategori</b></h5>

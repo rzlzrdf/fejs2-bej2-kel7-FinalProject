@@ -1,10 +1,10 @@
 import React from "react";
-import NavbarNoSearch from "../Components/NavbarNoSearch";
-import CardProfile from "../Components/CardProfile";
+import NavbarNoSearch from "../../Components/NavbarNoSearch/NavbarNoSearch";
+import CardProfile from "../../Components/CardProfile/CardProfile";
 import "./InfoPenawaran.css";
 import { Container, Row, Col } from "react-bootstrap";
 import { IoArrowBackOutline } from "react-icons/io5";
-import CardPenawaran from "../Components/CardPenawaran";
+import CardPenawaran from "../../Components/CardPenawaran/CardPenawaran";
 
 const InfoPenawaran = () => {
   return (

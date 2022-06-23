@@ -1,6 +1,6 @@
 import React from 'react'
-import FormProfile from '../Components/FormProfile'
-import NavbarNoSearch from '../Components/NavbarNoSearch'
+import FormProfile from '../../Components/FormProfil/FormProfile'
+import NavbarNoSearch from '../../Components/NavbarNoSearch/NavbarNoSearch'
 
 const InfoProfile = (props) => {
   return (

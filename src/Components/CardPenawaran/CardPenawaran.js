@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./CardPenawaran.css";
 import { Card, Row, Col, Button } from "react-bootstrap";
-import ModalsTerima from "./ModalsTerima";
-import ModalsTolak from "./ModalsTolak";
+import ModalsTerima from "../ModalsTerima/ModalsTerima";
+import ModalsTolak from "../ModalsTolak/ModalsTolak";
 
 const CardPenawaran = () => {
   const [terima, setTerima] = useState(false);
