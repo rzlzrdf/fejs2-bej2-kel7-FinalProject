@@ -4,12 +4,12 @@ import "./Login.css";
 const LoginPage = () => {
    return (
      <>
-       <div id="" className="d-flex login-container">
+       <div className="d-flex login-container">
           <div className="hero-login d-lg-flex d-xs-none">
                 <img className="hero-image-login" src="./Img/img.svg" alt="" />
           </div>  
-          <div id="" className="login-form col-lg-6 col-sm-12">
-             <img src="./Img/logo.svg" alt="" className="py-4" />
+          <div className="login-form col-lg-6 col-sm-12">
+             <a href="/"><img src="./Img/logo.svg" alt="" className="py-4" /></a>
              <h3 className="fw-bold my-3">Masuk</h3>
              <form className="form" method="post">
                 <div className="form-group mt-3">
@@ -22,7 +22,7 @@ const LoginPage = () => {
                 </div>
              </form>
              <div className='d-grid gap-0'>
-                <button id="" className="btn btn-primary mt-4 btn-signin" type="submit">Masuk</button>
+                <button className="btn btn-dark mt-4 btn-signin" type="submit">Masuk</button>
              </div>
              <p className='mt-4 d-flex justify-content-center'>Belum punya akun? 
              <a href="/register" className ="register">Daftar disini</a></p>

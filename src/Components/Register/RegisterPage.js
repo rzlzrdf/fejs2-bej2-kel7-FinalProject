@@ -4,12 +4,12 @@ import "./Register.css";
 const RegisterPage = () => {
    return (
      <>
-       <div id="" className="d-flex register-container">
+       <div className="d-flex register-container">
           <div className="hero-register">
-                <img className="hero-image-register" src="./Img/img.svg" alt="" />
+            <img className="hero-image-register" src="./Img/img.svg" alt="" />
           </div>  
-          <div id="" className="register-form">
-             <img src="./Img/logo.svg" alt="" className="py-4" />
+          <div className="register-form">
+            <a href="/"><img src="./Img/logo.svg" alt="" className="py-4" /></a>
              <h3 className="fw-bold my-3">Daftar</h3>
              <form className="form" method="post">
                 <div className="form-group mt-3">
@@ -26,7 +26,7 @@ const RegisterPage = () => {
                 </div>
              </form>
              <div className='d-grid gap-0'>
-                <button id="" className="btn btn-primary mt-4 btn-signin" type="submit">Masuk</button>
+                <button className="btn btn-dark mt-4 btn-signin" type="submit">Buat Akun</button>
              </div>
              <p className='mt-4 d-flex justify-content-center'>Sudah punya akun 
              <a href="/login" className ="login">Masuk disini</a></p>
