@@ -6,6 +6,7 @@ import Register from './Pages/Register';
 import InfoPenawaran from "./Pages/InfoPenawaran";
 
 import InfoProduk  from './Pages/InfoProduk';
+import InfoProfile from './Pages/InfoProfile';
 
 function App() {
   return (
