@@ -4,19 +4,22 @@ import Corousel from '../../Components/Seller-halaman-produk/Corousel'
 import Deskripsi from '../../Components/Seller-halaman-produk/Deskripsi'
 import Profile from '../../Components/Seller-halaman-produk/Profile'
 import style from './SellerHalamanProduk.module.css'
-
+import NavbarBack from '../../Components/NavbarBack/NavbarBack'
 const SellerHalamanProduk = () => {
   return (
-    <div className='container d-sm-flex justify-content-center'>
-      <div className=''>
-        <Corousel/>
-        <Deskripsi/>
+    <>
+    <NavbarBack/>
+      <div className='container d-sm-flex justify-content-center'>
+        <div className=''>
+          <Corousel/>
+          <Deskripsi/>
+        </div>
+      <div className={`${style.right}`}>
+          <Cards/>
+          <Profile/>
+        </div>
       </div>
-    <div className={`${style.right}`}>
-        <Cards/>
-        <Profile/>
-      </div>
-    </div>
+    </>
   )
 }
 

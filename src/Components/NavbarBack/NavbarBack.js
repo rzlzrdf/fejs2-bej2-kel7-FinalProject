@@ -1,11 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import fontawesome from '@fortawesome/fontawesome'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faSignOutAlt } from '@fortawesome/fontawesome-free-solid'
 import style from './NavbarBack.module.css'
+import { FaSignOutAlt } from 'react-icons/fa'
 
-fontawesome.library.add(faSignOutAlt);
 
 const Navbar = () => {
   return (
@@ -13,7 +10,7 @@ const Navbar = () => {
         <div className="container">
           <div className="row justify-content-between align-items-center">
             <div className="col-auto ml-3">
-              <img src="/img/logo.png" alt="logo-img" className="logo-img" width="100" />
+              <img src="Img/logo.svg" alt="logo-img" className="logo-img" width="100" />
             </div>
             <div className="col">
               <form className="d-flex" role="search">
@@ -24,7 +21,7 @@ const Navbar = () => {
             <div className="col-auto d-none d-lg-block">
               <ul className="nav-menu list-inline mb-0">
                 <li className="list-inline-item">
-                  <Link to="/login" type="submit" className={`${style['btn_primary']} btn d-flex align-items-center`}><FontAwesomeIcon icon="fa-sign-out-alt"  className={`${style['fa-sign-in-alt']}`}/>Masuk</Link>
+                  <Link to="/login" type="submit" className={`${style['btn_primary']} btn d-flex align-items-center`}><FaSignOutAlt  className={`${style['fa-sign-in-alt']}`}/>Masuk</Link>
                 </li>
               </ul>                    
             </div>

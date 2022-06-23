@@ -3,7 +3,7 @@ import React from 'react'
 import Cards from '../../Components/CardProduk/Cards'
 import KategoriButton from '../../Components/Category/KategoriButton'
 import homestyle from './Home.module.css'
-
+import NavbarBack from '../../Components/NavbarBack/NavbarBack'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import {FreeMode, Pagination} from 'swiper';
@@ -19,7 +19,7 @@ const Home = () => {
 
   return (
     <>
-    
+      <NavbarBack/>
         <div className='container'>
           <Swiper 
               centeredSlide={true}
