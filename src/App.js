@@ -5,6 +5,7 @@ import Login from './Pages/Login';
 import Register from './Pages/Register';
 import InfoPenawaran from "./Pages/InfoPenawaran";
 
+import InfoProduk  from './Pages/InfoProduk';
 
 function App() {
   return (
