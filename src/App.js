@@ -12,6 +12,7 @@ import InfoPenawaran from "./Pages/InfoPenawaran/InfoPenawaran";
 
 import InfoProduk  from './Pages/InfoProduk/InfoProduk';
 import InfoProfile from './Pages/InfoProfile/InfoProfile';
+import DaftarJual from './Pages/DaftarJual/DaftarJual'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
+            <Route path="daftar-jual" element={<DaftarJual />} />
           </Routes>
         </BrowserRouter>
     </div>

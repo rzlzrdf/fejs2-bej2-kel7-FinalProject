@@ -4,6 +4,7 @@ import Cards from '../../Components/CardProduk/Cards'
 import KategoriButton from '../../Components/Category/KategoriButton'
 import homestyle from './Home.module.css'
 
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import {FreeMode, Pagination} from 'swiper';
 import 'swiper/css';
@@ -18,6 +19,7 @@ const Home = () => {
 
   return (
     <>
+    
         <div className='container'>
           <Swiper 
               centeredSlide={true}
