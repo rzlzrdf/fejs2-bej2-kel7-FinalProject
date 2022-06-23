@@ -1,17 +1,36 @@
-.cards{
-    width: 336px;
-    padding: 16px;
-    margin-bottom: 24px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 16px;
+@media only screen and (max-width: 576px){
+    .cards{
+        width: auto;
+        padding: 16px;
+        margin-bottom: 24px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+        border-radius: 16px;
+    }
+    .swiper{
+        width: auto;
+        margin-bottom: 24px;
+    }
+    .deskripsi{
+        width: auto;
+    }
 }
-.swiper{
-    width: 600px;
-    margin-bottom: 24px;
+@media only screen and (min-width: 577px){
+    .cards{
+        width: 336px;
+        padding: 16px;
+        margin-bottom: 24px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+        border-radius: 16px;
+    }
+    .swiper{
+        width: 600px;
+        margin-bottom: 24px;
+    }
+    .deskripsi{
+        width: 600px;
+    }
 }
-.deskripsi{
-    width: 600px;
-}
+
 .buttonCards{
     background-color: #7126B5;
     border-radius: 16px;

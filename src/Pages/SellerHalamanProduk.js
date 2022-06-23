@@ -7,7 +7,7 @@ import style from './SellerHalamanProduk.module.css'
 
 const SellerHalamanProduk = () => {
   return (
-    <div className='container d-flex justify-content-center'>
+    <div className='container d-sm-flex justify-content-center'>
       <div className=''>
         <Corousel/>
         <Deskripsi/>
