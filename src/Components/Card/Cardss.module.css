@@ -1,0 +1,34 @@
+.wrapper_card{
+    width: 150px;
+    height: 250px;
+    border-color: #cccccc;
+    border-radius: 6px;
+    margin: 7px;
+}
+
+.img_{
+    max-width: fit-content;
+}
+
+
+.teks{
+    margin-top: -7px;
+    margin-bottom: -2px;
+}
+
+@media only screen and (max-width: 425px) {
+    .wrapper_card{
+        width: 90vw;
+        height: 20%;
+        border-color: #cccccc;
+        border-radius: 6px;
+        margin: 2px;
+        
+    }
+
+    .img_{
+        width: 90vw;
+        height: fit-content;
+    }
+    
+}

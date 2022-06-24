@@ -8,13 +8,13 @@ import NavbarBack from '../../Components/NavbarBack/NavbarBack'
 const SellerHalamanProduk = () => {
   return (
     <>
-    <NavbarBack/>
-      <div className='container d-sm-flex justify-content-center'>
+    <NavbarBack />
+      <div className='container d-sm-flex justify-content-center mt-4'>
         <div className=''>
           <Corousel/>
           <Deskripsi/>
         </div>
-      <div className={`${style.right}`}>
+        <div className={`${style.right}`}>
           <Cards/>
           <Profile/>
         </div>

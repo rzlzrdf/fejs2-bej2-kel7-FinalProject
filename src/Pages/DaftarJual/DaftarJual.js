@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './DaftarJual.module.css'
 import Navbar from '../../Components/Navbar/Navbar'
-import Card from '../../Components/Card/Card'
+import Cardss from '../../Components/Card/Cardss'
 import {FaBox,FaHeart,FaDollarSign, FaAngleRight} from 'react-icons/fa'
 
 function DaftarJual() {
@@ -77,22 +77,22 @@ function DaftarJual() {
                 <div className="row">
                   <div className="col-lg-4 col-6">
                     {/* <img src="/img/add-product.png" alt="add-img" className="add-img" /> */}
-                    <Card />
+                    <Cardss />
                   </div>
                   <div className="col-lg-4 col-6">
-                    <Card />
+                    <Cardss />
                   </div>
                   <div className="col-lg-4 col-6">
-                    <Card />
+                    <Cardss />
                   </div>
                   <div className="col-lg-4 col-6">
-                    <Card />
+                    <Cardss />
                   </div>
                   <div className="col-lg-4 col-6">
-                    <Card />
+                    <Cardss />
                   </div>
                   <div className="col-lg-4 col-6">
-                    <Card />
+                    <Cardss />
                   </div>
                 </div>
               </div>
