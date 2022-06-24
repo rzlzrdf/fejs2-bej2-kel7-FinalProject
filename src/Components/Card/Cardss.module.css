@@ -19,10 +19,10 @@
 @media only screen and (max-width: 425px) {
     .wrapper_card{
         width: 90vw;
-        height: 20%;
+        height: 100%;
         border-color: #cccccc;
         border-radius: 6px;
-        margin: 2px;
+        margin: 7px;
         
     }
 
