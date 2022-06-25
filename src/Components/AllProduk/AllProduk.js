@@ -3,6 +3,7 @@ import {AiOutlineFileAdd} from 'react-icons/ai'
 import React from 'react'
 import Cardss from '../Card/Cardss'
 import style from './AllProduk.module.css'
+import { Link } from 'react-router-dom'
 
 
 const AllProduk = () => {
@@ -10,10 +11,12 @@ const AllProduk = () => {
   return (
     <>
       <div className={style.wrapper_card}>
-         <Button variant='dark' className={style.upload + ' fw-light text-muted'}>
-            <AiOutlineFileAdd className={style.next}/>
-            <p>Tambah Produk</p>
-         </Button>
+        <Link to='/info-produk'>
+            <Button className={style.upload + ' fw-light text-muted'}>
+              <AiOutlineFileAdd className={style.next}/>
+              <p>Tambah Produk</p>
+            </Button>
+        </Link>
          <Cardss />
          <Cardss />
          <Cardss />
