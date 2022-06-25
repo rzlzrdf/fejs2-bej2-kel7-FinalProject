@@ -24,7 +24,7 @@ function App() {
             <Route path='/register' element={<Register />} />
             <Route path="/daftar-jual" element={<DaftarJual />} />
             <Route path="/halaman-produk" element={<SellerHalamanProduk />} />
-            <Route path="/info-penawran" element={<InfoPenawaran />} />
+            <Route path="/info-penawaran" element={<InfoPenawaran />} />
             <Route path="/info-profil" element={<InfoProduk />} />
             <Route path="/info-produk" element={<InfoProfile />} />
           </Routes>

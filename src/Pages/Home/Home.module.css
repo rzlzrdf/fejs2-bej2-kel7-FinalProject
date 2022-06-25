@@ -28,35 +28,39 @@ a{
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
+    gap: 10px;
 }
 
 .jual{
     background-color: #7126B5;
     border: none;
     border-radius: 6px;
-    margin: 7px;
     width: 150px;
     height: 250px;
-
 }
 
-.add{
+.next{
     font-size: 40px;
 }
 @media only screen and (max-width: 455px) {
     .fill{
-        height: 20vh;
+        height: 30vh;
     }
 
     .card_container{
         max-width: 100vw;
         justify-content: center;
+        gap: 15px;
     }
 
     .jual{
-        width: 100%;
-        height: 250px;
+        width: 60vw;
+        height: 35px;
+        margin-bottom: 20px;
     
+    }
+    .next{
+        font-size: 14px;
     }
 }
 

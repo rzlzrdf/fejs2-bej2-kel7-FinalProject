@@ -10,7 +10,7 @@ const InfoPenawaran = () => {
   return (
     <>
       <NavbarNoSearch />
-      <Container>
+      <Container className='mt-4'>
         <Row>
           <a href="/" className="back">
             <IoArrowBackOutline />

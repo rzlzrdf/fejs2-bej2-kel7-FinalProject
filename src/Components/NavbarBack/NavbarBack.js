@@ -4,7 +4,7 @@ import style from './NavbarBack.module.css'
 import { FaSignOutAlt} from 'react-icons/fa'
 
 
-const Navbar = () => {
+const NavbarBack = () => {
   return (
     <header className={style.header}>
         <div className="container">
@@ -33,4 +33,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default NavbarBack

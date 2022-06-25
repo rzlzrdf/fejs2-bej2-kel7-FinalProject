@@ -1,0 +1,23 @@
+.wrapper_card{
+   margin-top: 30px;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   gap: 10px;
+}
+
+.upload{
+   width: 150px;
+   height: 250px;
+   border: 1px dashed #dedede;
+   border-radius: 6px;
+   background-color: transparent;
+   cursor: pointer;
+   transition: 0.4s;
+}
+
+.upload:hover{
+   border-color: #dedede;
+   background-color: #dedede;
+}

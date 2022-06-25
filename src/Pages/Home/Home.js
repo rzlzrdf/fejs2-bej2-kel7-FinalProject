@@ -3,10 +3,12 @@ import React from 'react'
 import KategoriButton from '../../Components/Category/KategoriButton'
 import NavbarBack from '../../Components/NavbarBack/NavbarBack'
 import { Container, Carousel,Row, Col, Button } from 'react-bootstrap'
-import {MdOutlineAdd} from 'react-icons/md'
+import {TbPlayerTrackNext} from 'react-icons/tb'
 import TypeAnimation from 'react-type-animation';
 import style from './Home.module.css'
 import Cardss from '../../Components/Card/Cardss'
+// import NavbarBack from '../../Components/NavbarBack/NavbarBack'
+import Navbar from '../../Components/Navbar/Navbar'
 
 
 
@@ -15,27 +17,27 @@ const Home = () => {
 
   return (
     <>
-      <NavbarBack/>
+      <Navbar />
         <Carousel className={style.carousel_}>
           <Carousel.Item className={style.fill}>
             <img alt='' src='./Img/1.jpg' className={'d-block w-100 '}/>
             <Carousel.Caption>
-              <p className='fw-bold fs-1'>Second Hand</p>
-              <h4 className='text-dark'>Special Tahun Baru</h4>
+              <p className='fw-bolder fs-1'>Second Hand</p>
+              <h4 className='text-dark'>#1 E-Commerce in Indonesia</h4>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item className={style.fill}>
             <img alt='' src='./Img/2.jpg' className={'d-block w-100 '}/>
             <Carousel.Caption>
-              <p className='fw-bold'>Second Hand</p>
-              <h4 className=''>Special Tahun Baru</h4>
+              <p className='fw-bolder fs-1'>Second Hand</p>
+              <h4 className='text-dark'>#1 E-Commerce in Indonesia</h4>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item className={style.fill}>
             <img alt='' src='./Img/3.jpg' className={'d-block w-100 '}/>
             <Carousel.Caption>
-              <p className='fw-bolder text-dark'>Second Hand</p>
-              <h4 className='text-dark'>Special Tahun Baru</h4>
+              <p className='fw-bolder fs-1'>Second Hand</p>
+              <h4 className='text-dark'>#1 E-Commerce in Indonesia</h4>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
@@ -80,8 +82,8 @@ const Home = () => {
               <Cardss />
               <Cardss />
               <Button variant='dark' className={style.jual}>
-                <MdOutlineAdd className={style.add}/><br/>
-                  <p className='fs-5 fw-bold'>Jual</p>
+                <TbPlayerTrackNext className={style.next}/>
+                  <p className='fs-5 fw-bold'>Lainnya</p>
               </Button>
             </div>
           </Col>

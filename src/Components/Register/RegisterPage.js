@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Register.css";
 
 const RegisterPage = () => {
@@ -9,7 +10,7 @@ const RegisterPage = () => {
             <img className="hero-image-register" src="./Img/img.svg" alt="" />
           </div>  
           <div className="register-form">
-            <a href="/"><img src="./Img/logo.svg" alt="" className="py-4" /></a>
+            <Link to="/"><img src="./Img/logo.svg" alt="" className="py-4" /></Link>
              <h3 className="fw-bold my-3">Daftar</h3>
              <form className="form" method="post">
                 <div className="form-group mt-3">
@@ -29,7 +30,7 @@ const RegisterPage = () => {
                 <button className="btn btn-dark mt-4 btn-signin" type="submit">Buat Akun</button>
              </div>
              <p className='mt-4 d-flex justify-content-center'>Sudah punya akun 
-             <a href="/login" className ="login">Masuk disini</a></p>
+             <Link to="/login" className ="login">Masuk disini</Link></p>
           </div>
        </div>
      </>

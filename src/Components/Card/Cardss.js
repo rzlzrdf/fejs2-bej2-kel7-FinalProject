@@ -11,7 +11,7 @@ const Cardss = () => {
     <Card className={style.wrapper_card + ' shadow-sm'}>
       <Card.Img variant="top" src="./Img/Rectangle.png" className={style.img_} />
       <Card.Body>
-        <Card.Title>Jam Tangan Casio</Card.Title>
+        <p className='fw-bold fs-5'>Jam Tangan Casio</p>
         <Card.Text className={'text-muted '+style.teks}>
           Aksesoris
         </Card.Text>

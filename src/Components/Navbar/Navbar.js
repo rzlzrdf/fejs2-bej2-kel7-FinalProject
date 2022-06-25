@@ -9,7 +9,7 @@ const Navbar = () => {
         <div className="container">
           <div className="row justify-content-between align-items-center">
             <div className="col-auto ml-3">
-              <img src="/Img/logo.svg" alt="logo-img" className="logo-img" width="100" />
+              <Link to='/'><img src="/Img/logo.svg" alt="logo-img" className="logo-img" width="100" /></Link>
             </div>
             <div className="col">
               <form className="d-flex" role="search">
@@ -20,7 +20,7 @@ const Navbar = () => {
             <div className="col-auto d-none d-lg-block">
               <ul className="nav-menu list-inline mb-0">
                 <li className="d-flex list-inline-item">
-                  <Link to="/" type="submit" className={`${style['icons-menu']} btn d-flex align-items-center`}>
+                  <Link to="/daftar-jual"  className={`${style['icons-menu']} btn d-flex align-items-center`}>
                     <FaBars/>
                   </Link>
                   <Link to="/" type="submit" className={`${style['icons-menu']} btn d-flex align-items-center`}>

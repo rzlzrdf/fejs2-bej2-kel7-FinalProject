@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import style from './Seller-halaman-produk.module.css'
 
 const Cards = () => {
@@ -10,7 +11,7 @@ const Cards = () => {
             <p className="card-text">Kategori</p>
             <h5><b>Rp 250.000</b></h5>
             <div className='d-grid gap-2'>
-              <button type="button" className={` ${style.buttonCards}`}>Secondary</button>
+              <button type="button" className={` ${style.buttonCards}`}>Terbitkan</button>
               <button type="button" className={` ${style.buttonCardsEdit}`}>Edit</button>
             </div>
         </div>
