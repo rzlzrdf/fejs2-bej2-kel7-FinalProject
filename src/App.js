@@ -22,11 +22,14 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
-            <Route path="/daftar-jual" element={<DaftarJual />} />
+            <Route path="/daftar-jual" element={<DaftarJual />} >
+              {/* <Route path='/diminati' element={<contohdiminati />} />ntar taro sini routing nya ya dil...
+              <Route path='/terjual' element={<contohterjual />} />ntar taro sini routing nya ya dil... */}
+            </Route>
             <Route path="/halaman-produk" element={<SellerHalamanProduk />} />
             <Route path="/info-penawaran" element={<InfoPenawaran />} />
-            <Route path="/info-profil" element={<InfoProduk />} />
-            <Route path="/info-produk" element={<InfoProfile />} />
+            <Route path="/info-profil" element={<InfoProfile />} />
+            <Route path="/info-produk" element={<InfoProduk />} />
           </Routes>
         </BrowserRouter>
     </div>

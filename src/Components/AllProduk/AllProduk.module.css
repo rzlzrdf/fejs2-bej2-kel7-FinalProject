@@ -2,7 +2,7 @@
    margin-top: 30px;
    width: 100%;
    display: flex;
-   justify-content: center;
+   justify-content: start;
    flex-wrap: wrap;
    gap: 10px;
 }
@@ -20,4 +20,13 @@
 .upload:hover{
    border-color: #dedede;
    background-color: #dedede;
+   -webkit-transform: scale(1.03, 1.03);
+  transform: scale(1.03, 1.03);
+}
+
+@media only screen and (max-width: 991px){
+   .wrapper_card{
+      justify-content: center;
+      gap: 15px;
+   }
 }

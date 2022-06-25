@@ -5,7 +5,7 @@ import NavbarNoSearch from '../../Components/NavbarNoSearch/NavbarNoSearch'
 export const InfoProduk = () => {
   return (
      <>
-         <NavbarNoSearch />
+         <NavbarNoSearch title='Info Produk'/>
          <FormProduk />
      </>
   )
