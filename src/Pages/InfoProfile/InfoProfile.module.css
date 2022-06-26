@@ -1,0 +1,14 @@
+.profile{
+   background-image: url(../../../public/Img/martinaa.png);
+   background-repeat: no-repeat;
+   background-position-x: 10%;
+   background-position-y: 30%;
+   background-size: 7%;
+   
+}
+
+@media only screen and (max-width: 768px){
+   .profile{
+      background-image: none;
+   }
+}

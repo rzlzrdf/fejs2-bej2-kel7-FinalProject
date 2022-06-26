@@ -19,9 +19,6 @@ a{
     min-height: 100%
 }
 
-.wrapper_hero_title{
-    margin-top: 8%;
-}
 
 .card_container{
     width: 100%;
@@ -42,6 +39,42 @@ a{
 .next{
     font-size: 40px;
 }
+
+.wrapper_hero_title{
+    margin-top: 5%;
+    z-index: 2;
+}
+
+.hero_title_2{
+    position: relative;
+    top: -45%;
+    left: 45%;
+    z-index: -4;
+}
+
+.atau{
+    position: relative;
+    top: 10%;
+    left: 29%;
+    z-index: -3;
+    color: #7126B5;
+}
+
+.hand{
+    color: #7126B5;
+    font-weight: bold;
+}
+
+.hero3d{
+    width: 50%;
+    position: relative;
+    top: -5%;
+    left: 0%;
+    z-index: -2;
+    
+}
+
+
 @media only screen and (max-width: 455px) {
     .fill{
         height: 30vh;
@@ -61,6 +94,34 @@ a{
     }
     .next{
         font-size: 14px;
+    }
+
+    .wrapper_hero_title{
+        background-size: cover;
+        background-position: 10%;
+    }
+
+}
+
+@media only screen and (max-width: 1199px) {
+    .hero3d{
+        display: none
+    }
+    .atau{
+        position: static;
+        text-align: center;
+        margin-top: 12%;
+        margin-bottom: 12%;
+
+    }
+    .hero_title_2{
+        position: static;
+        text-align: end;
+        margin-right: 20px;
+    }
+    .wrapper_hero_title{
+        background-image: url('../../../public/Img/martina.png');
+        background-repeat: no-repeat;
     }
 }
 

@@ -9,6 +9,7 @@ import style from './Home.module.css'
 import Cardss from '../../Components/Card/Cardss'
 // import NavbarBack from '../../Components/NavbarBack/NavbarBack'
 import Navbar from '../../Components/Navbar/Navbar'
+import { Link } from 'react-router-dom'
 
 
 
@@ -20,21 +21,21 @@ const Home = () => {
       <Navbar />
         <Carousel className={style.carousel_}>
           <Carousel.Item className={style.fill}>
-            <img alt='' src='./Img/1.jpg' className={'d-block w-100 '}/>
+            <img alt='' src='./Img/a.jpg' className={'d-block w-100 '}/>
             <Carousel.Caption>
               <p className='fw-bolder fs-1'>Second Hand</p>
               <h4 className='text-dark'>#1 E-Commerce in Indonesia</h4>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item className={style.fill}>
-            <img alt='' src='./Img/2.jpg' className={'d-block w-100 '}/>
+            <img alt='' src='./Img/aa.jpg' className={'d-block w-100 '}/>
             <Carousel.Caption>
               <p className='fw-bolder fs-1'>Second Hand</p>
               <h4 className='text-dark'>#1 E-Commerce in Indonesia</h4>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item className={style.fill}>
-            <img alt='' src='./Img/3.jpg' className={'d-block w-100 '}/>
+            <img alt='' src='./Img/aaa.jpg' className={'d-block w-100 '}/>
             <Carousel.Caption>
               <p className='fw-bolder fs-1'>Second Hand</p>
               <h4 className='text-dark'>#1 E-Commerce in Indonesia</h4>
@@ -64,7 +65,13 @@ const Home = () => {
             />
             </span>
           </h1>
-          <h1 className='fw-bold fs-1'>Semuanya tersedia disini..</h1>
+          <h1 className='fw-bold fs-2'>Semuanya tersedia disini..</h1>
+          <h5 className={style.atau}>--atau--</h5>
+          <img src='./Img/3d-model-2.png' alt='' className={style.hero3d} />
+          <div className={' ' + style.hero_title_2}>
+            <h4 className='fs-5 fw-bold '>pengen <Link to='/info-produk' className={'fs-1 fw-bolder ' + style.btnjual}> Jual </Link>produkmu</h4>
+            <h5 className='fw-bold'>cepet laku ?</h5>
+          </div>
           </Col>
           <Col lg={6} md={12} sm={12} className={'d-block mt-4'} >
             <h3 className='text-muted'>Telusuri Kategori</h3>
@@ -86,6 +93,11 @@ const Home = () => {
                   <p className='fs-5 fw-bold'>Lainnya</p>
               </Button>
             </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col lg={6}>
+            
           </Col>
         </Row>
       </Container>

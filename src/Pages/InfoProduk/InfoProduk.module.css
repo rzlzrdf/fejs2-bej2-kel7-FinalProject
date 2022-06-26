@@ -1,0 +1,12 @@
+.produk{
+   background-image: url('/public/Img/box.png');
+   background-repeat: no-repeat;
+   background-position: 85% 70%;
+   background-size: 9%;
+}
+
+@media only screen and (max-width: 768px){
+   .produk{
+      background-image: none;
+   }
+}
