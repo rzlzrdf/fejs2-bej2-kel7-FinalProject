@@ -25,8 +25,8 @@ function App() {
             <Route path="/daftar-jual" element={<DaftarJual />} />
             <Route path="/halaman-produk" element={<SellerHalamanProduk />} />
             <Route path="/info-penawaran" element={<InfoPenawaran />} />
-            <Route path="/info-profil" element={<InfoProduk />} />
-            <Route path="/info-produk" element={<InfoProfile />} />
+            <Route path="/info-profil" element={<InfoProfile />} />
+            <Route path="/info-produk" element={<InfoProduk/>} />
           </Routes>
         </BrowserRouter>
     </div>
