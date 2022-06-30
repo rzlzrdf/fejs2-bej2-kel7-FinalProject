@@ -13,6 +13,9 @@ import InfoPenawaran from "./Pages/InfoPenawaran/InfoPenawaran";
 import InfoProduk  from './Pages/InfoProduk/InfoProduk';
 import InfoProfile from './Pages/InfoProfile/InfoProfile';
 import DaftarJual from './Pages/DaftarJual/DaftarJual'
+import Disukai from './Components/Disukai/Disukai';
+import AllProduk from './Components/AllProduk/AllProduk';
+import Terjual from './Components/Terjual/Terjual';
 
 function App() {
   return (
@@ -22,9 +25,12 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
-            <Route path="/daftar-jual" element={<DaftarJual />} >
+            <Route path="/daftar-jual" element={<DaftarJual />}>
               {/* <Route path='/diminati' element={<contohdiminati />} />ntar taro sini routing nya ya dil...
               <Route path='/terjual' element={<contohterjual />} />ntar taro sini routing nya ya dil... */}
+              <Route path='' index element={<AllProduk />} />
+              <Route path='disukai' element={<Disukai />} />
+              <Route path='terjual' element={<Terjual />} />
             </Route>
             <Route path="/halaman-produk" element={<SellerHalamanProduk />} />
             <Route path="/info-penawaran" element={<InfoPenawaran />} />

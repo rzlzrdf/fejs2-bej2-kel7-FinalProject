@@ -10,7 +10,7 @@ const NavbarBack = () => {
         <div className="container">
           <div className="row justify-content-between align-items-center">
             <div className="col-auto ml-3">
-              <Link to='/'><img src="Img/logo.svg" alt="logo-img" className="logo-img" width="100" /></Link>
+              <Link to='/'><img src="Img/logo2.svg" alt="logo-img" className="logo-img" width="100" /></Link>
             </div>
             <div className="col">
               <form className="d-flex " role="search">

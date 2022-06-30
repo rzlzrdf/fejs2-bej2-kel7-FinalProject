@@ -1,23 +1,18 @@
 import React from 'react'
 import style from './Cardss.module.css'
 import Card from 'react-bootstrap/Card';
-import {Button} from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 
 
-const Cardss = () => {
+const Cardss = (props) => {
   return (
     <Link to='/halaman-produk'>
     <Card className={style.wrapper_card + ' shadow-sm'}>
-      <Card.Img variant="top" src="./Img/Rectangle.png" className={style.img_} />
+      <Card.Img variant="top" src={props.img} className={style.img_} />
       <Card.Body>
-        <p className='fw-bold fs-5'>Jam Tangan Casio</p>
-        <Card.Text className={'text-muted '+style.teks}>
-          Aksesoris
-        </Card.Text>
-        <Card.Text className={'fs-5 fw-bold '+ style.harga}>
-          Rp. 250.000
-        </Card.Text>
+        <p className={'fw-bold '+style.title}>{props.title}</p>
+        <p className={'text-muted '+style.teks}>{props.category}</p>
+        <p className={'fw-bold '+ style.harga}>Rp. {props.price}</p>
       </Card.Body>
     </Card>
     </Link>

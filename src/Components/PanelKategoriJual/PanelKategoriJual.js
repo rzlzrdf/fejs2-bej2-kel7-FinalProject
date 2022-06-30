@@ -8,9 +8,9 @@ import {FaAngleRight} from 'react-icons/fa'
 const PanelKategoriJual = () => {
   return (
     <Card className={style.card}>
-      <Link to='/daftar-jual' className={style.btn_}>Semua Produk<FaAngleRight /></Link>
-      <Link to='/daftar-jual' className={style.btn_}>Diminati<FaAngleRight /></Link>
-      <Link to='/daftar-jual' className={style.btn_}>Terjual<FaAngleRight /></Link>
+      <Link to='' className={style.btn_}>Semua Produk<FaAngleRight /></Link>
+      <Link to='disukai' className={style.btn_}>Disukai<FaAngleRight /></Link>
+      <Link to='terjual' className={style.btn_}>Terjual<FaAngleRight /></Link>
     </Card>
   )
 }

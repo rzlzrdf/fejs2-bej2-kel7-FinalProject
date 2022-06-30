@@ -1,0 +1,16 @@
+.fill{
+   height: 50vh;
+}
+
+.fil img{
+   flex-shrink: 0;
+   min-width: 100%;
+   min-height: 100%
+}
+
+@media only screen and (max-width: 455px) {
+   .fill{
+      height: 30vh;
+  }
+
+}

@@ -5,12 +5,14 @@ import Deskripsi from '../../Components/Seller-halaman-produk/Deskripsi'
 import Profile from '../../Components/Seller-halaman-produk/Profile'
 import style from './SellerHalamanProduk.module.css'
 import NavbarBack from '../../Components/NavbarBack/NavbarBack'
+
+
 const SellerHalamanProduk = () => {
   return (
     <>
     <NavbarBack />
       <div className='container d-sm-flex justify-content-center mt-4'>
-        <div className=''>
+        <div className={''}>
           <Corousel/>
           <Deskripsi/>
         </div>

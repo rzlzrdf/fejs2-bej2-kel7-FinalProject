@@ -1,10 +1,10 @@
 import React from 'react'
+import {Container, Row, Col} from 'react-bootstrap'
+import {Outlet} from 'react-router-dom'
 import style from './DaftarJual.module.css'
 import Navbar from '../../Components/Navbar/Navbar'
-import {Container, Row, Col} from 'react-bootstrap'
 import CardProfile from '../../Components/CardProfile/CardProfile'
 import PanelKategoriJual from '../../Components/PanelKategoriJual/PanelKategoriJual'
-import AllProduk from '../../Components/AllProduk/AllProduk'
 import PanelMobile from '../../Components/PanelKategoriJual/PanelMobile'
 
 function DaftarJual() {
@@ -24,12 +24,11 @@ function DaftarJual() {
             <PanelKategoriJual />
             <PanelMobile />
           </Col>
-          <Col lg={8} md={12} sm={12} className={style.container_card}>
-            <AllProduk />
+          <Col lg={8} md={12} sm={12}>
+            <Outlet />
           </Col>
         </Row>
       </Container>
-      
     </>
   )
 }

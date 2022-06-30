@@ -1,5 +1,5 @@
 import React from 'react'
-import './FormProduk.css'
+import style from './FormProduk.module.css'
 import {useDropzone} from 'react-dropzone';
 import {IoArrowBackOutline} from 'react-icons/io5'
 import { Col, Container, Form, Row, Button } from 'react-bootstrap';
@@ -20,7 +20,7 @@ const FormProduk = (props) => {
       <Container className='d-block'>
          <Row className='d-flex justify-content-center'>
             <Col lg={6} md={6} sm={12}>
-               <a href='/' className='back__'><IoArrowBackOutline /></a>
+               <a href='/' className={style.back__}><IoArrowBackOutline /></a>
                <Form>
                   <Form.Group className="my-3" controlId="formBasicEmail">
                      <Form.Label>Nama Produk</Form.Label>
@@ -34,7 +34,7 @@ const FormProduk = (props) => {
 
                   <Form.Group className="mb-3" controlId="formBasicPassword">
                      <Form.Label>Kategori</Form.Label>
-                     <select className="form-select form___" aria-label="Default select example">
+                     <select className={'form-select ' + style.form___} aria-label="Default select example">
                         <option selected>Pilih Kota</option>
                         <option value="1">Kota 1</option>
                         <option value="1">Kota 1</option>
@@ -45,7 +45,7 @@ const FormProduk = (props) => {
                   
                   <Form.Group className="mb-3" controlId="formBasicPassword">
                      <Form.Label>Deskripsi</Form.Label>
-                     <textarea class="form-control form___" id="alamat" placeholder='Contoh: Jalan Ikan Hiu 33' rows="3"></textarea>
+                     <textarea className={'form-control '+ style.form___} id="alamat" placeholder='Contoh: Jalan Ikan Hiu 33' rows="3"></textarea>
                   </Form.Group>
                   
                   <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -61,11 +61,11 @@ const FormProduk = (props) => {
                      </section>
                   </Form.Group>
                
-                  <div className='button__wrapper'>
-                     <Button variant="dark" className='button__2' type="submit">
+                  <div className={style.button__wrapper}>
+                     <Button variant="dark" className={style.button__2} type="submit">
                      Preview
                      </Button>
-                     <Button variant="dark" className='button__1' type="submit">
+                     <Button variant="dark" className={style.button__1} type="submit">
                      Terbitkan
                      </Button>
                   </div>

@@ -9,22 +9,12 @@ a{
 .wrapper_kategori button{
     margin: 3px;
 }
-.fill{
-    height: 50vh;
-}
-
-.fil img{
-    flex-shrink: 0;
-    min-width: 100%;
-    min-height: 100%
-}
-
 
 .card_container{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: flex-start;
     gap: 10px;
 }
 
@@ -43,6 +33,7 @@ a{
 .wrapper_hero_title{
     margin-top: 5%;
     z-index: 2;
+    max-height: 575px;
 }
 
 .hero_title_2{
@@ -70,8 +61,34 @@ a{
     position: relative;
     top: -5%;
     left: 0%;
-    z-index: -2;
-    
+    z-index: -2;  
+}
+
+.benefitCard{
+    border: 2px solid #7126B5;
+    border-radius: 16px;
+    color: #7126B5;
+    height: 200px;
+}
+
+.daftarsekarang{
+    margin-top: 5%;
+    max-width: 100%;
+}
+.textDaftar{
+    margin-top: 20%;
+    font-size: 3em;
+}
+.daftarBtn{
+    width: 40%;
+    position: relative;
+    top: 5%;
+    left: 60%;
+    border-radius: 16px;
+}
+.daftarBtn:hover{
+    background-color: #7126B5;
+    border-color: #7126B5;
 }
 
 
@@ -100,6 +117,16 @@ a{
         background-size: cover;
         background-position: 10%;
     }
+    .textDaftar{
+        font-size: 32px;
+    }
+    .daftarBtn{
+        right: 0%;
+    }
+    .daftarImg{
+        width: 100%;
+    }
+
 
 }
 
@@ -122,6 +149,11 @@ a{
     .wrapper_hero_title{
         background-image: url('../../../public/Img/martina.png');
         background-repeat: no-repeat;
+    }
+
+    .benefitCard{
+        height: 85%;
+        margin: 20px 0px;
     }
 }
 

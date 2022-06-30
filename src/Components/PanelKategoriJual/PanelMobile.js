@@ -4,12 +4,11 @@ import style from './PanelMobile.module.css'
 
 const PanelMobile = () => {
   return (
-    <select className={style.mobile + ' '}>
-      <option><Link to='./'>Semua Produk</Link></option>
-      <option><Link to='./'>Disuka</Link></option>
-      <option><Link to='./'>Terjual</Link></option>
-    </select>
-    
+    <div className={style.panel}>
+      <Link to='' className={style.mobile}>Semua Produk</Link>
+      <Link to='disukai' className={style.mobile}>Disuka</Link>
+      <Link to='terjual' className={style.mobile}>Terjual</Link>
+    </div>    
   )
 }
 

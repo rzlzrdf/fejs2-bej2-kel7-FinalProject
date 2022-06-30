@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./CardPenawaran.css";
+import style from "./CardPenawaran.module.css";
 import { Card, Row, Col, Button } from "react-bootstrap";
 import ModalsTerima from "../ModalsTerima/ModalsTerima";
 import ModalsTolak from "../ModalsTolak/ModalsTolak";
@@ -10,7 +10,7 @@ const CardPenawaran = () => {
 
   return (
     <>
-      <Card className="card__penawaran mx-auto">
+      <Card className={style.card__penawaran+" mx-auto"}>
         <Row className="wrapper__ g-0">
           <Col xl={2} lg={2} md={2} sm={2} className="d-block">
             <Card.Img
@@ -25,29 +25,29 @@ const CardPenawaran = () => {
             md={10}
             sm={10}
             xs={8}
-            className="wrapper__body__penawaran mx-auto"
+            className={style.wrapper__body__penawaran + " mx-auto"}
           >
-            <div className="d-flex justify-content-between para">
+            <div className={"d-flex justify-content-between" +style.para}>
               <p className="fw-light text-muted">Penawaran Produk</p>
               <p className="fw-light text-muted">20 Apr, 14:04</p>
             </div>
-            <div className="para__h6">
+            <div className={style.para__h6}>
               <h6 className="fw-bold">Jam Tangan</h6>
               <h6 className="fw-bold">Rp. 250.000</h6>
               <h6 className="fw-bold">Ditawar Rp. 200.000</h6>
             </div>
           </Col>
-          <Col sm={12} md={12} lg={12} className="wrapper__button__penawaran">
+          <Col sm={12} md={12} lg={12} className={style.wrapper__button__penawaran}>
             <Button 
               variant={"outline-dark"}
-              className="btn__penawaran2 "
+              className={style.btn__penawaran2}
               onClick={() => setTolak(true)}  
             > 
               Tolak
             </Button>
             <Button
               variant={"dark"}
-              className="btn__penawaran1"
+              className={style.btn__penawaran1}
               onClick={() => setTerima(true)}
             >
               Terima

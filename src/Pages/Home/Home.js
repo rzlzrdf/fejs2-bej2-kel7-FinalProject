@@ -1,15 +1,13 @@
 import React from 'react'
-
 import KategoriButton from '../../Components/Category/KategoriButton'
-import NavbarBack from '../../Components/NavbarBack/NavbarBack'
-import { Container, Carousel,Row, Col, Button } from 'react-bootstrap'
-import {TbPlayerTrackNext} from 'react-icons/tb'
+import { Container, Row, Col, Button, Card } from 'react-bootstrap'
+import {TbPlayerTrackNext, TbHeartHandshake, TbArrowBack, TbTruckDelivery, TbFreeRights} from 'react-icons/tb'
 import TypeAnimation from 'react-type-animation';
 import style from './Home.module.css'
 import Cardss from '../../Components/Card/Cardss'
-// import NavbarBack from '../../Components/NavbarBack/NavbarBack'
 import Navbar from '../../Components/Navbar/Navbar'
 import { Link } from 'react-router-dom'
+import CarouselHome from '../../Components/CarouserHome/CarouselHome'
 
 
 
@@ -19,29 +17,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
-        <Carousel className={style.carousel_}>
-          <Carousel.Item className={style.fill}>
-            <img alt='' src='./Img/a.jpg' className={'d-block w-100 '}/>
-            <Carousel.Caption>
-              <p className='fw-bolder fs-1'>Second Hand</p>
-              <h4 className='text-dark'>#1 E-Commerce in Indonesia</h4>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item className={style.fill}>
-            <img alt='' src='./Img/aa.jpg' className={'d-block w-100 '}/>
-            <Carousel.Caption>
-              <p className='fw-bolder fs-1'>Second Hand</p>
-              <h4 className='text-dark'>#1 E-Commerce in Indonesia</h4>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item className={style.fill}>
-            <img alt='' src='./Img/aaa.jpg' className={'d-block w-100 '}/>
-            <Carousel.Caption>
-              <p className='fw-bolder fs-1'>Second Hand</p>
-              <h4 className='text-dark'>#1 E-Commerce in Indonesia</h4>
-            </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
+      <CarouselHome />
       <Container>
         <Row>
           <Col lg={6} md={12} sm={12} className={''+ style.wrapper_hero_title}>
@@ -83,25 +59,76 @@ const Home = () => {
               <KategoriButton text='Elektronik'/>
             </div>
             <div className={'mt-3 '+ style.card_container}>
-              <Cardss />
-              <Cardss />
-              <Cardss />
-              <Cardss />
-              <Cardss />
-              <Button variant='dark' className={style.jual}>
+              {/*nanti tinggal gunakan method .map dari json endpoint untuk menampilkan isi card sebanyak x */}
+              <Cardss img={'./Img/rolex.webp'} title={'Rolex'} category={'Aksesoris'} price={'13.050.000'} />
+              <Cardss img={'./Img/xperia.jpg'} title={'Xperia 1 mark iii'} category={'Gadget'} price={'7.000.000'} />
+              <Cardss img={'./Img/appleWatch.jpeg'} title={'Apple Watch 3'} category={'Aksesoris'} price={'2.450.000'} />
+              <Cardss img={'./Img/Rectangle.png'} title={'Casio Digi Watch'} category={'Aksesoris'} price={'750.000'} />
+              <Cardss img={'./Img/lgtv.jpg'} title={'LG UHD TV 65inch OLED'} category={'Aksesoris'} price={'2.450.000'} />
+              <Link to='/info-produk'><Button variant='dark' className={style.jual}> {/* ganti link to pages yg deden buat*/ }
                 <TbPlayerTrackNext className={style.next}/>
                   <p className='fs-5 fw-bold'>Lainnya</p>
-              </Button>
+              </Button></Link>
             </div>
           </Col>
         </Row>
         <Row>
-          <Col lg={6}>
-            
+          <Col lg={12} className='mt-4'>
+            <h3 className='fw-bold my-3'>Keuntungan Jual/Beli di Second Hand</h3>
+          </Col>
+        </Row>
+        <Row className='my-4'>
+          <Col lg={3} sm={6} xs={12}>
+            <Card className={'text-center p-3 ' + style.benefitCard}>
+              <Card.Title>
+                <TbHeartHandshake className='fs-1'/>
+              </Card.Title>
+              <Card.Body>
+                <h5>Tawar menawar langsung sampai deal</h5>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col lg={3} sm={6} xs={12}>
+            <Card className={'text-center p-3 '+ style.benefitCard}>
+              <Card.Title>
+                <TbArrowBack className='fs-1'/>
+              </Card.Title>
+              <Card.Body>
+                <h5>Jaminan barang kembali apabila tidak sesuai</h5>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col lg={3} sm={6} xs={12}>
+            <Card className={'text-center p-3 '+ style.benefitCard}>
+              <Card.Title>
+                <TbTruckDelivery className='fs-1'/>
+              </Card.Title>
+              <Card.Body>
+                <h5>Gratis ongkir ke pulau Jawa dan Bali</h5>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col lg={3} sm={6} xs={12}>
+            <Card className={'text-center p-3 '+ style.benefitCard}>
+              <Card.Title>
+                <TbFreeRights className='fs-1'/>
+              </Card.Title>
+              <Card.Body>
+                <h5>Gratis pasang iklan produkmu sampai laku</h5>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+        <Row className={'' + style.daftarsekarang}>
+          <Col lg={6} xs={12}>
+            <h1 className={'text-muted text-end '+style.textDaftar}>Bikin akunmu sekarang juga!</h1>
+            <Button variant='dark' className={'fw-bold '+style.daftarBtn}>Daftar</Button>
+          </Col>
+          <Col lg={6} xs={12}>
+            <img src='./Img/2a.png' alt='' className={style.daftarImg} />
           </Col>
         </Row>
       </Container>
-      
     </>
   )
 }
