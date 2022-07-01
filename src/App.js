@@ -12,8 +12,9 @@ import InfoPenawaran from "./Pages/InfoPenawaran/InfoPenawaran";
 
 import InfoProduk  from './Pages/InfoProduk/InfoProduk';
 import InfoProfile from './Pages/InfoProfile/InfoProfile';
-import DaftarJual from './Pages/DaftarJual/DaftarJual'
-
+import SellList from './Pages/SellList/SellList'
+import ListDiminati from "./Pages/ListDiminati";
+import SoldList from './Pages/SoldList'
 function App() {
   return (
     <div className="App">
@@ -22,11 +23,14 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
-            <Route path="/daftar-jual" element={<DaftarJual />} />
+            <Route path="/all-product" element={<SellList />} />
+            <Route path="/diminati" element={<ListDiminati />} />
+            <Route path="/all-sold" element={<SoldList/>} />
             <Route path="/halaman-produk" element={<SellerHalamanProduk />} />
             <Route path="/info-penawaran" element={<InfoPenawaran />} />
             <Route path="/info-profil" element={<InfoProfile />} />
             <Route path="/info-produk" element={<InfoProduk/>} />
+            <Route path="/info-produk" element={<InfoProduk />} />
           </Routes>
         </BrowserRouter>
     </div>

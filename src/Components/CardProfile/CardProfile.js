@@ -1,10 +1,11 @@
 import React from "react";
 import "./CardProfile.css";
 import { Card, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const CardProfile = () => {
   return (
-    <>
+    <Link to='/info-profil'>
       <Card className="card__profile mx-auto shadow-sm">
         <Row className="wrapper__">
           <Col lg={2} md={2} sm={2} xs={2} className="d-block">
@@ -21,7 +22,7 @@ const CardProfile = () => {
           </Col>
         </Row>
       </Card>
-    </>
+    </Link>
   );
 };
 

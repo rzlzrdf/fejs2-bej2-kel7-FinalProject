@@ -31,32 +31,8 @@
 }
 
 
-@media only screen and (max-width: 1000px) {
-   
+@media only screen and (max-width: 991px) {
    .card{
-      width: 100%;
-      display: grid;
-   }
-
-   .btn_{
-      width: fit-content;
-      height: 30px;
-      color: white;
-      border-radius: 16px;
-      background-color: #7126B5;
-      font-size: 12px;
-      font-weight: normal;
-   }
-   .btn_:hover{
-      color: black;
-      border-bottom: 1px solid #7126B5;
-      background-color: white;
-      width: fit-content;
-   }
-   .btn_:active{
-      color: black;
-      border-bottom: 1px solid #7126B5;
-      background-color: #fff;
-      width: fit-content;
+      display: none;
    }
 }

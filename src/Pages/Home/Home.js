@@ -1,5 +1,4 @@
-import React from 'react'
-
+import React, {useState} from 'react'
 import KategoriButton from '../../Components/Category/KategoriButton'
 import NavbarBack from '../../Components/NavbarBack/NavbarBack'
 import { Container, Carousel,Row, Col, Button } from 'react-bootstrap'
@@ -15,9 +14,13 @@ import Navbar from '../../Components/Navbar/Navbar'
 
 const Home = () => {
 
+  const [listNotif,setListNotif] = useState([{id:1,image:'/Img/jam.svg',date:'20 Apr, 14:04',name:'Jam Tangan Casio',title:'Penawaran produk',price:'Rp 250.000', desc:'Ditawar Rp 200.000',link:'#/action-1'},{id:2,image:'/Img/jam.svg',date:'20 Apr, 14:04',name:'Jam Tangan Casio',title:'Berhasil di terbitkan',price:'Rp 300.000', desc:'Ditawar Rp 250.000',link:'#/action-2'}])
+  const [listProduct, setListProduct]= useState([{id:1,image:'/Img/jam.svg',name:'Jam Tangan Casio 1', category:'Aksesoris', price:'Rp 251.000'},{id:2,image:'/Img/jam.svg',name:'Jam Tangan Casio 2', category:'Aksesoris', price:'Rp 252.000'},{id:3,image:'/Img/jam.svg',name:'Jam Tangan Casio 3', category:'Aksesoris', price:'Rp 253.000'},{id:4,image:'/Img/jam.svg',name:'Jam Tangan Casio 3', category:'Aksesoris', price:'Rp 253.000'}])
+
+
   return (
     <>
-      <Navbar />
+      <Navbar data={listNotif} />
         <Carousel className={style.carousel_}>
           <Carousel.Item className={style.fill}>
             <img alt='' src='./Img/1.jpg' className={'d-block w-100 '}/>
@@ -76,11 +79,15 @@ const Home = () => {
               <KategoriButton text='Elektronik'/>
             </div>
             <div className={'mt-3 '+ style.card_container}>
-              <Cardss />
-              <Cardss />
-              <Cardss />
-              <Cardss />
-              <Cardss />
+            {listProduct?.length ===0 ?
+                                <div className='d-flex flex-column justify-content-center align-items-center'>
+                                   <div><img alt='' src='./Img/empty-illustration.png' className='d-block w-75 mx-auto'/> </div>
+                                <div className='col-6 mt-5'><h5 className='text-center fw-normal'>Belum ada produkmu yang diminati nih, sabar ya rejeki nggak kemana kok</h5></div>
+                                </div>: listProduct.map((e, i) => {
+                                return (
+                                    <Col md={4} lg={3} sm={12} className='mb-4'><Cardss item={e}/></Col>
+                                )
+                            })}
               <Button variant='dark' className={style.jual}>
                 <TbPlayerTrackNext className={style.next}/>
                   <p className='fs-5 fw-bold'>Lainnya</p>
