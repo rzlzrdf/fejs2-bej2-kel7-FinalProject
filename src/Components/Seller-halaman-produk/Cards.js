@@ -11,8 +11,8 @@ const Cards = () => {
             <p className="card-text">Kategori</p>
             <h5><b>Rp 250.000</b></h5>
             <div className='d-grid gap-2'>
-              <button type="button" className={` ${style.buttonCards}`}>Terbitkan</button>
-              <button type="button" className={` ${style.buttonCardsEdit}`}>Edit</button>
+              <Link type="button" className={` ${style.buttonCards}`}>Terbitkan</Link>
+              <Link type="button" className={` ${style.buttonCardsEdit}`}>Edit</Link>
             </div>
         </div>
     </div>
