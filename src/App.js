@@ -9,13 +9,13 @@ import SellerHalamanProduk from './Pages/SellerHalamanProduk/SellerHalamanProduk
 import Login from './Pages/LoginRegister/Login';
 import Register from './Pages/LoginRegister/Register';
 import InfoPenawaran from "./Pages/InfoPenawaran/InfoPenawaran";
-
 import InfoProduk  from './Pages/InfoProduk/InfoProduk';
 import InfoProfile from './Pages/InfoProfile/InfoProfile';
 import DaftarJual from './Pages/DaftarJual/DaftarJual'
 import Disukai from './Components/Disukai/Disukai';
 import AllProduk from './Components/AllProduk/AllProduk';
 import Terjual from './Components/Terjual/Terjual';
+import Wishlist from './Components/Wishlist/Wishlist';
 
 function App() {
   return (
@@ -31,8 +31,9 @@ function App() {
               <Route path='' index element={<AllProduk />} />
               <Route path='disukai' element={<Disukai />} />
               <Route path='terjual' element={<Terjual />} />
+              <Route path='wishlist' element={<Wishlist />} />
             </Route>
-            <Route path="/halaman-produk" element={<SellerHalamanProduk />} />
+            <Route path="/produk" element={<SellerHalamanProduk />} />
             <Route path="/info-penawaran" element={<InfoPenawaran />} />
             <Route path="/info-profil" element={<InfoProfile />} />
             <Route path="/info-produk" element={<InfoProduk />} />

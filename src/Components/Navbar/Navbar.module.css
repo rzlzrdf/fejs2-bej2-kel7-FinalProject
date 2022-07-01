@@ -19,3 +19,36 @@
 .icons-menu:hover{
     color: #7126B5;
 }
+.w35{
+    width: 35%;
+}
+.icons-menu:hover{
+    color: #7126B5;
+}
+.icons-menu::after{
+    display: none !important;
+}
+.dropdown-toggle::after {
+    display: none !important;
+}
+.descriptionText{
+    font-size: 12px;
+}
+.titleText{
+    font-size: 14px;
+    font-weight: 500;
+}
+.dropdownMenu{
+    min-width: 24rem;
+    border-radius: 20px;
+    height: 15rem;
+    overflow-x: hidden;
+}
+
+.imgNotif{
+    width: 16%;
+    height: 16%;
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+}

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Cardss = (props) => {
   return (
-    <Link to='/halaman-produk'>
+    <Link to='/produk'>
     <Card className={style.wrapper_card + ' shadow-sm'}>
       <Card.Img variant="top" src={props.img} className={style.img_} />
       <Card.Body>

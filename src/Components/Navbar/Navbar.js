@@ -2,12 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import style from './Navbar.module.css'
 import {FaUser, FaBell, FaBars} from 'react-icons/fa'
+import { Dropdown } from 'react-bootstrap'
+import AppDropdownList from '../AppDropdownList/AppDropdownList'
 
 const Navbar = () => {
   return (
     <header className={style.header}>
         <div className="container">
-          <div className="row justify-content-between align-items-center">
+          <div className="row justify-constent-between align-items-center">
             <div className="col-auto ml-3">
               <Link to='/'><img src="/Img/logo2.svg" alt="logo-img" className="logo-img" width="100" /></Link>
             </div>
@@ -24,9 +26,19 @@ const Navbar = () => {
                     <FaBars/>
                   </Link>
                   <Link to="#" type="submit" className={`${style['icons-menu']} btn d-flex align-items-center`}>
-                    <FaBell/>
+                  <Dropdown>
+                    <Dropdown.Toggle variant="white" className={`${style['icons-menu']} m-0 p-0 d-flex align-items-center`} id="dropdown-basic">
+                      <FaBell/>
+                    </Dropdown.Toggle>
+                      <Dropdown.Menu className={`p-3 w-auto ${style.dropdownMenu}`}>
+                        <AppDropdownList img={'./Img/xperia.jpg'} title={'Penawaran produk'} date={'20 Jan 22'} name={'Xperia 1 mark iii'} price={'5.250.000'} desc={'Ditawar Rp 4.200.000'} link={'#/action-1'} />
+                        <AppDropdownList img={'./Img/Rectangle.png'} title={'Penawaran produk'} date={'20 Jan 22'} name={'Jam Casio Digital'} price={'250.000'} desc={'Ditawar Rp 200.000'} link={'#/action-1'} />
+                        <AppDropdownList img={'./Img/Rectangle.png'} title={'Penawaran produk'} date={'20 Jan 22'} name={'Jam Casio Digital'} price={'250.000'} desc={'Ditawar Rp 200.000'} link={'#/action-1'} />
+                        <AppDropdownList img={'./Img/Rectangle.png'} title={'Penawaran produk'} date={'20 Jan 22'} name={'Jam Casio Digital'} price={'250.000'} desc={'Ditawar Rp 200.000'} link={'#/action-1'} />
+                      </Dropdown.Menu>
+                  </Dropdown>
                   </Link>
-                  <Link to="#" type="submit" className={`${style['icons-menu']} btn d-flex align-items-center`}>
+                  <Link to="/info-profil" type="submit" className={`${style['icons-menu']} btn d-flex align-items-center`}>
                     <FaUser/>
                   </Link>
                 </li>

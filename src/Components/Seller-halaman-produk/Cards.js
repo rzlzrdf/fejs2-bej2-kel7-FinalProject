@@ -2,17 +2,17 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import style from './Seller-halaman-produk.module.css'
 
-const Cards = () => {
+const Cards = (props) => {
   return (
     <div>
       <div className={`card ${style.cards}`} >
         <div className="card-body">
-            <h5 className="card-title"><b>Jam Tangan Casio</b></h5>
-            <p className="card-text">Kategori</p>
-            <h5><b>Rp 250.000</b></h5>
+            <p className="card-title fs-5 fw-bolder">{props.title}</p>
+            <p className="text-muted">{props.category}</p>
+            <p className='fs-5 mb-3'>Rp. {props.price}</p>
             <div className='d-grid gap-2'>
-              <Link type="button" className={` ${style.buttonCards}`}>Terbitkan</Link>
-              <Link type="button" className={` ${style.buttonCardsEdit}`}>Edit</Link>
+              <Link to='#' type="button" className={` ${style.buttonCards}`}>Terbitkan</Link>
+              <Link to='#' type="button" className={` ${style.buttonCardsEdit}`}>Edit</Link>
             </div>
         </div>
     </div>

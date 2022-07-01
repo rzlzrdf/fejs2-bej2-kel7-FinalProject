@@ -1,34 +1,24 @@
-@media only screen and (max-width: 576px){
-    .cards{
-        width: auto;
-        padding: 16px;
-        margin-bottom: 24px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-        border-radius: 16px;
-    }
-    .swiper{
-        width: auto;
-        margin-bottom: 24px;
-    }
-    .deskripsi{
-        width: auto;
-    }
+.cards{
+    border-radius: 16px;
+    margin: 20px 0px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
 }
-@media only screen and (min-width: 577px){
-    .cards{
-        width: 336px;
-        padding: 16px;
-        margin-bottom: 24px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-        border-radius: 16px;
-    }
-    .swiper{
-        width: 600px;
-        margin-bottom: 24px;
-    }
-    .deskripsi{
-        width: 600px;
-    }
+
+.cards p{
+    margin-left: 10px;
+}
+.swiper{
+    width: 100%;
+    height: 430px;
+    border-radius: 20px;
+    margin: 20px 0px;
+}
+.swiper img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
 }
 
 .buttonCards{
@@ -36,17 +26,26 @@
     border-radius: 16px;
     border:none;
     border-color: #7126B5;
-    color: white;
+    color: #eeeeee;
     padding: 14px 24px;
-    font-size: medium;
+    font-weight: 500;
+}
+.buttonCards:hover{
+    color: #7126B5;
+    background-color: #eeeeee;
+
 }
 .buttonCardsEdit{
-    background-color: white;
+    background-color: #ffffff;
     border-radius: 16px;
     border:1px solid;
     border-color: #7126B5;
+    color: #7126B5;
+    font-weight: 500;
     padding: 14px 24px;
-    font-size: medium;
+}
+.buttonCardsEdit:hover{
+    background-color: #eeeeee;
 }
 .Card_Profile{
     padding: 16px;
@@ -56,4 +55,45 @@
 }
 .profile{
     margin-left: 16px;
+}
+
+.deskripsi{
+    padding: 15px;
+    text-align: justify;
+    border-radius: 16px;
+    margin: 10px 0px;
+}
+
+@media only screen and (max-width: 425px){
+    .swiper{
+        height: 300px;
+        margin: 20px 0px 10px 0px;
+    }
+
+    .cards{
+        margin: 0px;
+    }
+    .cards p{
+        margin: 0px;
+    }
+
+    .Card_Profile{
+        margin: 10px 0px;
+    }
+    
+    .deskripsi{
+        font-size: 14px;
+
+    }    
+}
+
+@media only screen and (max-width: 768px){
+    .buttonCards{
+        display: flex;
+        justify-content: center;
+    }
+    .buttonCardsEdit{
+        display: flex;
+        justify-content: center;
+    }
 }

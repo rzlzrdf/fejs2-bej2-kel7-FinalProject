@@ -1,0 +1,32 @@
+.wrapper_card{
+   margin: 30px 0px;
+   width: 100%;
+   display: flex;
+   justify-content: flex-start;
+   flex-wrap: wrap;
+   gap: 10px;
+}
+
+.upload{
+   width: 150px;
+   height: 250px;
+   border: 1px dashed #dedede;
+   border-radius: 6px;
+   background-color: transparent;
+   cursor: pointer;
+   transition: 0.4s;
+}
+
+.upload:hover{
+   border-color: #dedede;
+   background-color: #dedede;
+   -webkit-transform: scale(1.03, 1.03);
+  transform: scale(1.03, 1.03);
+}
+
+@media only screen and (max-width: 991px){
+   .wrapper_card{
+      justify-content: center;
+      gap: 15px;
+   }
+}

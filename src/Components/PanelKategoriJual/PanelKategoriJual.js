@@ -11,6 +11,7 @@ const PanelKategoriJual = () => {
       <Link to='' className={style.btn_}>Semua Produk<FaAngleRight /></Link>
       <Link to='disukai' className={style.btn_}>Disukai<FaAngleRight /></Link>
       <Link to='terjual' className={style.btn_}>Terjual<FaAngleRight /></Link>
+      <Link to='wishlist' className={style.btn_}>Wishlist<FaAngleRight /></Link>
     </Card>
   )
 }
