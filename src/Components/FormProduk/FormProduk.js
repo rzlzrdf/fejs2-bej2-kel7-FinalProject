@@ -3,6 +3,7 @@ import style from './FormProduk.module.css'
 import {useDropzone} from 'react-dropzone';
 import {IoArrowBackOutline} from 'react-icons/io5'
 import { Col, Container, Form, Row, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 
 
@@ -20,7 +21,7 @@ const FormProduk = (props) => {
       <Container className='d-block'>
          <Row className='d-flex justify-content-center'>
             <Col lg={6} md={6} sm={12}>
-               <a href='/' className={style.back__}><IoArrowBackOutline /></a>
+               <Link to='/' className={style.back__}><IoArrowBackOutline /></Link>
                <Form>
                   <Form.Group className="my-3" controlId="formBasicEmail">
                      <Form.Label>Nama Produk</Form.Label>

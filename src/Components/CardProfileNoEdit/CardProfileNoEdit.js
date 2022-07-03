@@ -1,9 +1,9 @@
 import React from "react";
-import style from "./CardProfile.module.css";
+import style from "./CardProfileNoEdit.module.css";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const CardProfile = () => {
+const CardProfileNoEdit = () => {
   return (
     <Link to='/info-profil'>
       <Card className={style.card__profile+ " shadow-sm"}>
@@ -16,9 +16,6 @@ const CardProfile = () => {
               <p className={'fw-bold fs-5 ' + style.nama}>Nama Penjual</p>
               <p className={'text-muted ' + style.kota}>Kota</p>
             </div>
-            <div className={style.edit}>
-              <button>Edit</button>
-            </div>
           </div>
         </div>
       </Card>
@@ -26,4 +23,4 @@ const CardProfile = () => {
   );
 };
 
-export default CardProfile;
+export default CardProfileNoEdit;

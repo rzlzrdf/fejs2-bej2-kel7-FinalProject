@@ -1,22 +1,23 @@
 import React from "react";
 import NavbarNoSearch from "../../Components/NavbarNoSearch/NavbarNoSearch";
-import CardProfile from "../../Components/CardProfile/CardProfile";
-import "./InfoPenawaran.css";
 import { Container, Row, Col } from "react-bootstrap";
 import { IoArrowBackOutline } from "react-icons/io5";
 import CardPenawaran from "../../Components/CardPenawaran/CardPenawaran";
+import CardProfileNoEdit from "../../Components/CardProfileNoEdit/CardProfileNoEdit";
+import { Link } from "react-router-dom";
+import style from './InfoPenawaran.module.css'
 
 const InfoPenawaran = () => {
   return (
     <>
-      <NavbarNoSearch />
+      <NavbarNoSearch title='Info Penawaran' />
       <Container className='mt-4'>
-        <Row>
-          <a href="/" className="back">
+          <Link to="/" className={style.back}>
             <IoArrowBackOutline />
-          </a>
+          </Link>
+        <Row>
           <Col lg={7} className="mx-auto">
-            <CardProfile />
+            <CardProfileNoEdit />
           </Col>
         </Row>
         <Row>

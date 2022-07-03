@@ -4,6 +4,7 @@ import axios from 'axios'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import {IoArrowBackOutline} from 'react-icons/io5'
 import './FormProfile.css'
+import { Link } from 'react-router-dom'
 
 const FormProfile = (props) => {
 
@@ -61,7 +62,7 @@ const FormProfile = (props) => {
       <Container className='d-block'>
          <Row className='d-flex justify-content-center mt-4'>
             <Col lg={6} md={6} sm={12}>
-            <a href='/' className='back'><IoArrowBackOutline /></a>
+            <Link to='/' className='back'><IoArrowBackOutline /></Link>
             <Form onSubmit={formSubmitHandler}>
                <section className="container d-block">
                   <div {...getRootProps({className: 'dropzone'})} className='d-flex justify-content-center'>

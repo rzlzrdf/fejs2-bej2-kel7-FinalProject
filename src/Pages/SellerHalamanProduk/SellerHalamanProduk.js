@@ -3,17 +3,17 @@ import Cards from '../../Components/Seller-halaman-produk/Cards'
 import Corousel from '../../Components/Seller-halaman-produk/Corousel'
 import Deskripsi from '../../Components/Seller-halaman-produk/Deskripsi'
 import Profile from '../../Components/Seller-halaman-produk/Profile'
-import  NavbarNoSearch from '../../Components/NavbarNoSearch/NavbarNoSearch'
 import { Col, Container, Row } from 'react-bootstrap'
+import NavbarSearch from '../../Components/NavbarSearch/NavbarSearch'
 
 
 const SellerHalamanProduk = () => {
   return (
     <>
-    <NavbarNoSearch title='Detail Produk' />
+    <NavbarSearch />
     <Container className=''>
       <Row>
-        <Col lg={{span:6, offset: 1}}>
+        <Col lg={{offset: 1, span: 6}}>
           <Corousel/>
         </Col>
         <Col lg={4}>

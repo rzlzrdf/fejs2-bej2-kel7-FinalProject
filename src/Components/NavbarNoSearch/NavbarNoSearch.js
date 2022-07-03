@@ -11,8 +11,8 @@ const NavbarNoSearch = (props) => {
             <Link to='/' className="logo__" href="/">
                <img src="/Img/logo.svg" alt="" className='' />
             </Link>
-            <a href='/' className='back__button'><IoArrowBackOutline /></a>
-            <span href='/' className='navbar-text mx-auto'>{props.title}</span>
+            <Link to='/' className='back__button'><IoArrowBackOutline /></Link>
+            <span className='navbar-text mx-auto'>{props.title}</span>
          </div>
       </nav>
     </>

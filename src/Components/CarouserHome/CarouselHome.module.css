@@ -1,13 +1,14 @@
 .fill{
-   height: 50vh;
+   height: 45vh;
 }
 
-.fil img{
-   flex-shrink: 0;
-   min-width: 100%;
-   min-height: 100%
+.img_{
+   width: 100%;
+   height: fit-content;
+   object-fit: cover;
+   object-position: center;
+   overflow: scroll;
 }
-
 @media only screen and (max-width: 455px) {
    .fill{
       height: 30vh;
