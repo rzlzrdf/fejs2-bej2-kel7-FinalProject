@@ -1,0 +1,11 @@
+.container_{
+
+   margin-top: 2%;
+}
+
+.all{
+   display: flex;
+   flex-wrap: wrap;
+   gap: 14px;
+   margin-top: 3%;
+}

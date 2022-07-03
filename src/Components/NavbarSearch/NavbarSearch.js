@@ -8,7 +8,7 @@ const NavbarSearch = () => {
   return (
     <Navbar collapseOnSelect expand='md' bg="white" variant="light" className={'shadow-sm '}>
         <Container>
-          <Navbar.Brand className={style.logo_container}><Link to='/'><img src='./Img/logo.svg' alt=''/></Link></Navbar.Brand>
+          <Navbar.Brand ><Link to='/'><img src='./Img/logo.svg' alt='' className={style.logo}/></Link></Navbar.Brand>
           <Navbar.Brand className={style.search_container}><input type={'search'} placeholder='Cari di sini ...' className={style.search}/></Navbar.Brand>
           <NavLogin/>
       </Container>

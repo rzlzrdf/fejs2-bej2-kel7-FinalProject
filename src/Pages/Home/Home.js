@@ -84,10 +84,12 @@ const Home = () => {
               <Cardss img={'./Img/Rectangle.png'} title={'Casio Digi Watch'} category={'Aksesoris'} price={'750.000'} />
               <Cardss img={'./Img/Rectangle.png'} title={'Casio Digi Watch'} category={'Aksesoris'} price={'750.000'} />
               <Cardss img={'./Img/lgtv.jpg'} title={'LG UHD TV 65inch OLED'} category={'Aksesoris'} price={'2.450.000'} />
-              <Link to='/info-produk'><Button variant='dark' className={style.jual}> {/* ganti link to pages yg deden buat*/ }
+              <Link to='/all'>
+              <Button variant='dark' className={style.jual}> {/* ganti link to pages yg deden buat*/ }
                 <TbPlayerTrackNext className={style.next}/>
                   <p className='fs-5 fw-bold'>Lainnya</p>
-              </Button></Link>
+              </Button>
+              </Link>
             </div>
           </Col>
           <Button className={style.btn_jual}><FiPlus/> Jual</Button>

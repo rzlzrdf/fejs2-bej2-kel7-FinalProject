@@ -16,6 +16,8 @@ import Disukai from './Components/Disukai/Disukai';
 import AllProduk from './Components/AllProduk/AllProduk';
 import Terjual from './Components/Terjual/Terjual';
 import Wishlist from './Components/Wishlist/Wishlist';
+import Semua from './Pages/Semua/Semua';
+import Notif from './Pages/Notif/Notif';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<Home />} />
+            <Route path='/all' element={<Semua />} />
+            <Route path='/notifikasi' element={<Notif />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
             <Route path="/daftar-jual" element={<DaftarJual />}>
