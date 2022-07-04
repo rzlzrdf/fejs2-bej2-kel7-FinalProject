@@ -6,17 +6,16 @@ import Profile from '../../Components/Seller-halaman-produk/Profile'
 import { Col, Container, Row } from 'react-bootstrap'
 import NavbarSearch from '../../Components/NavbarSearch/NavbarSearch'
 
-
 const SellerHalamanProduk = () => {
   return (
     <>
-    <NavbarSearch />
-    <Container className=''>
+    <NavbarSearch/>
+    <Container>
       <Row>
         <Col lg={{offset: 1, span: 6}}>
           <Corousel/>
         </Col>
-        <Col lg={4}>
+        <Col lg={4} >
           <Cards title={'Casio'} category={'Aksesoris'} price={'250.000'}/>
           <Profile/>
         </Col>

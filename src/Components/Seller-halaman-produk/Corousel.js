@@ -5,9 +5,14 @@ import 'swiper/css';
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import style from './Seller-halaman-produk.module.css'
+import { Button } from 'react-bootstrap';
+import { IoMdArrowRoundBack } from 'react-icons/io';
+import { Link } from 'react-router-dom';
+
 const Corousel = () => {
   return (
     <div>
+      <Link to='/all'><Button variant='white' className={style.back_}><IoMdArrowRoundBack/>Back</Button></Link>
       <Swiper
         slidesPerView={1}
         spaceBetween={50}

@@ -9,7 +9,7 @@
 .wrapper_filter{
    display: flex;
    flex-direction: column;
-   margin: 5%;
+   margin: 0 5%;
 }
 
 .filter_1{

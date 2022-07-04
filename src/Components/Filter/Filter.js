@@ -5,7 +5,7 @@ import KategoriButton from '../../Components/Category/KategoriButton'
 const Filter = () => {
   return (
     <div className={'card shadow-sm ' +style.card_}>
-      <h5 className='fw-bold text-center my-3'>Filter</h5>
+      <h5 className='fw-bold text-center mt-3'>Filter</h5>
       <div className={style.wrapper_filter}>
          <h6>Harga</h6>
          <select className={style.filter_1}>

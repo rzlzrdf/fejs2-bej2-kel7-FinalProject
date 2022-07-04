@@ -68,10 +68,13 @@
     margin: 10px 0px;
 }
 
+.back_{
+    display: none;
+}
+
 @media only screen and (max-width: 425px){
     .swiper{
         height: 300px;
-        margin: 20px 0px 10px 0px;
     }
 
     .cards{
@@ -89,4 +92,17 @@
         font-size: 14px;
 
     }    
+}
+
+@media only screen and (max-width: 768px){
+
+    .swiper{
+        border-radius: 16px;
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+
+    .back_{
+        display: block;
+    }
 }
