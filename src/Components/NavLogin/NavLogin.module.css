@@ -20,6 +20,11 @@ li{
    background-color: transparent;
 }
 
+.btn_dropdown{
+   position: relative;
+   top: -0.75vh;
+}
+
 .btn_ .btn_dropdown :hover{
    color: #7126B5;
 }

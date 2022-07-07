@@ -3,7 +3,6 @@ import { Col, Container, Pagination, Row } from 'react-bootstrap'
 import style from './Semua.module.css'
 import Filter from '../../Components/Filter/Filter'
 import NavbarSearch from '../../Components/NavbarSearch/NavbarSearch'
-import AllProduk from '../../Components/AllProduk/AllProduk'
 import Cardss from '../../Components/Card/Cardss'
 
 const Semua = () => {
