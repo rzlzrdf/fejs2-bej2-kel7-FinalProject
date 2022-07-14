@@ -20,8 +20,8 @@ const Filter = () => {
       </div>
       <div className={style.kategori}>
          <h6>Kategori Teratas</h6>
-         <KategoriButton text='Gadget'/>
-         <KategoriButton text='Token'/>
+         <KategoriButton />
+         {/* <KategoriButton text='Token'/>
          <KategoriButton text='Pakaian'/>
          <KategoriButton text='Makanan'/>
          <KategoriButton text='Elektronik'/>
@@ -29,7 +29,7 @@ const Filter = () => {
          <KategoriButton text='Obat'/>
          <KategoriButton text='Peralatan'/>
          <KategoriButton text='Mebel'/>
-         <KategoriButton text='Sepatu'/>
+         <KategoriButton text='Sepatu'/> */}
       </div>
 
     </div>

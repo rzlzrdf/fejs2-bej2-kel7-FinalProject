@@ -5,11 +5,12 @@ import 'swiper/css';
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import style from './Seller-halaman-produk.module.css'
-import { Button } from 'react-bootstrap';
+import { Button, Carousel, CarouselItem } from 'react-bootstrap';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 
-const Corousel = () => {
+const Corousel = (props) => {
+  console.log(props.produk.foto_array)
   return (
     <div>
       <Link to='/all'><Button variant='white' className={style.back_}><IoMdArrowRoundBack/>Back</Button></Link>
@@ -22,9 +23,30 @@ const Corousel = () => {
         modules={[Pagination, Navigation,]}
         className={`mySwiper ${style.swiper}`}
       >
-        <SwiperSlide><img src='Img/Rectangle.png' alt=''/></SwiperSlide>
-        <SwiperSlide><img src='Img/Rectangle.png' alt=''/></SwiperSlide>
-      </Swiper>
+        {/* minta ganti Api ke be */}
+      {props.produk.foto_array !== null &&
+      props.produk.foto_array.map((fotoProduk) => {
+        return(
+          <>
+          {
+            
+            fotoProduk !== null &&
+            <SwiperSlide>
+              <img 
+                src={fotoProduk}
+                onError = { e => e.target.style.display ='none' } 
+                alt=''
+              />
+            </SwiperSlide >
+          }
+        </>
+        )
+      })
+      }
+      
+      {/* <SwiperSlide><img src={props.produk} alt=''/></SwiperSlide>  
+      <SwiperSlide><img src={props.produk} alt=''/></SwiperSlide> */}
+      </Swiper> 
     </div>
   )
 }

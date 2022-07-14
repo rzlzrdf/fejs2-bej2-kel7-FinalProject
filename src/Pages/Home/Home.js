@@ -1,4 +1,7 @@
-import React from 'react'
+import React,{ useEffect, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux/es/exports'
+import axios from 'axios'
+import { useParams } from 'react-router-dom'
 import KategoriButton from '../../Components/Category/KategoriButton'
 import { Container, Row, Col, Button, Card } from 'react-bootstrap'
 import {TbPlayerTrackNext, TbHeartHandshake, TbArrowBack, TbTruckDelivery, TbFreeRights} from 'react-icons/tb'
@@ -15,6 +18,41 @@ import NavbarSearch from '../../Components/NavbarSearch/NavbarSearch';
 
 const Home = () => {
 
+  const products = useSelector((store) => {
+    return store.semua
+ })
+
+ const dispatch = useDispatch()
+
+ useEffect(() => {
+    axios.get('https://secondhandapp.herokuapp.com/api/product/all')
+    .then(response=>{
+       console.log(response)
+       dispatch({
+          type: 'populateProducts',
+          payload: {
+             products: [...response.data.content]
+          }
+       })
+    })
+ },[])
+
+ const params = useParams()
+
+ const changeCategory = () => {
+  axios.get(`https://secondhandapp.herokuapp.com/api/product/list?id=${params}`)
+  .then(res => {
+    console.log(res)
+    dispatch({
+      type: 'populateProducts',
+      payload: {
+         products: [...res.data.content]
+      }
+   })
+  }).catch(err => {
+    console.log(err)
+  })
+ }
   return (
     <>
       <NavbarSearch />
@@ -25,20 +63,7 @@ const Home = () => {
           <Col lg={7} md={12} sm={12} className={'d-block mt-4'} >
             <h3 className='text-muted'>Telusuri Kategori</h3>
             <div className={' '+style.wrapper_kategori}>
-              <KategoriButton text='Gadget'/>
-              <KategoriButton text='Token'/>
-              <KategoriButton text='Pakaian'/>
-              <KategoriButton text='Makanan'/>
-              <KategoriButton text='Elektronik'/>
-              <KategoriButton text='Baju'/>
-              <KategoriButton text='Pakaian Wanita'/>
-              <KategoriButton text='Baju Anak'/>
-              <KategoriButton text='Alat tulis'/>
-              <KategoriButton text='Sparepart'/>
-              <KategoriButton text='Obat'/>
-              <KategoriButton text='Peralatan'/>
-              <KategoriButton text='Mebel'/>
-              <KategoriButton text='Sepatu'/>
+              <KategoriButton changeCategory={changeCategory} />
             </div>
           </Col>
           {/* Animation */}
@@ -71,7 +96,18 @@ const Home = () => {
           <Col lg={12} >
           <div className={'mt-3 '+ style.card_container}>
               {/*nanti tinggal gunakan method .map dari json endpoint untuk menampilkan isi card sebanyak x */}
-              <Cardss img={'./Img/rolex.webp'} title={'Rolex'} category={'Aksesoris'} price={'13.050.000'} />
+              {
+                products.map((semua,index) => {
+                  return(
+                     <Cardss 
+                        key={`Product-${index}`}
+                        product={semua}
+                                       
+                     />
+                  )
+               })
+              }
+              {/* <Cardss img={'./Img/rolex.webp'} title={'Rolex'} category={'Aksesoris'} price={'13.050.000'} />
               <Cardss img={'./Img/xperia.jpg'} title={'Xperia 1 mark iii'} category={'Gadget'} price={'7.000.000'} />
               <Cardss img={'./Img/appleWatch.jpeg'} title={'Apple Watch 3'} category={'Aksesoris'} price={'2.450.000'} />
               <Cardss img={'./Img/rolex.webp'} title={'Rolex'} category={'Aksesoris'} price={'13.050.000'} />
@@ -83,7 +119,7 @@ const Home = () => {
               <Cardss img={'./Img/appleWatch.jpeg'} title={'Apple Watch 3'} category={'Aksesoris'} price={'2.450.000'} />
               <Cardss img={'./Img/Rectangle.png'} title={'Casio Digi Watch'} category={'Aksesoris'} price={'750.000'} />
               <Cardss img={'./Img/Rectangle.png'} title={'Casio Digi Watch'} category={'Aksesoris'} price={'750.000'} />
-              <Cardss img={'./Img/lgtv.jpg'} title={'LG UHD TV 65inch OLED'} category={'Aksesoris'} price={'2.450.000'} />
+              <Cardss img={'./Img/lgtv.jpg'} title={'LG UHD TV 65inch OLED'} category={'Aksesoris'} price={'2.450.000'} /> */}
               <Link to='/all'>
               <Button variant='dark' className={style.jual}> {/* ganti link to pages yg deden buat*/ }
                 <TbPlayerTrackNext className={style.next}/>

@@ -25,7 +25,11 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/all' element={<Semua />} />
+            {/* <Route path='/all' element={<Semua />} /> */}
+            <Route path='all/'>
+              <Route index element={<Semua/>}/>
+              <Route path=':id' element={<SellerHalamanProduk/>}/>
+            </Route>
             <Route path='/notifikasi' element={<Notif />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
@@ -37,7 +41,7 @@ function App() {
               <Route path='terjual' element={<Terjual />} />
               <Route path='wishlist' element={<Wishlist />} />
             </Route>
-            <Route path="/produk" element={<SellerHalamanProduk />} />
+            {/* <Route path="/produk" element={<SellerHalamanProduk />} /> */}
             <Route path="/info-penawaran" element={<InfoPenawaran />} />
             <Route path="/info-profil" element={<InfoProfile />} />
             <Route path="/info-produk" element={<InfoProduk />} />

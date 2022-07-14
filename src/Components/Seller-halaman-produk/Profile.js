@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './Seller-halaman-produk.module.css'
 
-const Profile = () => {
+const Profile = (props) => {
   return (
     <div className={`d-flex ${style.Card_Profile} align-items-center`}>
       <div className='pict'>
