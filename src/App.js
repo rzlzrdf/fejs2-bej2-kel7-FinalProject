@@ -32,7 +32,7 @@ function App() {
             <Route path="/daftar-jual" element={<DaftarJual />}>
               {/* <Route path='/diminati' element={<contohdiminati />} />ntar taro sini routing nya ya dil...
               <Route path='/terjual' element={<contohterjual />} />ntar taro sini routing nya ya dil... */}
-              <Route path='' index element={<AllProduk />} />
+              <Route index element={<AllProduk />} />
               <Route path='disukai' element={<Disukai />} />
               <Route path='terjual' element={<Terjual />} />
               <Route path='wishlist' element={<Wishlist />} />
