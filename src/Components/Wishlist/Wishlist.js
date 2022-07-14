@@ -1,12 +1,33 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import axios from 'axios'
 import Cardss from '../Card/Cardss'
 import style from './Wishlist.module.css'
 
 const Wishlist = () => {
+  const [products, setProducts] = useState(null)
+  const jwtToken = localStorage.getItem('loginToken')
+
+  useEffect(() => {
+    axios
+      .get('https://secondhandapp.herokuapp.com/api/wishlist/list', {
+        headers: {
+          Authorization:
+            jwtToken,
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+        setProducts(response.data)
+      });
+  }, []);
   return (
-   <div className={style.wrapper_card}>
-   <Cardss img={'/Img/indomie.jpeg'} title={'Indomie Goreng'} category={'Makanan'} price={'2.000'} />
- </div>
+    <>
+    {products?.map( (product, id) => {
+      return(
+        <Cardss key={`product-${id}`} product = {product} />
+      )
+    })}
+    </>
   )
 }
 

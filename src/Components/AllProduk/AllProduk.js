@@ -1,12 +1,34 @@
+import React, {useEffect, useState} from 'react'
+import axios from 'axios'
 import { Button } from 'react-bootstrap'
 import {AiOutlineFileAdd} from 'react-icons/ai'
-import React from 'react'
 import Cardss from '../Card/Cardss'
 import style from './AllProduk.module.css'
 import { Link } from 'react-router-dom'
 
 
+
+
 const AllProduk = () => {
+  const [products, setProducts] = useState(null)
+  const jwtToken = localStorage.getItem('loginToken') //ambil jwt dari localStorage
+
+  useEffect(() => {
+    axios
+      .get('https://secondhandapp.herokuapp.com/api/product/list-by-user', {
+        headers: {
+          Authorization:
+            jwtToken,
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+        setProducts(response.data)
+      });
+  }, []);
+
+
+  
 
   return (
     <div className={style.wrapper_card}>
@@ -16,15 +38,13 @@ const AllProduk = () => {
             <p>Tambah Produk</p>
           </Button>
       </Link>
-      <Cardss img={'./Img/rolex.webp'} title={'Rolex'} category={'Aksesoris'} price={'13.050.000'} />
-      <Cardss img={'./Img/xperia.jpg'} title={'Xperia 1 mark iii'} category={'Gadget'} price={'7.000.000'} />
-      <Cardss img={'./Img/appleWatch.jpeg'} title={'Apple Watch 3'} category={'Aksesoris'} price={'2.450.000'} />
-      <Cardss img={'./Img/Rectangle.png'} title={'Apple Watch 3'} category={'Aksesoris'} price={'2.450.000'} />
-      <Cardss img={'./Img/lgtv.jpg'} title={'LG UHD TV 65inch OLED'} category={'Aksesoris'} price={'2.450.000'} />
-      <Cardss img={'./Img/xperia.jpg'} title={'Xperia 1 mark iii'} category={'Gadget'} price={'7.000.000'} />
-      <Cardss img={'./Img/appleWatch.jpeg'} title={'Apple Watch 3'} category={'Aksesoris'} price={'2.450.000'} />
-      <Cardss img={'./Img/Rectangle.png'} title={'Apple Watch 3'} category={'Aksesoris'} price={'2.450.000'} />
-      <Cardss img={'./Img/lgtv.jpg'} title={'LG UHD TV 65inch OLED'} category={'Aksesoris'} price={'2.450.000'} />
+      
+      {products?.map( (product, id) => {
+                      return(
+                        <Cardss key={`product-${id}`} product = {product} />
+                      )
+                    })}
+                
     </div>
   )
 }
