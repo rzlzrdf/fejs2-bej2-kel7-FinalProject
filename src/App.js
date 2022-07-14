@@ -18,6 +18,7 @@ import Terjual from './Components/Terjual/Terjual';
 import Wishlist from './Components/Wishlist/Wishlist';
 import Semua from './Pages/Semua/Semua';
 import Notif from './Pages/Notif/Notif';
+import TestPage from './Pages/TestPage';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
             <Route path="/info-penawaran" element={<InfoPenawaran />} />
             <Route path="/info-profil" element={<InfoProfile />} />
             <Route path="/info-produk" element={<InfoProduk />} />
+            <Route path='/tes' element={<TestPage/>} />
           </Routes>
         </BrowserRouter>
     </div>

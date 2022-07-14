@@ -35,11 +35,11 @@ const Register = () => {
 		}
 
 		//membuat template x-www-form-urlencoded
-		let formData = new FormData();
-		formData.append('nama', data.user_name);
-		formData.append('email', data.user_email,);
-		formData.append('password', data.user_password);
-		console.log(postData)
+		// let formData = new FormData();
+		// formData.append('nama', data.user_name);
+		// formData.append('email', data.user_email,);
+		// formData.append('password', data.user_password);
+		// console.log(postData)
 
 		
 		axios({
@@ -49,8 +49,9 @@ const Register = () => {
 			headers: { "Content-Type": "application/json" },
 		 })//post object template dari from ke link API
 		.then((res) => {
-			if(typeof res.data.acessToken !== 'undefined'){
-				localStorage.setItem('secondHandToken', res.data.acessToken)
+			console.log(res.data)
+			if(typeof res.data.token !== 'undefined'){
+				localStorage.setItem('secondHandToken', res.data.token)
 			}
 
 			//menyimpan di redux store
@@ -65,6 +66,7 @@ const Register = () => {
 				navigate('/')
 
 		}).catch( err => {
+			console.log(err)
 			setRegistStatus({
 				 succes: false,
 				 message: 'sorry, something is wrong'

@@ -40,16 +40,16 @@ const Login = () => {
 		axios
 			.post("https://secondhandapp.herokuapp.com/api/auth/login", postData) // kalau dah ready taruh link heroku disini
 			.then((res) => {
-				console.log(res);
-				/* memastikan bahwa token nya ada
-		if (typeof res.data.acessToken !== "undefined") {
-					localStorage.setItem("secondHandToken", res.data.acessToken);
-				} */
-
+				console.log(res)
+				/* memastikan bahwa token nya ada */
+				if(typeof res.data.token !== 'undefined'){
+					localStorage.setItem("loginToken", res.data.token);
+				}
 				// menyimpan di redux store
 
 				const user = jwtDecode(res.data.acessToken);
 				axios.get(`https://secondhandapp.herokuapp.com/api/user/detail-user${user.sub}`).then((res) => {
+					console.log(user)
 					dispatch(
 						userSlice.actions.addUser({
 							userData: res.data,

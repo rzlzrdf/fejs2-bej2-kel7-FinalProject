@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from './FormProduk.module.css'
 import {useDropzone} from 'react-dropzone';
 import {IoArrowBackOutline} from 'react-icons/io5'
 import { Col, Container, Form, Row, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 
 
 
 const FormProduk = (props) => {
+
    const {acceptedFiles, getRootProps, getInputProps} = useDropzone();
   
    const files = acceptedFiles.map(file => (
@@ -15,6 +18,8 @@ const FormProduk = (props) => {
          {file.path} - {file.size} bytes
       </li>
    ));
+
+   
    
   return (
     <>
@@ -22,7 +27,7 @@ const FormProduk = (props) => {
          <Row className='d-flex justify-content-center'>
             <Col lg={6} md={6} sm={12}>
                <Link to='/' className={style.back__}><IoArrowBackOutline /></Link>
-               <Form>
+               <Form >
                   <Form.Group className="my-3" controlId="formBasicEmail">
                      <Form.Label>Nama Produk</Form.Label>
                      <Form.Control type="text" placeholder="Nama Produk" className=' form___'/>
