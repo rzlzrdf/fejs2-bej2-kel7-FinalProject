@@ -28,13 +28,13 @@ const Terjual = () => {
   return (
     <div className={style.wrapper_card}>
 
-    {
+    {/*
     
     products?.map( (product, id) => {
       return(
         <Cardss key={`product-${id}`} product = {product} />
       )
-    })}
+    })*/}
     </div>
   )
 }
