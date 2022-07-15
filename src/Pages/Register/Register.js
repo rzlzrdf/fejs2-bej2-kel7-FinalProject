@@ -15,10 +15,10 @@ const Register = () => {
 	//inisiasi object untuk template
 	const [registStatus, setRegistStatus] = useState({
 		succes: false,
-		messafe:''
+		message:''
 	})
 
-	//inisiasi dispatch dan axios
+	//inisiasi dispatch dan navigate
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
 
@@ -34,42 +34,29 @@ const Register = () => {
 			password: data.user_password
 		}
 
-		//membuat template x-www-form-urlencoded
-		// let formData = new FormData();
-		// formData.append('nama', data.user_name);
-		// formData.append('email', data.user_email,);
-		// formData.append('password', data.user_password);
-		// console.log(postData)
-
-		
 		axios({
 			method: "post",
 			url: "https://secondhandapp.herokuapp.com/api/auth/register",
 			data: postData,
 			headers: { "Content-Type": "application/json" },
 		 })//post object template dari from ke link API
+
 		.then((res) => {
 			console.log(res.data)
+
 			if(typeof res.data.token !== 'undefined'){
-				localStorage.setItem('secondHandToken', res.data.token)
-			}
-
-			//menyimpan di redux store
-			const user = jwtDecode(res.data.acessToken)
-			axios.get(`https://secondhandapp.herokuapp.com/api/user/detail-user'${user.sub}`)
+				localStorage.setItem('secondHandToken', res.data.token) // simpan ke localStorage
+				const user = jwtDecode(res.data.token) // simpan di store
+				axios.get(`https://secondhandapp.herokuapp.com/api/user/detail-user/${user.sub}`)
 				.then((res) => {
-					dispatch(
-						userSlice.actions.addUser({userData: res.data})
-					)
+					dispatch( userSlice.actions.addUser({userData: res.data}) )
+					navigate('/')
 				})
-
-				navigate('/')
-
+			}
 		}).catch( err => {
-			console.log(err)
 			setRegistStatus({
 				 succes: false,
-				 message: 'sorry, something is wrong'
+				 message: 'Sorry, something is wrong'
 			})
 	  })
 		
@@ -101,6 +88,7 @@ const Register = () => {
 			<div className='d-grid gap-0'>
 				<button className={"btn btn-dark mt-4 " +style.btn_signin} type="submit" form="register-form">Buat Akun</button>
 			</div>
+			{ (!registStatus.succes && registStatus.message) && <p className="text-danger text-center fw-light">{registStatus.message}</p>}
 			<p className='mt-4 d-flex justify-content-center'>Sudah punya akun 
 			<Link to="/login" className={style.login}>Masuk disini</Link></p>
 		</div>

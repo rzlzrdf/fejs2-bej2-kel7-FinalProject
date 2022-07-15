@@ -9,66 +9,56 @@ import jwtDecode from "jwt-decode";
 
 const Login = () => {
 
-   const { register, handleSubmit, formState } = useForm();
+   const { register , handleSubmit, formState } = useForm() //inisiasi useForm
 
-	// jika gagal login maka akan muncul pesan :
+	//inisiasi object untuk template
 	const [loginStatus, setLoginStatus] = useState({
-		success: false,
-		message: "",
+		succes: false,
+		message:''
+	})
 
-		/*
-			{!loginStatus.sucess && loginStatus.message && <p className="text-danger  m-0 ">{loginStatus.message}</p>}
-	*/
-	});
+	//inisiasi dispatch dan navigate
+	const dispatch = useDispatch()
+	const navigate = useNavigate()
 
-	// dispatch axios
-	const dispatch = useDispatch();
-	const navigate = useNavigate();
 
-	//menampilkan data  email dan password
+	//membuat submit handler
+	const formSubmitHandler = (data) => {
+		console.log('formSubmitHandler Jalan')
 
-	const formSubmithandler = (data) => {
-		console.log("formsubmithandler login jalan");
-
+		//membuat template rare JSON dari input pada form (form - data)
 		const postData = {
 			email: data.user_email,
-			password: data.user_password,
-		};
+			password: data.user_password
+		}
 
-      console.log(postData)
+		axios({
+			method: "post",
+			url: "https://secondhandapp.herokuapp.com/api/auth/login",
+			data: postData,
+			headers: { "Content-Type": "application/json" },
+		 })//post object template dari from ke link API
 
-		axios
-			.post("https://secondhandapp.herokuapp.com/api/auth/login", postData) // kalau dah ready taruh link heroku disini
-			.then((res) => {
-				console.log(res)
-				/* memastikan bahwa token nya ada */
-				if(typeof res.data.token !== 'undefined'){
-					localStorage.setItem("loginToken", res.data.token);
-				}
-				// menyimpan di redux store
+		.then((res) => {
+			console.log(res.data)
 
-				const user = jwtDecode(res.data.acessToken);
-				axios.get(`https://secondhandapp.herokuapp.com/api/user/detail-user${user.sub}`).then((res) => {
-					console.log(user)
-					dispatch(
-						userSlice.actions.addUser({
-							userData: res.data,
-						})
-					);
-					// jika sudah login maka diarahkan ke :
-					navigate("/");
-				});
+			if(typeof res.data.token !== 'undefined'){
+				localStorage.setItem('secondHandToken', res.data.token) // simpan ke localStorage
+				const user = jwtDecode(res.data.token) // simpan di store
+				axios.get(`https://secondhandapp.herokuapp.com/api/user/detail-user/Rizal`)// endpoint input n return not valid
+				.then((res) => {
+					dispatch( userSlice.actions.addUser({userData: res.data}) )
+					//navigate('/')
+				})
+			}
+		}).catch( err => {
+			setLoginStatus({
+				 succes: false,
+				 message: 'Sorry, something is wrong'
 			})
-
-			// failed register notification
-			.catch((err) => {
-				//	console.log(err.response);
-				setLoginStatus({
-					success: false,
-					message: "Failed to make Account, please try again later",
-				});
-			});
-	};
+	  })
+		
+	}
 
 	return (
 		<div className={"d-flex " + style.login_container}>
@@ -78,7 +68,7 @@ const Login = () => {
           <div className={style.login_form +" col-lg-6 col-sm-12"}>
              <Link to="/"><img src="./Img/logo.svg" alt="" className="py-4" /></Link>
              <h3 className="fw-bold my-3">Masuk</h3>
-             <form className="form" method="post" id="login-form" onSubmit={handleSubmit(formSubmithandler)}>
+             <form className="form" method="post" id="login-form" onSubmit={handleSubmit(formSubmitHandler)}>
                 <div className="form-group mt-3">
                    <label htmlFor="username">Email</label>
                    <input type="text" className={"form-control "+ style.input_} id="username" placeholder="Contoh: johndee@gmail.com" {...register("user_email")} />
@@ -91,6 +81,7 @@ const Login = () => {
              <div className='d-grid gap-0'>
                 <button className={"btn btn-dark mt-4 " + style.btn_signin} type="submit" form="login-form">Masuk</button>
              </div>
+				 { (!loginStatus.succes && loginStatus.message) && <p className="text-danger text-center fw-light">{loginStatus.message}</p>}
              <p className='mt-4 d-flex justify-content-center'>Belum punya akun? 
              <Link to="/register" className ="register">Daftar disini</Link></p>
           </div>
