@@ -2,19 +2,20 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Cardss from '../Card/Cardss'
 import style from './Disukai.module.css'
+import { useSelector } from "react-redux";
 
 
 const Disukai = () => {
 
   const [products, setProducts] = useState(null)
-  const jwtToken = localStorage.getItem('loginToken')
+  const { user } = useSelector((state) => state.auth);
 
   useEffect(() => {
     axios
       .get('https://secondhandapp.herokuapp.com/api/product/list-by-user', {
         headers: {
           Authorization:
-           jwtToken,
+           user,
         },
       })
       .then((response) => {
@@ -25,13 +26,13 @@ const Disukai = () => {
 
 
   return (
-    <>
+    <div className={style.wrapper_card}>
     {products?.map( (product, id) => {
       return(
         <Cardss key={`product-${id}`} product = {product} />
       )
     })}
-     </>
+     </div>
   )
  
 }

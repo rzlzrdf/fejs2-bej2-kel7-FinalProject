@@ -5,20 +5,22 @@ import {AiOutlineFileAdd} from 'react-icons/ai'
 import Cardss from '../Card/Cardss'
 import style from './AllProduk.module.css'
 import { Link } from 'react-router-dom'
+import { useSelector } from "react-redux";
 
 
 
 
 const AllProduk = () => {
   const [products, setProducts] = useState(null)
-  const jwtToken = localStorage.getItem('loginToken') //ambil jwt dari localStorage
+ 
+  const { user } = useSelector((state) => state.auth);
 
   useEffect(() => {
     axios
       .get('https://secondhandapp.herokuapp.com/api/product/list-by-user', {
         headers: {
           Authorization:
-            jwtToken,
+            user,
         },
       })
       .then((response) => {
