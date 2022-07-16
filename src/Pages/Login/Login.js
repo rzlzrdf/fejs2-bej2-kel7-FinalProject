@@ -4,8 +4,7 @@ import style from "./Login.module.css";
 import { useDispatch } from "react-redux";
 // import userSlice from "../../Store/userSlice";
 import { useSelector } from "react-redux";
-import axios from "axios";
-import jwtDecode from "jwt-decode";
+
 import { login } from "../../Features/authSlice";
 
 const Login = () => {
