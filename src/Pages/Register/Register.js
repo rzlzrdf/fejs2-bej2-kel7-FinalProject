@@ -1,18 +1,39 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import style from "./Register.module.css";
-import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+
+import { useDispatch, useSelector } from "react-redux";
+import { register } from "../../Features/authSlice";
 // import userSlice from "../../Store/userSlice";
-import axios from "axios";
-import jwtDecode from "jwt-decode";
 
 const Register = () => {
-  const { register, handleSubmit, formState } = useForm(); //inisiasi useForm
-  const registStatus = true;
-  const formSubmitHandler = (data) => {
-    console.log(data);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isLoading, user, error } = useSelector((state) => state.auth);
+  const location = useLocation();
+  const from = location.state ? location.state.from : "/";
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  /* Register Logic */
+  const onChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
   };
+
+  const formSubmitHandler = (e) => {
+    e.preventDefault();
+
+    dispatch(register(data));
+  };
+
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [user]);
 
   return (
     <div className={"d-flex " + style.register_container}>
@@ -24,12 +45,7 @@ const Register = () => {
           <img src="./Img/logo.svg" alt="" className="py-4" />
         </Link>
         <h3 className="fw-bold my-3">Daftar</h3>
-        <form
-          className="form"
-          id="register-form"
-          method="post"
-          onSubmit={handleSubmit(formSubmitHandler)}
-        >
+        <form className="form" id="register-form" method="post">
           <div className="form-group mt-3">
             <label htmlFor="name">Nama</label>
             <input
@@ -37,7 +53,8 @@ const Register = () => {
               className={"form-control " + style.input_}
               id="name"
               placeholder="Nama Lengkap"
-              {...register("user_name")}
+              name="name"
+              onChange={onChange}
             />
           </div>
           <div className="form-group mt-3">
@@ -47,7 +64,8 @@ const Register = () => {
               className={"form-control " + style.input_}
               id="username"
               placeholder="Contoh: johndee@gmail.com"
-              {...register("user_email")}
+              name="email"
+              onChange={onChange}
             />
           </div>
           <div className="form-group mt-3">
@@ -57,7 +75,8 @@ const Register = () => {
               className={"form-control " + style.input_}
               id="password"
               placeholder="Masukkan Password"
-              {...register("user_password")}
+              name="password"
+              onChange={onChange}
             />
           </div>
         </form>
@@ -67,15 +86,12 @@ const Register = () => {
             className={"btn btn-dark mt-4 " + style.btn_signin}
             type="submit"
             form="register-form"
+            onClick={formSubmitHandler}
           >
             Buat Akun
           </button>
         </div>
-        {!registStatus.succes && registStatus.message && (
-          <p className="text-danger text-center fw-light">
-            {registStatus.message}
-          </p>
-        )}
+        {error && <p className="text-danger text-center fw-light">{error}</p>}
         <p className="mt-4 d-flex justify-content-center">
           Sudah punya akun
           <Link to="/login" className={style.login}>

@@ -25,6 +25,30 @@ export const login = createAsyncThunk(
   }
 );
 
+export const register = createAsyncThunk(
+  "auth/register",
+  async (data, { rejectWithValue }) => {
+    const { email, password, nama } = data;
+    try {
+      const response = await axios.post(
+        "https://secondhandapp.herokuapp.com/api/auth/register",
+        { email, password, nama }
+      );
+
+      return response.data.token;
+    } catch (error) {
+      console.log(error);
+
+      if (error.response.status === 422) {
+        return rejectWithValue(
+          "Data Kurang Lengkap Atau Password Kurang Panjang"
+        );
+      }
+      return rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
 const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -57,6 +81,23 @@ const authSlice = createSlice({
       state.message = null;
     },
     [login.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+      state.message = null;
+    },
+    [register.fulfilled]: (state, action) => {
+      state.user = action.payload;
+      state.isLoading = false;
+      state.error = null;
+      state.message = null;
+      localStorage.setItem("user", JSON.stringify(action.payload));
+    },
+    [register.pending]: (state) => {
+      state.isLoading = true;
+      state.error = null;
+      state.message = null;
+    },
+    [register.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
       state.message = null;
