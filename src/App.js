@@ -15,10 +15,12 @@ import Wishlist from "./Components/Wishlist/Wishlist";
 import Semua from "./Pages/Semua/Semua";
 import Notif from "./Pages/Notif/Notif";
 import TestPage from "./Pages/TestPage";
+import TestComponent from "./Components/TestComponent";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import authSlice from "./Features/authSlice";
 import Auth from "./Components/Auth/Auth";
+import Loading from "./Components/Loading/Loading";
 
 function App() {
   const { user } = useSelector((state) => state.auth);
@@ -52,7 +54,7 @@ function App() {
           <Route path="/info-penawaran" element={<InfoPenawaran />} />
           <Route path="/info-profil" element={<InfoProfile />} />
           <Route path="/info-produk" element={<InfoProduk />} />
-          <Route path="/tes" element={<TestPage />} />
+          <Route path="/tes" element={<Loading />} />
         </Routes>
       </BrowserRouter>
     </div>
