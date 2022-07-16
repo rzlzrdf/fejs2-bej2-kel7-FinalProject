@@ -17,6 +17,8 @@ const Register = () => {
     email: "",
     password: "",
   });
+
+  /* Register Logic */
   const onChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
