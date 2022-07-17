@@ -1,10 +1,13 @@
-import React, {useRef} from 'react'
+import React, {useRef, useState} from 'react'
 import {useDropzone} from 'react-dropzone'
 import axios from 'axios'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import {IoArrowBackOutline} from 'react-icons/io5'
 import './FormProfile.css'
 import { Link } from 'react-router-dom'
+import {useSelector} from 'react-redux'
+import LogoutButton from '../NavbarSearch/LogoutButton'
+
 
 const FormProfile = (props) => {
 
@@ -16,6 +19,13 @@ const FormProfile = (props) => {
        {file.path} - {file.size} bytes
      </li>
    ));
+
+   const [nama, setNama] = useState('')
+   const [foto, setFoto] = useState('')
+   const [alamat, setAlamat] = useState('')
+   const [telp, setTelp] = useState('')
+   
+   const { user } = useSelector((state) => state.auth);
 
    //membuat object json dari form
    const inputNama = useRef()
@@ -38,7 +48,8 @@ const FormProfile = (props) => {
       if(formIseCorrect){
          //data setup
          const submittedData = {
-            foto_profil: "file",
+            nama:inputNama.current.value,
+            foto_profil: 'https://picsum.photos/200',
             kota: inputKota.current.value,
             alamat: inputAlamat.current.value,
             telp: inputHandphone.current.value
@@ -52,15 +63,15 @@ const FormProfile = (props) => {
 
          const header = {
             'Content-Type': 'application/json',
-            'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZGVzdWdpYW50ckBnbWFpbC5jb20iLCJpYXQiOjE2NTUyMzAyNzl9.Ym2kWPQbT-ft-hWZQan8ncEEbXhoVtG4suiSGdN9wek'
+            'Authorization': user
          }
 
          const up = await axios({
             method: 'put',
-            url:'https://secondhandapp.herokuapp.com/api/user/update/',
+            url:'https://secondhandapp.herokuapp.com/api/user/update',
             headers:header,
             data:submittedData})
-         console.log(up.data)
+            console.log(up.data)
 
       } else{
          console.log('error')
@@ -116,6 +127,7 @@ const FormProfile = (props) => {
                   <Button variant="dark" className='button__' type="submit" value='SUBMIT FORM'>
                   Simpan
                   </Button>
+                  <LogoutButton/>
                </div>
                
             </Form>

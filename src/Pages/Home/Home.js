@@ -9,11 +9,14 @@ import Cardss from '../../Components/Card/Cardss'
 import { Link } from 'react-router-dom'
 import CarouselHome from '../../Components/CarouserHome/CarouselHome'
 import NavbarSearch from '../../Components/NavbarSearch/NavbarSearch';
+import { useSelector } from "react-redux";
 
 
 
 
 const Home = () => {
+
+  const { user } = useSelector((state) => state.auth);
 
   return (
     <>
@@ -145,8 +148,9 @@ const Home = () => {
         {/* Bikin Akun */}
         <Row className={'' + style.daftarsekarang}>
           <Col lg={6} xs={12}>
-            <h1 className={'text-muted text-end '+style.textDaftar}>Bikin akunmu sekarang juga!</h1>
-            <Link to={'/register'}><Button variant='dark' className={'fw-bold '+style.daftarBtn}>Daftar</Button></Link>
+            {user === null && <h1 className={'text-muted text-end '+style.textDaftar}>Bikin akunmu sekarang juga!</h1>}
+            {user === null && <Link to={'/register'}><Button variant='dark' className={'fw-bold '+style.daftarBtn}>Daftar</Button></Link>}
+            {user !== null && <h1 className={'text-muted text-end '+style.textDaftar}>Selamat Datang</h1>}
           </Col>
           <Col lg={6} xs={12}>
             <img src='./Img/2a.png' alt='' className={style.daftarImg} />

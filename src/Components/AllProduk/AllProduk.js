@@ -6,12 +6,14 @@ import Cardss from '../Card/Cardss'
 import style from './AllProduk.module.css'
 import { Link } from 'react-router-dom'
 import { useSelector } from "react-redux";
+import Loading from "../Loading/Loading"
 
 
 
 
 const AllProduk = () => {
   const [products, setProducts] = useState(null)
+  const [loading, setLoading] =useState(true)
  
   const { user } = useSelector((state) => state.auth);
 
@@ -25,6 +27,7 @@ const AllProduk = () => {
       })
       .then((response) => {
         console.log(response.data);
+        setLoading(false)
         setProducts(response.data)
       });
   }, []);
@@ -33,6 +36,8 @@ const AllProduk = () => {
   
 
   return (
+    <>
+    {loading ? (<Loading/>) :(
     <div className={style.wrapper_card}>
       <Link to='/info-produk'>
           <Button className={style.upload + ' fw-light text-muted'}>
@@ -47,7 +52,8 @@ const AllProduk = () => {
                       )
                     })}
                 
-    </div>
+    </div>)}
+    </>
   )
 }
 
