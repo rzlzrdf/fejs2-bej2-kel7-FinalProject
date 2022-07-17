@@ -24,6 +24,7 @@ const FormProfile = (props) => {
    const inputHandphone = useRef()
 
    const formSubmitHandler = async(event) => {
+      console.log('form submit handeler jalan')
       event.preventDefault()
 
       let formIseCorrect = false
@@ -37,18 +38,28 @@ const FormProfile = (props) => {
       if(formIseCorrect){
          //data setup
          const submittedData = {
-            name: inputNama.current.value,
+            foto_profil: "file",
             kota: inputKota.current.value,
             alamat: inputAlamat.current.value,
-            hp: inputHandphone.current.value
+            telp: inputHandphone.current.value
+         }
+         console.log(submittedData)
+
+         // //membuat object dari data di form - inisiasi
+         // const formData = new FormData()
+
+         // formData.append('data', JSON.stringify(submittedData))
+
+         const header = {
+            'Content-Type': 'application/json',
+            'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZGVzdWdpYW50ckBnbWFpbC5jb20iLCJpYXQiOjE2NTUyMzAyNzl9.Ym2kWPQbT-ft-hWZQan8ncEEbXhoVtG4suiSGdN9wek'
          }
 
-         //membuat object dari data di form - inisiasi
-         const formData = new FormData()
-
-         formData.append('data', JSON.stringify(submittedData))
-
-         const up = await axios.post('')
+         const up = await axios({
+            method: 'put',
+            url:'https://secondhandapp.herokuapp.com/api/user/update/',
+            headers:header,
+            data:submittedData})
          console.log(up.data)
 
       } else{
@@ -83,7 +94,7 @@ const FormProfile = (props) => {
                   <Form.Label htmlFor='kota'>Kota *</Form.Label>
                   <select className="form-select form__" aria-label="Default select example" name='kota' id='kota' ref={inputKota} required>
                      <option>Pilih Kota</option>
-                     <option value="1">Kota 1</option>
+                     <option value="Kota 1">Kota 1</option>
                      <option value="1">Kota 2</option>
                      <option value="1">Kota 3</option>
                      <option value="1">Kota 4</option>
