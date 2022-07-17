@@ -1,27 +1,30 @@
 .wrapper_card{
     width: 150px;
-    height: 250px;
+    height: 255px;
     border-color: #cccccc;
     border-radius: 6px;
 }
 
-.img_{
+.gambar{
     width: 100%;
-    height: 190px;
-    object-fit: cover;
+    height: 50%;
+    overflow: hidden;
+}
+
+.gambar img{
+    width: 150px;
+    object-fit: contain;
+    aspect-ratio: 1/1;
     object-position: center;
     overflow: hidden;
 }
 
-.title{
-    height: 30px;
-    font-size: 17px;
+.label{
+    width: 100%;
+    height: 50%;
+    padding: 10px;
 }
 .teks{
-    height: 15px;
     font-size: 12px;
+    overflow: hidden;
 }
-.harga{
-    height: 15px;
-}
-

@@ -48,7 +48,17 @@ const AllProduk = () => {
       
       {products?.map( (product, id) => {
                       return(
-                        <Cardss key={`product-${id}`} product = {product} />
+                        <Cardss
+                        id={product.id}
+                        nama={product.nama}
+                        kategori_1={product.kategori_1 !== null ? product.kategori_1.nama : ''}
+                        kategori_2={product.kategori_2 !== null ? product.kategori_2.nama : ''}
+                        kategori_3={product.kategori_3 !== null ? product.kategori_3.nama : ''}
+                        kategori_4={product.kategori_4 !== null ? product.kategori_4.nama : ''}
+                        kategori_5={product.kategori_5 !== null ? product.kategori_5.nama : ''}
+                        harga={product.harga}
+                        img={product.foto_produk_1} 
+                        />
                       )
                     })}
                 
