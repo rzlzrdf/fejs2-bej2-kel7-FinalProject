@@ -9,8 +9,10 @@ import { Button } from 'react-bootstrap';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 
-const Corousel = () => {
+
+const Corousel = (props) => {
   return (
+
     <div>
       <Link to='/all'><Button variant='white' className={style.back_}><IoMdArrowRoundBack/>Back</Button></Link>
       <Swiper
@@ -22,8 +24,8 @@ const Corousel = () => {
         modules={[Pagination, Navigation,]}
         className={`mySwiper ${style.swiper}`}
       >
-        <SwiperSlide><img src='Img/Rectangle.png' alt=''/></SwiperSlide>
-        <SwiperSlide><img src='Img/Rectangle.png' alt=''/></SwiperSlide>
+        <SwiperSlide><img src={props.foto1 ? props.foto1 : "https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg"} alt=''/></SwiperSlide>
+        <SwiperSlide><img src={props.foto2 ? props.foto2 : "https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg"} alt=''/></SwiperSlide>
       </Swiper>
     </div>
   )

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import style from './Seller-halaman-produk.module.css'
 
-const Cards = (props) => {
+const BuyerCard = (props) => {
   return (
     <div>
       <div className={`card ${style.cards}`} >
@@ -20,4 +20,4 @@ const Cards = (props) => {
   )
 }
 
-export default Cards
+export default BuyerCard

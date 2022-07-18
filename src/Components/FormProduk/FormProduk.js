@@ -6,6 +6,7 @@ import { Col, Container, Form, Row, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
+import Select from 'react-select'
 
 
 
@@ -19,7 +20,13 @@ const FormProduk = (props) => {
       </li>
    ));
 
-   
+   const options = [
+      { value: '1', label: 'Kesehatan' },
+      { value: '2', label: 'Elektronik' },
+      { value: '3', label: 'Kendaraan' },
+      { value: '4', label: 'Hobi' },
+      { value: '5', label: 'Fashion' }
+    ]
    
   return (
     <>
@@ -40,13 +47,7 @@ const FormProduk = (props) => {
 
                   <Form.Group className="mb-3" controlId="formBasicPassword">
                      <Form.Label>Kategori</Form.Label>
-                     <select className={'form-select ' + style.form___} aria-label="Default select example">
-                        <option selected>Pilih Kota</option>
-                        <option value="kota_1">Kota 1</option>
-                        <option value="kota_2">Kota 2</option>
-                        <option value="kota_3">Kota 3</option>
-                        <option value="kota_4">Kota 4</option>
-                     </select>
+                     <Select options={options} isMulti />
                   </Form.Group>
                   
                   <Form.Group className="mb-3" controlId="formBasicPassword">

@@ -21,7 +21,7 @@ const NavbarSearch = () => {
       <Container>
         <Navbar.Brand>
           <Link id="RouterNavLink" to="/">
-            <img src="./Img/logo.svg" alt="" className={style.logo} />
+            <img src="./Img/logo2.svg" alt="" className={style.logo} />
           </Link>
         </Navbar.Brand>
         <Navbar.Brand className={style.search_container}>

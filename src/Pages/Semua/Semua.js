@@ -15,11 +15,13 @@ const Semua = () => {
    const [loading, setLoading] = useState(true)
    const [product, setProduct] = useState([])
 
+   let idr=Intl.NumberFormat('id-ID')
+
    useEffect(()=> {
       setLoading(true)
       if(user){
          axios
-         .get('https://secondhandapp.herokuapp.com/api/product/all?page=0&size=20', {headers:{Authorization:user}})
+         .get('https://secondhandapp.herokuapp.com/api/product/all?page=0&size=100', {headers:{Authorization:user}})
             .then((res) => {
                setLoading(false)
                console.log(res.data.content)
@@ -27,7 +29,7 @@ const Semua = () => {
             })
       } else {
          axios
-         .get('https://secondhandapp.herokuapp.com/api/product/all?page=0&size=20')
+         .get(`https://secondhandapp.herokuapp.com/api/product/all?page=0&size=20`)
             .then(res => {
                setLoading(false)
                console.log(res.data.content)
@@ -36,11 +38,11 @@ const Semua = () => {
       }
    }, [])
 
-   let active = 2;
-   let items = [];
+   let page = 1; //usestate
+   let items = []; 
    for (let number = 1; number <= 4; number++) {
    items.push(
-      <Pagination.Item key={number} active={number === active}>
+      <Pagination.Item key={number} active={number === page}>
          {number}
       </Pagination.Item>,
    );
@@ -62,10 +64,10 @@ const Semua = () => {
                      nama={product.nama}
                      kategori_1={product.kategori_1 !== null ? product.kategori_1.nama : ''}
                      kategori_2={product.kategori_2 !== null ? product.kategori_2.nama : ''}
-                     kategori_3={product.kategori_3 !== null ? product.kategori_3.nama : ''}
-                     kategori_4={product.kategori_4 !== null ? product.kategori_4.nama : ''}
-                     kategori_5={product.kategori_5 !== null ? product.kategori_5.nama : ''}
-                     harga={product.harga}
+                     kategori_3={product.kategori_3 !== null ? '.' : ''}
+                     kategori_4={product.kategori_4 !== null ? '.' : ''}
+                     kategori_5={product.kategori_5 !== null ? '.' : ''}
+                     harga={idr.format(product.harga)}
                      img={product.foto_produk_1} />
                ))}
             </Col>

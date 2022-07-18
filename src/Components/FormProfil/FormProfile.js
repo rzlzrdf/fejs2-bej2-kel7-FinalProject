@@ -34,7 +34,7 @@ const FormProfile = (props) => {
    const inputHandphone = useRef()
 
    const formSubmitHandler = async(event) => {
-      console.log('form submit handeler jalan')
+      console.log(acceptedFiles)
       event.preventDefault()
 
       let formIseCorrect = false
@@ -49,7 +49,7 @@ const FormProfile = (props) => {
          //data setup
          const submittedData = {
             nama:inputNama.current.value,
-            foto_profil: 'https://picsum.photos/200',
+            foto_profil:acceptedFiles[0],
             kota: inputKota.current.value,
             alamat: inputAlamat.current.value,
             telp: inputHandphone.current.value
@@ -57,9 +57,8 @@ const FormProfile = (props) => {
          console.log(submittedData)
 
          // //membuat object dari data di form - inisiasi
-         // const formData = new FormData()
-
-         // formData.append('data', JSON.stringify(submittedData))
+         //const formData = new FormData()
+         //formData.append('data', JSON.stringify(submittedData))
 
          const header = {
             'Content-Type': 'application/json',
@@ -69,7 +68,10 @@ const FormProfile = (props) => {
          const up = await axios({
             method: 'put',
             url:'https://secondhandapp.herokuapp.com/api/user/update',
-            headers:header,
+            headers:{
+               'Content-Type': 'multipart/form-data',
+               'Authorization': user
+            },
             data:submittedData})
             console.log(up.data)
 
@@ -123,7 +125,7 @@ const FormProfile = (props) => {
                   <Form.Control type="number" placeholder="contoh: +628123456789" className=' form__' name='hp' id='hp' ref={inputHandphone} required/>
                </Form.Group>
               
-               <div className='d-grid gap-2'>
+               <div className='d-grid gap-2 mb-3'>
                   <Button variant="dark" className='button__' type="submit" value='SUBMIT FORM'>
                   Simpan
                   </Button>
