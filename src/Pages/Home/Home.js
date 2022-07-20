@@ -18,41 +18,37 @@ import NavbarSearch from '../../Components/NavbarSearch/NavbarSearch';
 
 const Home = () => {
 
-  const products = useSelector((store) => {
-    return store.semua
- })
-
- const dispatch = useDispatch()
+  const [products, setProduct] = useState([])
 
  useEffect(() => {
-    axios.get('https://secondhandapp.herokuapp.com/api/product/all')
+    axios.get('https://secondhandapp.herokuapp.com/api/product/all?size=15')
     .then(response=>{
-       console.log(response)
-       dispatch({
-          type: 'populateProducts',
-          payload: {
-             products: [...response.data.content]
-          }
-       })
+       console.log(response.data.content)
+       setProduct(response.data.content)
     })
  },[])
 
- const params = useParams()
+ const changeCategory = (event) => {
+  // kondisional
+  if(event === 'all'){
+    axios.get(`https://secondhandapp.herokuapp.com/api/product/all?size=15`)
+    .then(res => {
+      console.log(res)
+      setProduct(res.data.content)
+    }).catch(err => {
+      console.log(err)
+    })
+   } else{
+      axios.get(`https://secondhandapp.herokuapp.com/api/product/list?id=${event}&size=15`)
+      .then(res => {
+        console.log(res)
+        setProduct(res.data.content)
+      }).catch(err => {
+        console.log(err)
+      })
+    }
+   }
 
- const changeCategory = () => {
-  axios.get(`https://secondhandapp.herokuapp.com/api/product/list?id=${params}`)
-  .then(res => {
-    console.log(res)
-    dispatch({
-      type: 'populateProducts',
-      payload: {
-         products: [...res.data.content]
-      }
-   })
-  }).catch(err => {
-    console.log(err)
-  })
- }
   return (
     <>
       <NavbarSearch />
@@ -102,7 +98,6 @@ const Home = () => {
                      <Cardss 
                         key={`Product-${index}`}
                         product={semua}
-                                       
                      />
                   )
                })

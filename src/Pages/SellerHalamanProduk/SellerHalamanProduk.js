@@ -35,7 +35,7 @@ const SellerHalamanProduk = (props) => {
         </Col>
         <Col lg={4} >
           <Cards produk={produk}/>
-          <Profile/>
+          <Profile produk={produk}/>
         </Col>
       </Row>
       <Row>

@@ -2,14 +2,17 @@ import React from 'react'
 import style from './Seller-halaman-produk.module.css'
 
 const Profile = (props) => {
+  console.log(props.produk.user)
   return (
     <div className={`d-flex ${style.Card_Profile} align-items-center`}>
       <div className='pict'>
-        <img src='Img/Rectangle_33.png'  alt=''/>
+        { props.produk.user.foto_profil !== null &&
+          <img src={props.produk.user.foto_profil}  alt=''/>
+        }
       </div>
       <div className={`${style.profile}`}>
-        <h6><b>Nama Penjual</b></h6>
-        <span>Lokasi</span>
+        <h6><b>{props.produk.user.nama}</b></h6>
+        <span>{props.produk.user.kota}</span>
       </div>
     </div>
   )
