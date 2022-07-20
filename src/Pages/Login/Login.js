@@ -4,8 +4,8 @@ import style from "./Login.module.css";
 import { useDispatch } from "react-redux";
 // import userSlice from "../../Store/userSlice";
 import { useSelector } from "react-redux";
-
 import { login } from "../../Features/authSlice";
+import Loading from "../../Components/Loading/Loading"
 
 const Login = () => {
   const loginStatus = true;
@@ -82,6 +82,7 @@ const Login = () => {
             />
           </div>
         </form>
+        {isLoading ? <Loading/> : <>
         <div className="d-grid gap-0">
           <button
             className={"btn btn-dark mt-4 " + style.btn_signin}
@@ -91,7 +92,7 @@ const Login = () => {
           >
             Masuk
           </button>
-        </div>
+        </div></>}
         {error && <p className="text-danger text-center fw-light">{error}</p>}
         <p className="mt-4 d-flex justify-content-center">
           Belum punya akun?

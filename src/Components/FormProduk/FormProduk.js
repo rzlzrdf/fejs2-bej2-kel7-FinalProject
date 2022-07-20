@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import style from './FormProduk.module.css'
 import {useDropzone} from 'react-dropzone';
 import {IoArrowBackOutline} from 'react-icons/io5'
@@ -27,6 +27,11 @@ const FormProduk = (props) => {
       { value: '4', label: 'Hobi' },
       { value: '5', label: 'Fashion' }
     ]
+
+    const inputNama = useRef()
+    const inputHarga = useRef()
+    const inputKategori = useRef()
+    const inputDeskripsi = useRef()
    
   return (
     <>
@@ -37,22 +42,22 @@ const FormProduk = (props) => {
                <Form >
                   <Form.Group className="my-3" controlId="formBasicEmail">
                      <Form.Label>Nama Produk</Form.Label>
-                     <Form.Control type="text" placeholder="Nama Produk" className=' form___'/>
+                     <Form.Control type="text" placeholder="Nama Produk" className=' form___' ref={inputNama}/>
                   </Form.Group>
 
                   <Form.Group className="mb-3" controlId="formBasicEmail">
                      <Form.Label>Harga Produk</Form.Label>
-                     <Form.Control type="number" placeholder="Harga Produk" className=' form___'/>
+                     <Form.Control type="number" placeholder="Harga Produk" className=' form___' ref={inputHarga}/>
                   </Form.Group>
 
                   <Form.Group className="mb-3" controlId="formBasicPassword">
                      <Form.Label>Kategori</Form.Label>
-                     <Select options={options} isMulti />
+                     <Select options={options} isMulti ref={inputKategori}/>
                   </Form.Group>
                   
                   <Form.Group className="mb-3" controlId="formBasicPassword">
                      <Form.Label>Deskripsi</Form.Label>
-                     <textarea className={'form-control '+ style.form___} id="alamat" placeholder='Contoh: Jalan Ikan Hiu 33' rows="3"></textarea>
+                     <textarea className={'form-control '+ style.form___} id="alamat" placeholder='Deskripsi Barang...' rows="3" ref={inputDeskripsi}></textarea>
                   </Form.Group>
                   
                   <Form.Group className="mb-3" controlId="formBasicPassword">
