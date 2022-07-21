@@ -7,17 +7,20 @@ import NavbarSearch from '../../Components/NavbarSearch/NavbarSearch'
 import Cardss from '../../Components/Card/Cardss'
 import KategoriButton from '../../Components/Category/KategoriButton'
 import styleFilter from './Filter.module.css'
+import Loading from '../../Components/Loading/Loading'
 
 const Semua = () => {
 
    const [products, setProducts] = useState([])
    const [pagination, setPagination] = useState(null)
    const [current, setcurrent] = useState(1)
+   const [loading, setLoading] = useState(true)
 
    useEffect(() => {
       axios.get('https://secondhandapp.herokuapp.com/api/product/all?size=20&page=1')
       .then(response=>{
          console.log(response.data)
+         setLoading(false)
          setProducts (response.data.content)
          setPagination(response.data.totalPages)
       })
@@ -28,6 +31,7 @@ const Semua = () => {
          axios.get(`https://secondhandapp.herokuapp.com/api/product/all?page=${event}&size=20`)
          .then(res => {
             console.log('ini pagination', res)
+            setLoading(false)
             setcurrent(event)
             setProducts(res.data.content)
          }).catch(err => {
@@ -39,6 +43,7 @@ const Semua = () => {
          axios.get(`https://secondhandapp.herokuapp.com/api/product/all`)
          .then(res => {
            console.log(res)
+           setLoading(false)
            setProducts(res.data.content)
          }).catch(err => {
            console.log(err)
@@ -47,6 +52,7 @@ const Semua = () => {
            axios.get(`https://secondhandapp.herokuapp.com/api/product/list?id=${event}&size=20`)
            .then(res => {
              console.log(res)
+             setLoading(false)
              setProducts(res.data.content)
            }).catch(err => {
              console.log(err)
@@ -72,34 +78,14 @@ const Semua = () => {
             <Col lg={2}>
             <div className={'card shadow-sm ' +styleFilter.card_}>
                <h5 className='fw-bold text-center mt-3'>Filter</h5>
-               <div className={styleFilter.wrapper_filter}>
-                  <h6>Harga</h6>
-                  <select className={styleFilter.filter_1}>
-                     <option>Harga Terendah - Tertinggi</option>
-                     <option>Harga Tertinggi - Terendah</option>
-                  </select>
-                  <h6>Waktu</h6>
-                  <select className={styleFilter.filter_2}>            
-                     <option>Produk Terbaru - Lama</option>
-                     <option>Produk Terlama - Terbaru</option>
-                  </select>
-               </div>
                <div className={styleFilter.kategori}>
                   <h6>Kategori Teratas</h6>
                   <KategoriButton changeCategory={changeCategory}/>
-                  {/* <KategoriButton text='Token'/>
-                  <KategoriButton text='Pakaian'/>
-                  <KategoriButton text='Makanan'/>
-                  <KategoriButton text='Elektronik'/>
-                  <KategoriButton text='Sparepart'/>
-                  <KategoriButton text='Obat'/>
-                  <KategoriButton text='Peralatan'/>
-                  <KategoriButton text='Mebel'/>
-                  <KategoriButton text='Sepatu'/> */}
                </div>
             </div>
                {/* <Filter /> */}
             </Col>
+            {loading ? <Loading /> : 
             <Col lg={10} className={style.all}>
                {
                   products.map((semua,index) => {
@@ -111,7 +97,7 @@ const Semua = () => {
                      )
                   })
                }
-            </Col>
+            </Col> }
          </Row>
          <Row className={'my-3'}>
             <Col lg={{offset: 10, span: 1}}>

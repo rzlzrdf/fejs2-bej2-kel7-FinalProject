@@ -8,8 +8,8 @@ const Cardss = (props) => {
   return (
     <Link to={`/all/${props.product.id}`}>
     <Card className={style.wrapper_card + ' shadow-sm'}>
-      <Card.Img variant="top" src={props.product.foto_produk_1} className={style.img_} />
-      <Card.Body>
+      <img variant="top" src={props.product.foto_produk_1}/>
+      <div className={style.labels}>
         <p className={'fw-bold '+style.title}>{props.product.nama}</p>
         <p className={'text-muted '+style.teks}>
           {props.product.kategori_1 === null ? '' : props.product.kategori_1.nama + ' '}
@@ -20,7 +20,7 @@ const Cardss = (props) => {
         </p>
         <br/>  
         <p className={'fw-bold '+ style.harga}>Rp. {props.product.harga}</p>
-      </Card.Body>
+      </div>
     </Card>
     </Link>
   )

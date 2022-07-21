@@ -40,7 +40,6 @@ const SellerHalamanProduk = () => {
         <Col lg={{offset: 1, span: 6}}>
           <Corousel 
           foto1={product.foto_produk_1}
-          // tambahin foto2,dst sama kyk diatas
           />
         </Col>
         <Col lg={4} >

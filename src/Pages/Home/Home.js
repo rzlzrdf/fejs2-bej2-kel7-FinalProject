@@ -21,12 +21,16 @@ import authSlice from '../../Features/authSlice'
 const Home = () => {
 
   const [products, setProduct] = useState([])
+  const [loading, setLoading] = useState(true)
   const { user } = useSelector((state) => state.auth);
 
+  const decode = 
+
  useEffect(() => {
-    axios.get('https://secondhandapp.herokuapp.com/api/product/all?size=15')
+    axios.get('https://secondhandapp.herokuapp.com/api/product/all?size=13')
     .then(response=>{
        console.log(response.data.content)
+       setLoading(false)
        setProduct(response.data.content)
     })
  },[])
@@ -34,9 +38,10 @@ const Home = () => {
  const changeCategory = (event) => {
   // kondisional
   if(event === 'all'){
-    axios.get(`https://secondhandapp.herokuapp.com/api/product/all?size=15`)
+    axios.get(`https://secondhandapp.herokuapp.com/api/product/all?size=13`)
     .then(res => {
       console.log(res)
+      setLoading(false)
       setProduct(res.data.content)
     }).catch(err => {
       console.log(err)
@@ -45,6 +50,7 @@ const Home = () => {
       axios.get(`https://secondhandapp.herokuapp.com/api/product/list?id=${event}&size=15`)
       .then(res => {
         console.log(res)
+        setLoading(false)
         setProduct(res.data.content)
       }).catch(err => {
         console.log(err)
@@ -57,6 +63,7 @@ const Home = () => {
       <NavbarSearch />
       <CarouselHome />
       <Container>
+        {loading ? <Loading/> : <>
         <Row>
           {/* Kategori */}
           <Col lg={7} md={12} sm={12} className={'d-block mt-4'} >
@@ -119,7 +126,7 @@ const Home = () => {
           <Col lg={12} className='mt-4'>
             <h3 className='fw-bold my-3'>Keuntungan Jual/Beli di Second Hand</h3>
           </Col>
-        </Row>
+        </Row> </>}
         {/* Card Keuntungan */}
         <Row className='my-4'>
           <Col lg={3} sm={6} xs={12}>
@@ -168,10 +175,6 @@ const Home = () => {
           <Col lg={6} xs={12}>
             {user === null && <h1 className={'text-muted text-end '+style.textDaftar}>Bikin akunmu sekarang juga!</h1>}
             {user === null && <Link to={'/register'}><Button variant='dark' className={'fw-bold '+style.daftarBtn}>Daftar</Button></Link>}
-            {user !== null && <h1 className={'text-muted text-end '+style.textDaftar}>Selamat Datang</h1>}
-          </Col>
-          <Col lg={6} xs={12}>
-            <img src='./Img/2a.png' alt='' className={style.daftarImg} />
           </Col>
         </Row>
       </Container>

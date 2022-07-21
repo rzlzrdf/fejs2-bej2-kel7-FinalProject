@@ -4,11 +4,12 @@ import axios from 'axios'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import {IoArrowBackOutline} from 'react-icons/io5'
 import './FormProfile.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import jwtDecode from 'jwt-decode'
 import {useSelector} from 'react-redux'
 import LogoutButton from '../NavbarSearch/LogoutButton'
 import Loading from '../../Components/Loading/Loading'
+import { set } from 'react-hook-form'
 
 
 const FormProfile = (props) => {
@@ -29,7 +30,7 @@ const FormProfile = (props) => {
       alamat:'',
       telp:''
    })
-   const [loading, setLoading] = useState(true)
+   const [error, setError] = useState(true)
    
    const handleChange = (e) => {
       setData({ ...data, [e.target.name]: e.target.value });
@@ -38,19 +39,17 @@ const FormProfile = (props) => {
    const { user } = useSelector((state) => state.auth);
 
    var decoded = jwtDecode(user);
+   const navigate = useNavigate()
 
  //Get Method
   useEffect(() => {
-   setLoading(false)
+   setError(false)
    axios.get(`https://secondhandapp.herokuapp.com/api/user/detail-user/${decoded.id}`)
        .then((res) => {
-       setLoading(false)
+       setError(false)
        setData(res.data)
      })
     },[])
-
-   
-   
 
    
    //membuat object json dari form
@@ -86,21 +85,18 @@ const FormProfile = (props) => {
          //const formData = new FormData()
          //formData.append('data', JSON.stringify(submittedData))
 
-         const header = {
-            'Content-Type': 'application/json',
-            'Authorization': user
-         }
-
-         const up = await axios({
-            method: 'put',
-            url:'https://secondhandapp.herokuapp.com/api/user/update',
-            headers:{
-               'Content-Type': 'multipart/form-data',
-               'Authorization': user
-            },
-            data:submittedData})
-
-      } else{
+            axios({
+               method: 'put',
+               url:'https://secondhandapp.herokuapp.com/api/user/update',
+               headers:{
+                  'Content-Type': 'multipart/form-data',
+                  'Authorization': user
+               },
+               data:submittedData})
+               navigate('/') 
+               
+            } else{
+         setError(true)
          console.error();
       }
    }
@@ -158,6 +154,7 @@ const FormProfile = (props) => {
                   <LogoutButton/>
                </div>
             </Form>
+            {error? <p>Error</p> : ''}
             </Col>
          </Row>
       </Container>

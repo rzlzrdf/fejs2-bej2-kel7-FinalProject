@@ -1,10 +1,10 @@
-import {combineReducers, createStore} from 'redux'
-import semuaReducer from './produk/reducer'
+import { configureStore } from "@reduxjs/toolkit";
+import authSlice from "../Features/authSlice";
 
-const reducers = combineReducers({
-    semua: semuaReducer
-})
+const store = configureStore({
+  reducer: {
+    auth: authSlice.reducer,
+  },
+});
 
-const store = createStore(reducers)
-
-export default store
+export default store;

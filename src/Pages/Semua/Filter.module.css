@@ -33,6 +33,7 @@
 
 .kategori{
    margin: 5%;
+   gap: 5%;
 }
 
 @media only screen and (max-width: 992px) {
