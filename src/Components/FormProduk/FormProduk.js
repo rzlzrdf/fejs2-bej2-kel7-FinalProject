@@ -5,8 +5,9 @@ import {IoArrowBackOutline} from 'react-icons/io5'
 import { Col, Container, Form, Row, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select'
+import axios from 'axios';
 
 
 
@@ -20,6 +21,8 @@ const FormProduk = (props) => {
       </li>
    ));
 
+   const { user } = useSelector((state) => state.auth);
+
    const options = [
       { value: '1', label: 'Kesehatan' },
       { value: '2', label: 'Elektronik' },
@@ -32,6 +35,51 @@ const FormProduk = (props) => {
     const inputHarga = useRef()
     const inputKategori = useRef()
     const inputDeskripsi = useRef()
+
+    const formSubmitHandler = async(event) => {
+      event.preventDefault()
+
+      let formIseCorrect = false
+
+      //validasi dan sanitasi
+      if(inputNama.current.value !== '' && inputHarga !=='' &&
+         inputKategori !== '' && inputDeskripsi !== ''){
+         formIseCorrect = true
+      }
+
+      if(formIseCorrect){
+         //data setup
+         const submittedData = {
+            nama:inputNama.current.value,
+            foto_produk_1:acceptedFiles[0],
+            harga: inputHarga.current.value,
+            kategori_id_1: inputKategori.current.value,
+            deskripsi: inputDeskripsi.current.value
+         }
+         console.log(submittedData)
+         // //membuat object dari data di form - inisiasi
+         //const formData = new FormData()
+         //formData.append('data', JSON.stringify(submittedData))
+
+         const header = {
+            'Content-Type': 'application/json',
+            'Authorization': user
+         }
+
+         const up = await axios({
+            method: 'post',
+            url:'https://secondhandapp.herokuapp.com/api/product/create',
+            headers:{
+               'Content-Type': 'application/json',
+               'Authorization': user
+            },
+            data:submittedData})
+            
+
+      } else{
+         console.error();
+      }
+   }
    
   return (
     <>
@@ -39,7 +87,7 @@ const FormProduk = (props) => {
          <Row className='d-flex justify-content-center'>
             <Col lg={6} md={6} sm={12}>
                <Link to='/' className={style.back__}><IoArrowBackOutline /></Link>
-               <Form >
+               <Form onSubmit={formSubmitHandler}>
                   <Form.Group className="my-3" controlId="formBasicEmail">
                      <Form.Label>Nama Produk</Form.Label>
                      <Form.Control type="text" placeholder="Nama Produk" className=' form___' ref={inputNama}/>
@@ -77,7 +125,7 @@ const FormProduk = (props) => {
                      <Button variant="dark" className={style.button__2} type="submit">
                      Preview
                      </Button>
-                     <Button variant="dark" className={style.button__1} type="submit">
+                     <Button variant="dark" className={style.button__1} type="submit" value='SUBMIT FORM'>
                      Terbitkan
                      </Button>
                   </div>

@@ -13,7 +13,7 @@ const Register = () => {
   const location = useLocation();
   const from = location.state ? location.state.from : "/";
   const [data, setData] = useState({
-    name: "",
+    nama: "",
     email: "",
     password: "",
   });
@@ -47,13 +47,13 @@ const Register = () => {
         <h3 className="fw-bold my-3">Daftar</h3>
         <form className="form" id="register-form" method="post">
           <div className="form-group mt-3">
-            <label htmlFor="name">Nama</label>
+            <label htmlFor="nama">Nama</label>
             <input
               type="text"
               className={"form-control " + style.input_}
-              id="name"
+              id="nama"
               placeholder="Nama Lengkap"
-              name="name"
+              name="nama"
               onChange={onChange}
             />
           </div>
