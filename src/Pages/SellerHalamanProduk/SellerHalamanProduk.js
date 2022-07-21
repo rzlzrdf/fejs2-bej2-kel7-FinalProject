@@ -1,8 +1,7 @@
 import React,{ useState ,useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
-import Cards from '../../Components/Seller-halaman-produk/Cards'
+import CardsSeller from '../../Components/Seller-halaman-produk/CardsSeller'
 import Corousel from '../../Components/Seller-halaman-produk/Corousel'
 import Deskripsi from '../../Components/Seller-halaman-produk/Deskripsi'
 import Profile from '../../Components/Seller-halaman-produk/Profile'
@@ -34,7 +33,7 @@ const SellerHalamanProduk = (props) => {
           />
         </Col>
         <Col lg={4} >
-          <Cards produk={produk}/>
+          <CardsSeller produk={produk}/>
           <Profile produk={produk}/>
         </Col>
       </Row>

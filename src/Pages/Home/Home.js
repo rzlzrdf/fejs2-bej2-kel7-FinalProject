@@ -49,6 +49,15 @@ const Home = () => {
     }
    }
 
+   const handleButtonJual = () => {
+    axios.get(`https://secondhandapp.herokuapp.com/api/user/detail-user`)
+    .then(res=>{
+      console.log(res)
+    }).catch(err=>{
+      console.log(err)
+    })
+   }
+
   return (
     <>
       <NavbarSearch />
@@ -123,7 +132,7 @@ const Home = () => {
               </Link>
             </div>
           </Col>
-          <Button className={style.btn_jual}><FiPlus/> Jual</Button>
+          <Button onClick={handleButtonJual} className={style.btn_jual}><FiPlus/> Jual</Button>
         </Row>
         <Row>
           <Col lg={12} className='mt-4'>

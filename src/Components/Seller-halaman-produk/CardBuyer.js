@@ -1,18 +1,39 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, {useState} from 'react'
+import { Link, useParams } from 'react-router-dom'
+import axios from 'axios'
 import style from './Seller-halaman-produk.module.css'
+import { AiFillStar } from 'react-icons'
 
-const Cards = (props) => {
+const CardBuyer = (props) => {
 
-  console.log(props.produk)
+  const params = useParams()
+  const [wishlist, setWishlist] = useState(false)
+
+  const DeleteHandler = () => {
+    setWishlist(!wishlist)
+    axios.delete(`https://secondhandapp.herokuapp.com/api/wishlist/delete/${params.id}`,{
+      // Headers:{
+      //   Authorization:
+      // },
+    })
+    .then(res=>{
+      console.log(res)
+    }).catch(err=>{
+      console.log(TypeError)
+    })
+  }
 
   return (
     <div>
       <div className={`card ${style.cards}`} >
         <div className="card-body">
-            <p className="card-title fs-5 fw-bolder">{props.produk.nama}</p> 
+            <div className='d-flex flex-row justify-content-between'>
+              <p className="card-title fs-5 fw-bolder">{props.produk.nama}</p> 
+              <div>
+                <AiFillStar />
+              </div>
+            </div>
             <p className="text-muted">
-              {/* props.produk.kategori_1.nama tanya kak panca */}
               {props.produk.kategori_1 === null ? '' : props.produk.kategori_1.nama + ' '}
               {props.produk.kategori_2 === null ? '' : props.produk.kategori_2.nama + ' '}
               {props.produk.kategori_3 === null ? '' : props.produk.kategori_3.nama + ' '}
@@ -30,4 +51,4 @@ const Cards = (props) => {
   )
 }
 
-export default Cards
+export default CardBuyer
