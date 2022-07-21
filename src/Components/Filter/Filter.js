@@ -1,8 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
+import axios from 'axios'
 import style from './Filter.module.css'
 import KategoriButton from '../../Components/Category/KategoriButton'
 
-const Filter = () => {
+const Filter = (props) => {
+
+   const [products, setProducts] = useState([])
+
+
+   const changeCategory = (event) => {
+      if(event === 'all'){
+         axios.get(`https://secondhandapp.herokuapp.com/api/product/all`)
+         .then(res => {
+           console.log(res)
+           setProducts(res.data.content)
+         }).catch(err => {
+           console.log(err)
+         })
+        } else{
+           axios.get(`https://secondhandapp.herokuapp.com/api/product/list?id=${event}&size=12`)
+           .then(res => {
+             console.log(res)
+             setProducts(res.data.content)
+           }).catch(err => {
+             console.log(err)
+           })
+         }
+        }
+
   return (
     <div className={'card shadow-sm ' +style.card_}>
       <h5 className='fw-bold text-center mt-3'>Filter</h5>
@@ -20,8 +45,8 @@ const Filter = () => {
       </div>
       <div className={style.kategori}>
          <h6>Kategori Teratas</h6>
-         <KategoriButton text='Gadget'/>
-         <KategoriButton text='Token'/>
+         <KategoriButton changeCategory={changeCategory}/>
+         {/* <KategoriButton text='Token'/>
          <KategoriButton text='Pakaian'/>
          <KategoriButton text='Makanan'/>
          <KategoriButton text='Elektronik'/>
@@ -29,7 +54,7 @@ const Filter = () => {
          <KategoriButton text='Obat'/>
          <KategoriButton text='Peralatan'/>
          <KategoriButton text='Mebel'/>
-         <KategoriButton text='Sepatu'/>
+         <KategoriButton text='Sepatu'/> */}
       </div>
 
     </div>

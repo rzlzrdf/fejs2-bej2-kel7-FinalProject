@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React,{ useEffect, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux/es/exports'
+import axios from 'axios'
+import { useParams } from 'react-router-dom'
 import KategoriButton from '../../Components/Category/KategoriButton'
 import { Container, Row, Col, Button, Card } from 'react-bootstrap'
 import {TbPlayerTrackNext, TbHeartHandshake, TbArrowBack, TbTruckDelivery, TbFreeRights} from 'react-icons/tb'
@@ -9,41 +12,45 @@ import Cardss from '../../Components/Card/Cardss'
 import { Link } from 'react-router-dom'
 import CarouselHome from '../../Components/CarouserHome/CarouselHome'
 import NavbarSearch from '../../Components/NavbarSearch/NavbarSearch';
-import { useSelector } from "react-redux";
 import Loading from '../../Components/Loading/Loading'
-import axios from 'axios'
+import authSlice from '../../Features/authSlice'
 
 
 
 
 const Home = () => {
 
-  const [loading, setLoading] = useState(true)
-  const [product, setProduct] = useState([])
+  const [products, setProduct] = useState([])
   const { user } = useSelector((state) => state.auth);
 
-  let idr=Intl.NumberFormat('id-ID')
+ useEffect(() => {
+    axios.get('https://secondhandapp.herokuapp.com/api/product/all?size=15')
+    .then(response=>{
+       console.log(response.data.content)
+       setProduct(response.data.content)
+    })
+ },[])
 
-  useEffect(()=> {
-    setLoading(true)
-    if(user){
-       axios
-       .get('https://secondhandapp.herokuapp.com/api/product/all?page=0&size=13', {headers:{Authorization:user}})
-          .then((res) => {
-             setLoading(false)
-             console.log(res.data.content)
-             setProduct(res.data.content)
-          })
-    } else {
-       axios
-       .get('https://secondhandapp.herokuapp.com/api/product/all?page=0&size=13')
-          .then(res => {
-             setLoading(false)
-             console.log(res.data.content)
-             setProduct(res.data.content)
-          })
+ const changeCategory = (event) => {
+  // kondisional
+  if(event === 'all'){
+    axios.get(`https://secondhandapp.herokuapp.com/api/product/all?size=15`)
+    .then(res => {
+      console.log(res)
+      setProduct(res.data.content)
+    }).catch(err => {
+      console.log(err)
+    })
+   } else{
+      axios.get(`https://secondhandapp.herokuapp.com/api/product/list?id=${event}&size=15`)
+      .then(res => {
+        console.log(res)
+        setProduct(res.data.content)
+      }).catch(err => {
+        console.log(err)
+      })
     }
- }, [])
+   }
 
   return (
     <>
@@ -55,20 +62,7 @@ const Home = () => {
           <Col lg={7} md={12} sm={12} className={'d-block mt-4'} >
             <h3 className='text-muted'>Telusuri Kategori</h3>
             <div className={' '+style.wrapper_kategori}>
-              <KategoriButton text='Gadget'/>
-              <KategoriButton text='Token'/>
-              <KategoriButton text='Pakaian'/>
-              <KategoriButton text='Makanan'/>
-              <KategoriButton text='Elektronik'/>
-              <KategoriButton text='Baju'/>
-              <KategoriButton text='Pakaian Wanita'/>
-              <KategoriButton text='Baju Anak'/>
-              <KategoriButton text='Alat tulis'/>
-              <KategoriButton text='Sparepart'/>
-              <KategoriButton text='Obat'/>
-              <KategoriButton text='Peralatan'/>
-              <KategoriButton text='Mebel'/>
-              <KategoriButton text='Sepatu'/>
+              <KategoriButton changeCategory={changeCategory} />
             </div>
           </Col>
           {/* Animation */}
@@ -101,20 +95,16 @@ const Home = () => {
           <Col lg={12} >
           <div className={'mt-3 '+ style.card_container}>
               {/*nanti tinggal gunakan method .map dari json endpoint untuk menampilkan isi card sebanyak x */}
-              {loading ? (<Loading/>) :
-                  product.map( (product, i) => (
-                     <Cardss
-                     key={i}
-                     id={product.id}
-                     nama={product.nama}
-                     kategori_1={product.kategori_1 !== null ? product.kategori_1.nama : ''}
-                     kategori_2={product.kategori_2 !== null ? product.kategori_2.nama : ''}
-                     kategori_3={product.kategori_3 !== null ? '.' : ''}
-                     kategori_4={product.kategori_4 !== null ? '.' : ''}
-                     kategori_5={product.kategori_5 !== null ? '.' : ''}
-                     harga={idr.format(product.harga)}
-                     img={product.foto_produk_1} />
-               ))}
+              {
+                products.map((semua,index) => {
+                  return(
+                     <Cardss 
+                        key={`Product-${index}`}
+                        product={semua}
+                     />
+                  )
+               })
+              }
               <Link to='/all'>
               <Button variant='dark' className={style.jual}> {/* ganti link to pages yg deden buat*/ }
                 <TbPlayerTrackNext className={style.next}/>

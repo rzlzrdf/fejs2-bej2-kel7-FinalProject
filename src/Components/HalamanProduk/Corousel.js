@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import style from './Seller-halaman-produk.module.css'
-import { Button } from 'react-bootstrap';
+import { Button, Carousel, CarouselItem } from 'react-bootstrap';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 
@@ -24,9 +24,30 @@ const Corousel = (props) => {
         modules={[Pagination, Navigation,]}
         className={`mySwiper ${style.swiper}`}
       >
-        <SwiperSlide><img src={props.foto1 ? props.foto1 : "https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg"} alt=''/></SwiperSlide>
-        <SwiperSlide><img src={props.foto2 ? props.foto2 : "https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg"} alt=''/></SwiperSlide>
-      </Swiper>
+        {/* minta ganti Api ke be */}
+      {props.produk.foto_array !== null &&
+      props.produk.foto_array.map((fotoProduk) => {
+        return(
+          <>
+          {
+            
+            fotoProduk !== null &&
+            <SwiperSlide>
+              <img 
+                src={fotoProduk}
+                onError = { e => e.target.style.display ='none' } 
+                alt=''
+              />
+            </SwiperSlide >
+          }
+        </>
+        )
+      })
+      }
+      
+      {/* <SwiperSlide><img src={props.produk} alt=''/></SwiperSlide>  
+      <SwiperSlide><img src={props.produk} alt=''/></SwiperSlide> */}
+      </Swiper> 
     </div>
   )
 }

@@ -1,75 +1,116 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
 import { Col, Container, Pagination, Row } from 'react-bootstrap'
 import style from './Semua.module.css'
 import Filter from '../../Components/Filter/Filter'
 import NavbarSearch from '../../Components/NavbarSearch/NavbarSearch'
 import Cardss from '../../Components/Card/Cardss'
-import axios from "axios"
-import { useSelector } from 'react-redux'
-import Loading from '../../Components/Loading/Loading'
+import KategoriButton from '../../Components/Category/KategoriButton'
+import styleFilter from './Filter.module.css'
 
 const Semua = () => {
 
-   const { user } = useSelector((state) => state.auth);
+   const [products, setProducts] = useState([])
+   const [pagination, setPagination] = useState(null)
+   const [current, setcurrent] = useState(1)
 
-   const [loading, setLoading] = useState(true)
-   const [product, setProduct] = useState([])
+   useEffect(() => {
+      axios.get('https://secondhandapp.herokuapp.com/api/product/all?size=20&page=1')
+      .then(response=>{
+         console.log(response.data)
+         setProducts (response.data.content)
+         setPagination(response.data.totalPages)
+      })
+      
+   },[])
 
-   let idr=Intl.NumberFormat('id-ID')
+   const changePage = (event) => {
+         axios.get(`https://secondhandapp.herokuapp.com/api/product/all?page=${event}&size=20`)
+         .then(res => {
+            console.log('ini pagination', res)
+            setcurrent(event)
+            setProducts(res.data.content)
+         }).catch(err => {
+            console.log(err)
+         })
+   }
+   const changeCategory = (event) => {
+      if(event === 'all'){
+         axios.get(`https://secondhandapp.herokuapp.com/api/product/all`)
+         .then(res => {
+           console.log(res)
+           setProducts(res.data.content)
+         }).catch(err => {
+           console.log(err)
+         })
+        } else{
+           axios.get(`https://secondhandapp.herokuapp.com/api/product/list?id=${event}&size=20`)
+           .then(res => {
+             console.log(res)
+             setProducts(res.data.content)
+           }).catch(err => {
+             console.log(err)
+           })
+         }
+        }
 
-   useEffect(()=> {
-      setLoading(true)
-      if(user){
-         axios
-         .get('https://secondhandapp.herokuapp.com/api/product/all?page=0&size=100', {headers:{Authorization:user}})
-            .then((res) => {
-               setLoading(false)
-               console.log(res.data.content)
-               setProduct(res.data.content)
-            })
-      } else {
-         axios
-         .get(`https://secondhandapp.herokuapp.com/api/product/all?page=0&size=20`)
-            .then(res => {
-               setLoading(false)
-               console.log(res.data.content)
-               setProduct(res.data.content)
-            })
-      }
-   }, [])
+   let items = [];
 
-   let page = 1; //usestate
-   let items = []; 
-   for (let number = 1; number <= 4; number++) {
+   for (let page = 1; page <= pagination; page++) {
    items.push(
-      <Pagination.Item key={number} active={number === page}>
-         {number}
+      <Pagination.Item onClick={()=>changePage(page)} key={page} active={page === current}>
+         {page}
       </Pagination.Item>,
    );
    }
+
   return (
     <>
       <NavbarSearch />
-      <Container className={style.container_}>
+      <Container className={styleFilter.container_}>
          <Row>
             <Col lg={2}>
-               <Filter/>
+            <div className={'card shadow-sm ' +styleFilter.card_}>
+               <h5 className='fw-bold text-center mt-3'>Filter</h5>
+               <div className={styleFilter.wrapper_filter}>
+                  <h6>Harga</h6>
+                  <select className={styleFilter.filter_1}>
+                     <option>Harga Terendah - Tertinggi</option>
+                     <option>Harga Tertinggi - Terendah</option>
+                  </select>
+                  <h6>Waktu</h6>
+                  <select className={styleFilter.filter_2}>            
+                     <option>Produk Terbaru - Lama</option>
+                     <option>Produk Terlama - Terbaru</option>
+                  </select>
+               </div>
+               <div className={styleFilter.kategori}>
+                  <h6>Kategori Teratas</h6>
+                  <KategoriButton changeCategory={changeCategory}/>
+                  {/* <KategoriButton text='Token'/>
+                  <KategoriButton text='Pakaian'/>
+                  <KategoriButton text='Makanan'/>
+                  <KategoriButton text='Elektronik'/>
+                  <KategoriButton text='Sparepart'/>
+                  <KategoriButton text='Obat'/>
+                  <KategoriButton text='Peralatan'/>
+                  <KategoriButton text='Mebel'/>
+                  <KategoriButton text='Sepatu'/> */}
+               </div>
+            </div>
+               {/* <Filter /> */}
             </Col>
             <Col lg={10} className={style.all}>
-               {loading ? (<Loading/>) :
-                  product.map( (product, i) => (
-                     <Cardss
-                     key={i}
-                     id={product.id}
-                     nama={product.nama}
-                     kategori_1={product.kategori_1 !== null ? product.kategori_1.nama : ''}
-                     kategori_2={product.kategori_2 !== null ? product.kategori_2.nama : ''}
-                     kategori_3={product.kategori_3 !== null ? '.' : ''}
-                     kategori_4={product.kategori_4 !== null ? '.' : ''}
-                     kategori_5={product.kategori_5 !== null ? '.' : ''}
-                     harga={idr.format(product.harga)}
-                     img={product.foto_produk_1} />
-               ))}
+               {
+                  products.map((semua,index) => {
+                     return(
+                        <Cardss 
+                           key={`Product-${index}`}
+                           product={semua}
+                        />
+                     )
+                  })
+               }
             </Col>
          </Row>
          <Row className={'my-3'}>
