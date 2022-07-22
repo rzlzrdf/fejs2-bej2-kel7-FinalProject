@@ -6,20 +6,19 @@ import { Link } from 'react-router-dom';
 
 const Cardss = (props) => {
   return (
-    <Link to='/produk'>
+    <Link to={`/produk/${props.id}`}>
     <Card className={style.wrapper_card + ' shadow-sm'}>
-      <Card.Img variant="top" src={props.product.foto_produk_1} className={style.img_} />
-      <Card.Body>
-        <p className={'fw-bold '+style.title}>{props.product.nama}</p>
-        <p className={'text-muted '+style.teks}>
-        {props.product.kategori_1 === null ? '' : props.product.kategori_1.nama + ' '}
-        {props.product.kategori_2 === null ? '' : props.product.kategori_2.nama + ' '}
-        {props.product.kategori_3 === null ? '' : props.product.kategori_3.nama + ' '}
-        {props.product.kategori_4 === null ? '' : props.product.kategori_4.nama + ' '}
-        {props.product.kategori_5 === null ? '' : props.product.kategori_5.nama + ' '}</p>
+      <div className={style.gambar}>
+        <img src={props.img ? props.img : "https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg"} />
+      </div>
+      <div className={style.label}>
+        <p className={'fw-bold '+style.title}>{props.nama}</p>
+        <span className={'text-muted '+style.teks}>
+        {props.kategori_1} {props.kategori_2} {props.kategori_3}{props.kategori_4}{props.kategori_5}
+        </span>
         <br/>
-        <p className={'fw-bold '+ style.harga}>Rp. {props.product.harga}</p>
-      </Card.Body>
+        <p className={'fw-bold '+ style.harga}>Rp. {props.harga}</p>
+      </div>
     </Card>
     </Link>
   )

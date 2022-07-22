@@ -42,10 +42,10 @@ const FormProduk = (props) => {
                      <Form.Label>Kategori</Form.Label>
                      <select className={'form-select ' + style.form___} aria-label="Default select example">
                         <option selected>Pilih Kota</option>
-                        <option value="1">Kota 1</option>
-                        <option value="1">Kota 1</option>
-                        <option value="1">Kota 1</option>
-                        <option value="1">Kota 1</option>
+                        <option value="kota_1">Kota 1</option>
+                        <option value="kota_2">Kota 2</option>
+                        <option value="kota_3">Kota 3</option>
+                        <option value="kota_4">Kota 4</option>
                      </select>
                   </Form.Group>
                   

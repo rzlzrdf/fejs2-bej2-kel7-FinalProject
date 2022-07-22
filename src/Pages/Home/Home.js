@@ -9,11 +9,14 @@ import Cardss from '../../Components/Card/Cardss'
 import { Link } from 'react-router-dom'
 import CarouselHome from '../../Components/CarouserHome/CarouselHome'
 import NavbarSearch from '../../Components/NavbarSearch/NavbarSearch';
+import { useSelector } from "react-redux";
 
 
 
 
 const Home = () => {
+
+  const { user } = useSelector((state) => state.auth);
 
   return (
     <>
@@ -71,19 +74,6 @@ const Home = () => {
           <Col lg={12} >
           <div className={'mt-3 '+ style.card_container}>
               {/*nanti tinggal gunakan method .map dari json endpoint untuk menampilkan isi card sebanyak x */}
-              <Cardss img={'./Img/rolex.webp'} title={'Rolex'} category={'Aksesoris'} price={'13.050.000'} />
-              <Cardss img={'./Img/xperia.jpg'} title={'Xperia 1 mark iii'} category={'Gadget'} price={'7.000.000'} />
-              <Cardss img={'./Img/appleWatch.jpeg'} title={'Apple Watch 3'} category={'Aksesoris'} price={'2.450.000'} />
-              <Cardss img={'./Img/rolex.webp'} title={'Rolex'} category={'Aksesoris'} price={'13.050.000'} />
-              <Cardss img={'./Img/xperia.jpg'} title={'Xperia 1 mark iii'} category={'Gadget'} price={'7.000.000'} />
-              <Cardss img={'./Img/appleWatch.jpeg'} title={'Apple Watch 3'} category={'Aksesoris'} price={'2.450.000'} />
-              <Cardss img={'./Img/rolex.webp'} title={'Rolex'} category={'Aksesoris'} price={'13.050.000'} />
-              <Cardss img={'./Img/rolex.webp'} title={'Rolex'} category={'Aksesoris'} price={'13.050.000'} />
-              <Cardss img={'./Img/xperia.jpg'} title={'Xperia 1 mark iii'} category={'Gadget'} price={'7.000.000'} />
-              <Cardss img={'./Img/appleWatch.jpeg'} title={'Apple Watch 3'} category={'Aksesoris'} price={'2.450.000'} />
-              <Cardss img={'./Img/Rectangle.png'} title={'Casio Digi Watch'} category={'Aksesoris'} price={'750.000'} />
-              <Cardss img={'./Img/Rectangle.png'} title={'Casio Digi Watch'} category={'Aksesoris'} price={'750.000'} />
-              <Cardss img={'./Img/lgtv.jpg'} title={'LG UHD TV 65inch OLED'} category={'Aksesoris'} price={'2.450.000'} />
               <Link to='/all'>
               <Button variant='dark' className={style.jual}> {/* ganti link to pages yg deden buat*/ }
                 <TbPlayerTrackNext className={style.next}/>
@@ -145,8 +135,9 @@ const Home = () => {
         {/* Bikin Akun */}
         <Row className={'' + style.daftarsekarang}>
           <Col lg={6} xs={12}>
-            <h1 className={'text-muted text-end '+style.textDaftar}>Bikin akunmu sekarang juga!</h1>
-            <Link to={'/register'}><Button variant='dark' className={'fw-bold '+style.daftarBtn}>Daftar</Button></Link>
+            {user === null && <h1 className={'text-muted text-end '+style.textDaftar}>Bikin akunmu sekarang juga!</h1>}
+            {user === null && <Link to={'/register'}><Button variant='dark' className={'fw-bold '+style.daftarBtn}>Daftar</Button></Link>}
+            {user !== null && <h1 className={'text-muted text-end '+style.textDaftar}>Selamat Datang</h1>}
           </Col>
           <Col lg={6} xs={12}>
             <img src='./Img/2a.png' alt='' className={style.daftarImg} />
