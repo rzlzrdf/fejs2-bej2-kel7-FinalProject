@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import Spinner from 'react-bootstrap/Spinner';
 import style from './Loading.module.css'
 
+
 const Loading = () => {
   return (
    <Container>

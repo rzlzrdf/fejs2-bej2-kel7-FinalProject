@@ -46,7 +46,7 @@ const Login = () => {
       </div>
       <div className={style.login_form + " col-lg-6 col-sm-12"}>
         <Link to="/">
-          <img src="./Img/logo.svg" alt="" className="py-4" />
+          <img src="./Img/logo.svg" style={{width:130, height:42}} alt="" />
         </Link>
         <h3 className="fw-bold my-3">Masuk</h3>
         <form
@@ -96,7 +96,7 @@ const Login = () => {
         {error && <p className="text-danger text-center fw-light">{error}</p>}
         <p className="mt-4 d-flex justify-content-center">
           Belum punya akun?
-          <Link to="/register" className="register">
+          <Link to="/register" className={style.login}>
             Daftar disini
           </Link>
         </p>

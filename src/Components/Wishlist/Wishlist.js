@@ -10,7 +10,7 @@ const Wishlist = () => {
 
   useEffect(() => {
     axios
-      .get('https://secondhandapp.herokuapp.com/api/product/list-by-user', {
+      .get('https://secondhandapp.herokuapp.com/api/wishlist/list', {
         headers: {
           Authorization:
           user,

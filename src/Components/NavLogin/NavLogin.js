@@ -20,8 +20,8 @@ const NavLogin = () => {
       },
     })
       .then((res) => {
-         console.log(res.data.dataNotif)
-         setData(res.data.dataNotif)
+         console.log(res.data.data)
+         setData(res.data.data)
       })
    
      
@@ -44,7 +44,7 @@ const NavLogin = () => {
                 {/* <span className={"badge rounded-pill badge-notification bg-danger "}></span> */}
               </Dropdown.Toggle>
               <Dropdown.Menu className={`p-3 w-auto ${style.dropdownMenu}`}>
-              {/* {data?.map((product, id) => {
+              {/* {data?.map((data, id) => {
                return(
                <AppDropdownList img={'./Img/xperia.jpg'} title={'Penawaran produk'} date={'20 Jan 22'} name={'Xperia 1 mark iii'} price={'5.250.000'} desc={'Ditawar Rp 4.200.000'} link={'#/action-1'} />
                   

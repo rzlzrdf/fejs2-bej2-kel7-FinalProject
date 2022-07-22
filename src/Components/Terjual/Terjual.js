@@ -11,7 +11,7 @@ const Terjual = () => {
 
   useEffect(() => {
     axios
-      .get('https://secondhandapp.herokuapp.com/api/product/list-by-user', {
+      .get('https://secondhandapp.herokuapp.com/api/product/terjual', {
         headers: {
           Authorization:
             user,
@@ -19,7 +19,7 @@ const Terjual = () => {
       })
       .then((response) => {
         console.log(response.data);
-        setProducts(response.data)
+        setProducts(response.data.data)
       });
   }, []);
 
