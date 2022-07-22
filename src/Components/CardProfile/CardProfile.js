@@ -21,7 +21,6 @@ const { user } = useSelector((state) => state.auth);
         },
       })
       .then((response) => {
-        console.log(response);
         setLoading(false)
         setProducts(response.data)
       });
@@ -33,7 +32,7 @@ const { user } = useSelector((state) => state.auth);
       <Card className={style.card__profile+ " shadow-sm"}>
         <div className={style.profile}>
           <div className={style.left}>
-            <img src={'./Img/profile.png'} alt={''} className={style.img_} />
+            <img src={products.foto_profil} alt={''} className={style.img_} />
           </div>
           <div className={style.right}>
             <div className={style.info}>

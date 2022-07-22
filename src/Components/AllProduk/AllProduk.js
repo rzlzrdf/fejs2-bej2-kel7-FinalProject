@@ -2,11 +2,11 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import { Button } from 'react-bootstrap'
 import {AiOutlineFileAdd} from 'react-icons/ai'
-import Cardss from '../Card/Cardss'
 import style from './AllProduk.module.css'
 import { Link } from 'react-router-dom'
 import { useSelector } from "react-redux";
 import Loading from "../Loading/Loading"
+import Cardss from '../Card/Cardss'
 
 
 
@@ -26,7 +26,7 @@ const AllProduk = () => {
         },
       })
       .then((response) => {
-        console.log(response.data);
+        console.log(response);
         setLoading(false)
         setProducts(response.data)
       });
@@ -45,23 +45,16 @@ const AllProduk = () => {
             <p>Tambah Produk</p>
           </Button>
       </Link>
-      
-      {products?.map( (product, id) => {
-        return(
-          <Cardss
-          id={product.id}
-          nama={product.nama}
-          kategori_1={product.kategori_1 !== null ? product.kategori_1.nama : ''}
-          kategori_2={product.kategori_2 !== null ? product.kategori_2.nama : ''}
-          kategori_3={product.kategori_3 !== null ? product.kategori_3.nama : ''}
-          kategori_4={product.kategori_4 !== null ? product.kategori_4.nama : ''}
-          kategori_5={product.kategori_5 !== null ? product.kategori_5.nama : ''}
-          harga={product.harga}
-          img={product.foto_produk_1} 
-
-          />
-        )
-      })}
+      {
+        products===null ? (<div>Tidak ada</div>) : products.map((semua,index) => {
+          return(
+              <Cardss 
+                key={`Product-${index}`}
+                product={semua}
+              />
+          )
+        })
+      }
                 
     </div>)}
     </>

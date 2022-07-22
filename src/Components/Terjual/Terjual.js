@@ -3,6 +3,7 @@ import axios from "axios";
 import Cardss from '../Card/Cardss'
 import style from './Terjual.module.css'
 import { useSelector } from "react-redux";
+import Empty from "../Card/Empty";
 
 
 const Terjual = () => {
@@ -26,24 +27,16 @@ const Terjual = () => {
 
   return (
     <div className={style.wrapper_card}>
-
     {
-    
-    products?.map( (product, id) => {
-      return(
-        <Cardss
-          id={product.id}
-          nama={product.nama}
-          kategori_1={product.kategori_1 !== null ? product.kategori_1.nama : ''}
-          kategori_2={product.kategori_2 !== null ? product.kategori_2.nama : ''}
-          kategori_3={product.kategori_3 !== null ? product.kategori_3.nama : ''}
-          kategori_4={product.kategori_4 !== null ? product.kategori_4.nama : ''}
-          kategori_5={product.kategori_5 !== null ? product.kategori_5.nama : ''}
-          harga={product.harga}
-          img={product.foto_produk_1} 
-        />
-      )
-    })}
+      products==null ? (<h5 className="fw-light text-muted mt-4">Belum ada produk disini</h5>) : products?.map((semua,index) => {
+        return(
+            <Cardss 
+              key={`Product-${index}`}
+              product={semua}
+            />
+        )
+      })
+    }
     </div>
   )
 }

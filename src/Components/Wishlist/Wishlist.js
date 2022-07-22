@@ -23,11 +23,16 @@ const Wishlist = () => {
   }, []);
   return (
     <div className={style.wrapper_card}>
-    {products?.map( (product, id) => {
-      return(
-        <Cardss key={`product-${id}`} product = {product} />
-      )
-    })}
+     {
+        products===null ? (<div>Tidak ada</div>) : products.map((semua,index) => {
+          return(
+              <Cardss 
+                key={`Product-${index}`}
+                product={semua}
+              />
+          )
+        })
+      }
     </div>
   )
 }

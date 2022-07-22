@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 
 const Disukai = () => {
 
-  const [products, setProducts] = useState({})
+  const [products, setProducts] = useState(null)
   const [loading, setLoading] =useState(true)
   const { user } = useSelector((state) => state.auth);
 
@@ -33,17 +33,16 @@ const Disukai = () => {
     <>
     {loading ? (<Loading/>) :(
     <div className={style.wrapper_card}>
-     
-      
-      {products.map( (semua,index) => {
-        console.log(semua.produk)
+    {
+      products===null ? (<h1>Tidak ada</h1>) : products.map((semua,index) => {
         return(
-          <Cardss
-          key={`Product-${index}`}
-          product={semua.produk}
-          />
+            <Cardss 
+              key={`Product-${index}`}
+              product={semua}
+            />
         )
-      })}            
+      })
+    }
     </div>)}
     </>
   )

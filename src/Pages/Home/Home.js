@@ -13,10 +13,6 @@ import { Link } from 'react-router-dom'
 import CarouselHome from '../../Components/CarouserHome/CarouselHome'
 import NavbarSearch from '../../Components/NavbarSearch/NavbarSearch';
 import Loading from '../../Components/Loading/Loading'
-import authSlice from '../../Features/authSlice'
-
-
-
 
 const Home = () => {
 
@@ -24,7 +20,6 @@ const Home = () => {
   const [loading, setLoading] = useState(true)
   const { user } = useSelector((state) => state.auth);
 
-  const decode = 
 
  useEffect(() => {
     axios.get('https://secondhandapp.herokuapp.com/api/product/all?size=13')

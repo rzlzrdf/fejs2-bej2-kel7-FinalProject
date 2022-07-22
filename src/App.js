@@ -20,6 +20,7 @@ import Wishlist from "./Components/Wishlist/Wishlist";
 import Semua from "./Pages/Semua/Semua";
 import Notif from "./Pages/Notif/Notif";
 import Auth from "./Components/Auth/Auth";
+import ButtonMenawar from "./Components/Deden/ButtonMenawar";
 
 function App() {
   const { user } = useSelector((state) => state.auth);
@@ -42,6 +43,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/all" element={<Semua />} />
           <Route path="/notifikasi" element={<Notif />} />
+          <Route path="/test" element={<ButtonMenawar />} />
 
           <Route element={<Auth />}>
             {/* MASUKKAN PROTECTED ROUTE DISINI */}
