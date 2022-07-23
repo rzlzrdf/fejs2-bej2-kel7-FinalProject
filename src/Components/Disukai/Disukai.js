@@ -43,7 +43,11 @@ const Disukai = () => {
             id={data.id_produk}
             foto_produk_1={data.foto_produk_1}
             nama={data.nama}
-            kategori_1={data.kategori_1}
+            kategori_1={data.kategori_1.nama}
+            kategori_2={data.kategori_2.nama}
+            kategori_3={data.kategori_3?data.kategori_3.nama : '.'}
+            kategori_4={data.kategori_4?data.kategori_4.nama : '.'}
+            kategori_5={data.kategori_5?data.kategori_5.nama : '.'}
             harga={data.harga}
           />
       )
