@@ -26,7 +26,7 @@ const Home = () => {
  useEffect(() => {
   setLoading(true)
   if(user){
-    axios.get('https://secondhandapp.herokuapp.com/api/product/all?size=15',
+    axios.get('https://secondhandapp.herokuapp.com/api/product/all?size=13',
       {
         headers:{
           Authorization:user
@@ -40,7 +40,7 @@ const Home = () => {
        setProduct(response.data.content)
     })
   } else {
-    axios.get('https://secondhandapp.herokuapp.com/api/product/all?size=15')
+    axios.get('https://secondhandapp.herokuapp.com/api/product/all?size=13')
     .then(response=>{
       setLoading(false)
       console.log(response.data.content)
@@ -52,7 +52,7 @@ const Home = () => {
 
   const changeCategory = (event) => {
     if(event === 'all'){
-      axios.get(`https://secondhandapp.herokuapp.com/api/product/all?size=15`)
+      axios.get(`https://secondhandapp.herokuapp.com/api/product/all?size=135`)
       .then(res => {
         console.log(res)
         setProduct(res.data.content)
@@ -60,7 +60,7 @@ const Home = () => {
         console.log(err)
       })
      } else{
-        axios.get(`https://secondhandapp.herokuapp.com/api/product/list?id=${event}&size=15`)
+        axios.get(`https://secondhandapp.herokuapp.com/api/product/list?id=${event}&size=13`)
         .then(res => {
           console.log(res)
           setProduct(res.data.content)
@@ -72,7 +72,7 @@ const Home = () => {
 
   const userchangeCategory = (event) => {
   if(user && event === 'all'){
-    axios.get(`https://secondhandapp.herokuapp.com/api/product/all?size=15`,
+    axios.get(`https://secondhandapp.herokuapp.com/api/product/all?size=13`,
     {
       headers:{
         Authorization:user
@@ -86,7 +86,7 @@ const Home = () => {
       console.log(err)
     })
     } else if (user){
-      axios.get(`https://secondhandapp.herokuapp.com/api/product/list?id=${event}&size=15`,
+      axios.get(`https://secondhandapp.herokuapp.com/api/product/list?id=${event}&size=13`,
       {
         headers:{
           Authorization:user
