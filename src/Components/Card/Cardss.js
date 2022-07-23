@@ -14,12 +14,14 @@ const Cardss = (props) => {
         <span className={'text-muted '+style.teks}>
           {props.product.kategori_1 === null ? '' : props.product.kategori_1.nama + ' '}
           {props.product.kategori_2 === null ? '' : props.product.kategori_2.nama + ' '}
-          {props.product.kategori_3 === null ? '' : props.product.kategori_3.nama + ' '}
-          {props.product.kategori_4 === null ? '' : props.product.kategori_4.nama + ' '}
-          {props.product.kategori_5 === null ? '' : props.product.kategori_5.nama + ' '}
+          {props.product.kategori_3 === null ? '' : '.'}
+          {props.product.kategori_4 === null ? '' : '.'}
+          {props.product.kategori_5 === null ? '' : '.'}
         </span>
         <br/>  
-        <p className={'fw-bold '+ style.harga}>Rp. {props.product.harga}</p>
+        <p className={'fw-bold '+ style.harga}>Rp. {new Intl.NumberFormat("id-ID", {
+              currency: "IDR",
+            }).format(props.product.harga)}</p>
       </div>
     </Card>
     </Link>
