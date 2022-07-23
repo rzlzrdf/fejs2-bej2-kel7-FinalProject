@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Cardss from '../Card/Cardss'
+import Kartu from '../Card/Kartu'
 import style from './Disukai.module.css'
 import Loading from "../Loading/Loading";
 import { useSelector } from "react-redux";
@@ -22,9 +22,9 @@ const Disukai = () => {
         },
       })
       .then((response) => {
-        console.log(response.data.data);
+        console.log(response.data.disukai);
         setLoading(false)
-        setProducts(response.data.data)
+        setProducts(response.data.disukai)
       });
   }, []);
 
@@ -34,13 +34,19 @@ const Disukai = () => {
     {loading ? (<Loading/>) :(
     <div className={style.wrapper_card}>
     {
-      products===null ? (<h1>Tidak ada</h1>) : products.map((semua,index) => {
+      products===null ? 
+      (<h5 className="fw-light text-muted mt-4">Belum ada produk disini</h5>) : 
+      products?.map((data,index) => {
         return(
-            <Cardss 
-              key={`Product-${index}`}
-              product={semua}
-            />
-        )
+          <Kartu 
+            key={index}
+            id={data.id_produk}
+            foto_produk_1={data.foto_produk_1}
+            nama={data.nama}
+            kategori_1={data.kategori_1}
+            harga={data.harga}
+          />
+      )
       })
     }
     </div>)}

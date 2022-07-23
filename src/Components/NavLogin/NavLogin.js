@@ -20,7 +20,7 @@ const NavLogin = () => {
       },
     })
       .then((res) => {
-         console.log(res.data.data)
+         console.log(res.data.notif)
          setData(res.data.data)
       })
    

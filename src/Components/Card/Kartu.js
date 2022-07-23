@@ -12,11 +12,11 @@ const Cardss = (props) => {
       <div className={style.labels}>
         <p className={'fw-bold '+style.title}>{props.nama}</p>
         <p className={'text-muted '+style.teks}>
-          {props.kategori_1 === null ? '' : props.kategori_1.nama + ' '}
-          {props.kategori_2 === null ? '' : props.kategori_2.nama + ' '}
-          {props.kategori_3 === null ? '' : props.kategori_3.nama + ' '}
-          {props.kategori_4 === null ? '' : props.kategori_4.nama + ' '}
-          {props.kategori_5 === null ? '' : props.kategori_5.nama + ' '}
+          {props.kategori_1 === undefined ? '' : props.kategori_1 + ' '}
+          {props.kategori_2 === undefined ? '' : props.kategori_2 + ' '}
+          {props.kategori_3 === undefined ? '' : '.'}
+          {props.kategori_4 === undefined ? '' : '.'}
+          {props.kategori_5 === undefined ? '' : '.'}
         </p>
         <br/>  
         <p className={'fw-bold '+ style.harga}>Rp. {props.harga}</p>
