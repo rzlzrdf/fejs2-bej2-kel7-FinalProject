@@ -1,8 +1,8 @@
 .wrapper_card{
     width: 150px;
-    height: 240px;
+    height: 250px;
     border-color: #cccccc;
-    border-radius: 0px;
+    border-radius: 8px;
 }
 
 img{
@@ -11,6 +11,8 @@ img{
     object-fit: cover;
     object-position: center;
     overflow: hidden;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
 .labels{
