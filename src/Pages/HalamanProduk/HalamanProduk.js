@@ -3,6 +3,7 @@ import Cards from '../../Components/HalamanProduk/SellerCard'
 import Corousel from '../../Components/HalamanProduk/Corousel'
 import Deskripsi from '../../Components/HalamanProduk/Deskripsi'
 import Profile from '../../Components/HalamanProduk/Profile'
+import CardBuyer from '../../Components/HalamanProduk/CardBuyer'
 import { Col, Container, Row } from 'react-bootstrap'
 import NavbarSearch from '../../Components/NavbarSearch/NavbarSearch'
 import axios from 'axios'
@@ -16,9 +17,11 @@ const SellerHalamanProduk = () => {
 
   const [product, setProduct] = useState([])
   const [loading, setLoading] = useState(true)
+  const [disable, setDisable] = useState(false)
+  const [show, setShow] = useState(false)
+  const buttonText = disable ? 'Menunggu respon penjual' : 'Saya Tertarik dan ingin nego'
 
   const {id} = useParams()
-  console.log(id)
 
   useEffect(()=>{
     setLoading(true)
@@ -39,21 +42,20 @@ const SellerHalamanProduk = () => {
       <Row>
         <Col lg={{offset: 1, span: 6}}>
           <Corousel 
-          foto1={product.foto_produk_1}
+          produk={product}
           />
         </Col>
         <Col lg={4} >
-          <Cards
-            title={product.nama}
-            cat1={product.kategori_1.nama}
-            cat2={product.kategori_2.nama}
-            price={idr.format(product.harga)}/>
-          <Profile/>
+          <CardBuyer 
+            id={id}
+            produk={product}
+          />
+          <Profile produk={product}/>
         </Col>
       </Row>
       <Row>
         <Col lg={{span:6, offset: 1}}>
-        <Deskripsi desc={product.deskripsi}/>
+          <Deskripsi desc={product.deskripsi}/>
         </Col>
       </Row></>}
     </Container>

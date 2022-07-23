@@ -14,26 +14,70 @@ import CarouselHome from '../../Components/CarouserHome/CarouselHome'
 import NavbarSearch from '../../Components/NavbarSearch/NavbarSearch';
 import Loading from '../../Components/Loading/Loading'
 
+
+
+
 const Home = () => {
 
+  const {user} = useSelector((state) => state.auth)
   const [products, setProduct] = useState([])
   const [loading, setLoading] = useState(true)
-  const { user } = useSelector((state) => state.auth);
-
 
  useEffect(() => {
-    axios.get('https://secondhandapp.herokuapp.com/api/product/all?size=13')
+  setLoading(true)
+  if(user){
+    axios.get('https://secondhandapp.herokuapp.com/api/product/all?size=15',
+      {
+        headers:{
+          Authorization:user
+        }
+      }
+    )
     .then(response=>{
+       setLoading(false)
        console.log(response.data.content)
        setLoading(false)
        setProduct(response.data.content)
     })
+  } else {
+    axios.get('https://secondhandapp.herokuapp.com/api/product/all?size=15')
+    .then(response=>{
+      setLoading(false)
+      console.log(response.data.content)
+      setProduct(response.data.content)
+   })
+  }
  },[])
 
- const changeCategory = (event) => {
-  // kondisional
-  if(event === 'all'){
-    axios.get(`https://secondhandapp.herokuapp.com/api/product/all?size=13`)
+
+  const changeCategory = (event) => {
+    if(event === 'all'){
+      axios.get(`https://secondhandapp.herokuapp.com/api/product/all?size=15`)
+      .then(res => {
+        console.log(res)
+        setProduct(res.data.content)
+      }).catch(err => {
+        console.log(err)
+      })
+     } else{
+        axios.get(`https://secondhandapp.herokuapp.com/api/product/list?id=${event}&size=15`)
+        .then(res => {
+          console.log(res)
+          setProduct(res.data.content)
+        }).catch(err => {
+          console.log(err)
+        })
+      }
+    }
+
+  const userchangeCategory = (event) => {
+  if(user && event === 'all'){
+    axios.get(`https://secondhandapp.herokuapp.com/api/product/all?size=15`,
+    {
+      headers:{
+        Authorization:user
+      }
+    })
     .then(res => {
       console.log(res)
       setLoading(false)
@@ -41,8 +85,13 @@ const Home = () => {
     }).catch(err => {
       console.log(err)
     })
-   } else{
-      axios.get(`https://secondhandapp.herokuapp.com/api/product/list?id=${event}&size=15`)
+    } else if (user){
+      axios.get(`https://secondhandapp.herokuapp.com/api/product/list?id=${event}&size=15`,
+      {
+        headers:{
+          Authorization:user
+        }
+      })
       .then(res => {
         console.log(res)
         setLoading(false)
@@ -51,6 +100,15 @@ const Home = () => {
         console.log(err)
       })
     }
+    }
+
+   const handleButtonJual = () => {
+    axios.get(`https://secondhandapp.herokuapp.com/api/user/detail-user`)
+    .then(res=>{
+      console.log(res)
+    }).catch(err=>{
+      console.log(err)
+    })
    }
 
   return (
@@ -64,7 +122,7 @@ const Home = () => {
           <Col lg={7} md={12} sm={12} className={'d-block mt-4'} >
             <h3 className='text-muted'>Telusuri Kategori</h3>
             <div className={' '+style.wrapper_kategori}>
-              <KategoriButton changeCategory={changeCategory} />
+              <KategoriButton changeCategory={user ? userchangeCategory : changeCategory} />
             </div>
           </Col>
           {/* Animation */}
@@ -97,7 +155,8 @@ const Home = () => {
           <Col lg={12} >
           <div className={'mt-3 '+ style.card_container}>
               {/*nanti tinggal gunakan method .map dari json endpoint untuk menampilkan isi card sebanyak x */}
-              {
+
+              {loading ? (<Loading/>):
                 products.map((semua,index) => {
                   return(
                      <Cardss 
@@ -115,7 +174,7 @@ const Home = () => {
               </Link>
             </div>
           </Col>
-          <Button className={style.btn_jual}><Link to='/info-produk' className='text-light'><FiPlus/> Jual</Link></Button>
+          <Button onClick={handleButtonJual} className={style.btn_jual}><FiPlus/> Jual</Button>
         </Row>
         <Row>
           <Col lg={12} className='mt-4'>

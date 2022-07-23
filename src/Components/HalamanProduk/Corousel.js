@@ -9,7 +9,6 @@ import { Button, Carousel, CarouselItem } from 'react-bootstrap';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 
-
 const Corousel = (props) => {
   return (
 
@@ -45,8 +44,8 @@ const Corousel = (props) => {
       })
       }
       
-      {/* <SwiperSlide><img src={props.produk} alt=''/></SwiperSlide>  
-      <SwiperSlide><img src={props.produk} alt=''/></SwiperSlide> */}
+      {/* <SwiperSlide><img src={props.produk.foto_produk_1} alt=''/></SwiperSlide>   */}
+      {/* <SwiperSlide><img src={props.produk} alt=''/></SwiperSlide> */}
       </Swiper> 
     </div>
   )
