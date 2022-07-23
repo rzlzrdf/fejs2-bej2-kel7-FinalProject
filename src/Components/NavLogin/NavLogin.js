@@ -11,9 +11,9 @@ const NavLogin = () => {
       <Navbar.Toggle className={style.togle} />
           <Navbar.Collapse className={style.mobile}>
           <Nav className={"ms-auto "+ style.btn_wrapper}>
-            <Nav.Link className={style.btn_}><Link to='/daftar-jual'><FaListUl /> <span className='d-md-none '> Daftar Jual</span></Link></Nav.Link>
+            <Link id='RouterNavLink' className={style.btn_} to='/daftar-jual'><FaListUl /> <span className='d-md-none '> Daftar Jual</span></Link>
 
-            <Nav.Link className={'d-md-none ' + style.btn_}><Link to='/notifikasi'><FaBell /> <span> Notifikasi</span></Link></Nav.Link>
+            <Link to='/notifikasi' id="RouterNavLink" className={'d-md-none ' + style.btn_}><FaBell /> <span> Notifikasi</span></Link>
 
             <Dropdown to="#" align={'end'} className={style.btn_dropdown} >
               <Dropdown.Toggle variant='white' className={'' + style.icons_menu} id='dropdown-basic' >
@@ -28,7 +28,7 @@ const NavLogin = () => {
               </Dropdown.Menu>
             </Dropdown>
 
-            <Nav.Link className={style.btn_}><Link to='/info-profil'><FaUser /> <span className='d-md-none'> Akun Saya</span></Link></Nav.Link>
+            <Link to='/info-profil' id="RouterNavLink" className={style.btn_}><FaUser /> <span className='d-md-none'> Akun Saya</span></Link>
           </Nav>
         </Navbar.Collapse>
     </>

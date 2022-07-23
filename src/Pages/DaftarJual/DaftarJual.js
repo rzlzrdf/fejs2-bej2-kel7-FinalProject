@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import axios from 'axios'
 import {Container, Row, Col} from 'react-bootstrap'
 import {Outlet} from 'react-router-dom'
 import style from './DaftarJual.module.css'
@@ -8,6 +9,7 @@ import PanelMobile from '../../Components/PanelKategoriJual/PanelMobile'
 import NavbarSearch from '../../Components/NavbarSearch/NavbarSearch'
 
 function DaftarJual() {
+  
   return (
     <>
       <NavbarSearch />

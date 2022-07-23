@@ -1,14 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
-
 :root {
 	--primary: #7126b5;
 }
 
-.login-container {
+.register_container {
 	max-height: 100vh;
   }
   
- .hero-login {
+  
+ .hero_register {
 	background-color: #7126B5;
 	-ms-flex-preferred-size: 50%;
 	flex-basis: 50%;
@@ -18,36 +17,35 @@
 	overflow: hidden
   }
   
- .hero-login img {
+ .hero_register img {
 	flex-shrink: 0;
 	 min-width: 100%;
 	 min-height: 100%
   }
   
-  .login-form {
-	font-family: Poppins;
+  .register_form {
 	padding: 8% 10%;
 	-ms-flex-preferred-size: 50%;
 		flex-basis: 50%;
 	max-height: 100vh;
   }
 
-  .form-control{
+  .input_{
 	border-radius: 20px;
   }
   
-  .login-form button {
+  .register_form button {
 	background-color: #7126B5;
 	border: none;
   }
  
-  .btn-signin{
+  .btn_signin{
 	background-color: #7126B5;
 	border-color: #7126B5;
 	border-radius: 16px;
   }
 
-  .register{
+  .login{
 	text-decoration: none;;
 	margin-left: 5px;
 	color: var(--primary);
@@ -56,20 +54,18 @@
 	line-height: 20px;
 	letter-spacing: 0em;
 	text-align: left;
-	text-transform: capitalize;
+  }
+  
+@media only screen and (max-width: 768px) {
+.hero_register{
+display: none;
+}
+
+.register_form {
+	padding: 8% 10%;
+	-ms-flex-preferred-size: 100%;
+		flex-basis: 100%;
+	max-height: 100vh;
   }
 
-  @media only screen and (max-width: 768px) {
-	.hero-login{
-	display: none;
-	}
-	
-	.login-form {
-		font-family: Poppins;
-		padding: 8% 10%;
-		-ms-flex-preferred-size: 100%;
-			flex-basis: 100%;
-		max-height: 100vh;
-	  }
-	
-	}
+}

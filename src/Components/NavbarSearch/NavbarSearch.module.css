@@ -5,7 +5,7 @@
 
 
 .search_container{
-    width: 45%;
+    width: 40%;
 }
 
 .search{
@@ -22,6 +22,20 @@
     height: 32px;
 }
 
+.buttonLogin{
+    height: 100%;
+    background-color: #7126B5;
+    color: #eeeeee;
+    border: none;
+    border-radius: 10px;
+    padding: 1vh;
+}
+.buttonLogin:hover{
+    color: #7126B5;
+    background-color: #eeeeee;
+    border: 1px solid #7126B5;
+}
+
 @media only screen and (max-width: 768px) {
     .logo{
         display: none;
@@ -31,3 +45,16 @@
         width: 70%;
     }
 }
+
+@media only screen and (max-width: 425px){
+    .logo{
+        display: none;
+    }
+    .search_container{
+        width: 70%;
+    }
+
+    .buttonLogin{
+        padding: 0.5vh;
+    }
+} 

@@ -12,34 +12,84 @@ import Cardss from '../../Components/Card/Cardss'
 import { Link } from 'react-router-dom'
 import CarouselHome from '../../Components/CarouserHome/CarouselHome'
 import NavbarSearch from '../../Components/NavbarSearch/NavbarSearch';
+import Loading from '../../Components/Loading/Loading'
 
 
 
 
 const Home = () => {
 
+  const {user} = useSelector((state) => state.auth)
   const [products, setProduct] = useState([])
+  const [loading, setLoading] = useState(true)
 
  useEffect(() => {
-    axios.get('https://secondhandapp.herokuapp.com/api/product/all?size=15')
+  setLoading(true)
+  if(user){
+    axios.get('https://secondhandapp.herokuapp.com/api/product/all?size=15',
+      {
+        headers:{
+          Authorization:user
+        }
+      }
+    )
     .then(response=>{
+       setLoading(false)
        console.log(response.data.content)
        setProduct(response.data.content)
     })
+  } else {
+    axios.get('https://secondhandapp.herokuapp.com/api/product/all?size=15')
+    .then(response=>{
+      setLoading(false)
+      console.log(response.data.content)
+      setProduct(response.data.content)
+   })
+  }
  },[])
 
- const changeCategory = (event) => {
-  // kondisional
-  if(event === 'all'){
-    axios.get(`https://secondhandapp.herokuapp.com/api/product/all?size=15`)
+
+  const changeCategory = (event) => {
+    if(event === 'all'){
+      axios.get(`https://secondhandapp.herokuapp.com/api/product/all?size=15`)
+      .then(res => {
+        console.log(res)
+        setProduct(res.data.content)
+      }).catch(err => {
+        console.log(err)
+      })
+     } else{
+        axios.get(`https://secondhandapp.herokuapp.com/api/product/list?id=${event}&size=15`)
+        .then(res => {
+          console.log(res)
+          setProduct(res.data.content)
+        }).catch(err => {
+          console.log(err)
+        })
+      }
+    }
+
+  const userchangeCategory = (event) => {
+  if(user && event === 'all'){
+    axios.get(`https://secondhandapp.herokuapp.com/api/product/all?size=15`,
+    {
+      headers:{
+        Authorization:user
+      }
+    })
     .then(res => {
       console.log(res)
       setProduct(res.data.content)
     }).catch(err => {
       console.log(err)
     })
-   } else{
-      axios.get(`https://secondhandapp.herokuapp.com/api/product/list?id=${event}&size=15`)
+    } else if (user){
+      axios.get(`https://secondhandapp.herokuapp.com/api/product/list?id=${event}&size=15`,
+      {
+        headers:{
+          Authorization:user
+        }
+      })
       .then(res => {
         console.log(res)
         setProduct(res.data.content)
@@ -47,7 +97,7 @@ const Home = () => {
         console.log(err)
       })
     }
-   }
+    }
 
    const handleButtonJual = () => {
     axios.get(`https://secondhandapp.herokuapp.com/api/user/detail-user`)
@@ -68,7 +118,7 @@ const Home = () => {
           <Col lg={7} md={12} sm={12} className={'d-block mt-4'} >
             <h3 className='text-muted'>Telusuri Kategori</h3>
             <div className={' '+style.wrapper_kategori}>
-              <KategoriButton changeCategory={changeCategory} />
+              <KategoriButton changeCategory={user ? userchangeCategory : changeCategory} />
             </div>
           </Col>
           {/* Animation */}
@@ -101,7 +151,8 @@ const Home = () => {
           <Col lg={12} >
           <div className={'mt-3 '+ style.card_container}>
               {/*nanti tinggal gunakan method .map dari json endpoint untuk menampilkan isi card sebanyak x */}
-              {
+
+              {loading ? (<Loading/>):
                 products.map((semua,index) => {
                   return(
                      <Cardss 
@@ -185,8 +236,9 @@ const Home = () => {
         {/* Bikin Akun */}
         <Row className={'' + style.daftarsekarang}>
           <Col lg={6} xs={12}>
-            <h1 className={'text-muted text-end '+style.textDaftar}>Bikin akunmu sekarang juga!</h1>
-            <Link to={'/register'}><Button variant='dark' className={'fw-bold '+style.daftarBtn}>Daftar</Button></Link>
+            {user === null && <h1 className={'text-muted text-end '+style.textDaftar}>Bikin akunmu sekarang juga!</h1>}
+            {user === null && <Link to={'/register'}><Button variant='dark' className={'fw-bold '+style.daftarBtn}>Daftar</Button></Link>}
+            {user !== null && <h1 className={'text-muted text-end '+style.textDaftar}>Selamat Datang</h1>}
           </Col>
           <Col lg={6} xs={12}>
             <img src='./Img/2a.png' alt='' className={style.daftarImg} />
