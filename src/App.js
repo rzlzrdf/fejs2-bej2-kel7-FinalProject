@@ -36,11 +36,10 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
-          <Route path="/all" element={<Semua />} />
+          <Route path="/all/:product" element={<Semua />} />
           <Route path="/notifikasi" element={<Notif />} />
           <Route path="/produk/:id" element={<HalamanProduk />} />
 
@@ -56,7 +55,6 @@ function App() {
               <Route path="wishlist" element={<Wishlist />} />
             </Route>
           </Route>
-
         </Routes>
       </BrowserRouter>
     </div>
