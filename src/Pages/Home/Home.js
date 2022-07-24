@@ -53,7 +53,7 @@ const Home = () => {
   const changeCategory = (event) => {
     if (event === "all") {
       axios
-        .get(`https://secondhandapp.herokuapp.com/api/product/all?size=135`)
+        .get(`https://secondhandapp.herokuapp.com/api/product/all?size=13`)
         .then((res) => {
           console.log(res);
           setProduct(res.data.content);
