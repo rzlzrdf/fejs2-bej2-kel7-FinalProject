@@ -11,13 +11,13 @@ const Cardss = (props) => {
       <img variant="top" alt='' src={props.product.foto_produk_1}/>
       <div className={style.labels}>
         <p className={'fw-bold '+style.title}>{props.product.nama}</p>
-        {/* <span className={'text-muted '+style.teks}>
+        {<span className={'text-muted '+style.teks}>
           {props.product.kategori_1 === null ? '' : props.product.kategori_1.nama + ' '}
           {props.product.kategori_2 === null ? '' : props.product.kategori_2.nama + ' '}
           {props.product.kategori_3 === null ? '' : '.'}
           {props.product.kategori_4 === null ? '' : '.'}
           {props.product.kategori_5 === null ? '' : '.'}
-        </span> */}
+        </span> }
         <br/>  
         <p className={'fw-bold '+ style.harga}>Rp. {new Intl.NumberFormat("id-ID", {
             currency: "IDR",
