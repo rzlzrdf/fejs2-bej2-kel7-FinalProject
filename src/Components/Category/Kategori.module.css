@@ -1,0 +1,16 @@
+.button{
+    background: #E2D4F0;
+    color: #000000;
+    border-radius: 12px;
+    font-size: 14px;
+    border: none;
+}
+.button:hover{
+    background: #7126B5;
+    color: #fefefe;
+}
+
+.logo{
+    position: relative;
+    top: -2px;
+}

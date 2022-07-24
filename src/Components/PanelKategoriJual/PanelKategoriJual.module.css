@@ -1,0 +1,38 @@
+.card{
+   border: none;
+   max-width: 70%;
+}
+
+.btn_{
+   display: flex;
+   justify-content:space-between;
+   align-items: center;
+   height: 50px;
+   width: 100%;
+   background-color: transparent;
+   color: #8a8a8a;
+   border: none;
+   border-bottom: 1px solid #8A8A8A;
+   cursor: pointer;
+   transition-duration: 0.4s;
+   font-size: 16px;
+   font-weight: 500;
+}
+
+.btn_:hover{
+   color: #7126B5;
+   border-bottom: 1px solid #7126B5;
+   width: 90%;
+}
+.btn_:active{
+   color: #7126B5;
+   border-bottom: 1px solid #7126B5;
+   width: 90%;
+}
+
+
+@media only screen and (max-width: 991px) {
+   .card{
+      display: none;
+   }
+}

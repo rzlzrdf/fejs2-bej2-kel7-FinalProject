@@ -1,0 +1,138 @@
+.home_container{
+    max-width: 100vw;
+}
+
+a{
+    color: #28242c;
+}
+
+.anim{
+    color: #7126B5;
+}
+
+.wrapper_kategori button{
+    margin: 3px;
+}
+
+.card_container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.jual{
+    background-color: #7126B5;
+    border: none;
+    border-radius: 6px;
+    width: 150px;
+    height: 250px;
+}
+
+.next{
+    font-size: 40px;
+}
+
+.wrapper_hero_title{
+    height: 120px;
+}
+.btn_jual{
+    position: fixed;
+    top: 90%;
+    left: 45%;
+    z-index: 1;
+    background-color: #7126B5;
+    border: 1px solid #7126B5;
+    border-radius: 16px;
+    color: #eeeeee;
+    font-weight: 500;
+    width: 10%;
+    height: 45px;
+    box-shadow: -1px 1px 9px 4px rgba(113,38,181,0.7);
+    -webkit-box-shadow: -1px 1px 9px 4px rgba(113,38,181,0.7);
+    -moz-box-shadow: -1px 1px 9px 4px rgba(113,38,181,0.7);
+}
+
+.btn_jual:hover{
+    background-color: #28242c;
+    border-color: #28242c;
+}
+
+.benefitCard{
+    border: 2px solid #7126B5;
+    border-radius: 16px;
+    color: #7126B5;
+    height: 200px;
+}
+
+.daftarsekarang{
+    margin-top: 5%;
+    max-width: 100%;
+}
+.textDaftar{
+    margin-top: 20%;
+    font-size: 3em;
+}
+.daftarBtn{
+    width: 40%;
+    position: relative;
+    top: 5%;
+    left: 60%;
+    border-radius: 16px;
+}
+.daftarBtn:hover{
+    background-color: #7126B5;
+    border-color: #7126B5;
+}
+
+
+@media only screen and (max-width: 455px) {
+    .card_container{
+        max-width: 100vw;
+        justify-content: center;
+        gap: 15px;
+    }
+    .wrapper_hero_title{
+        background-size: cover;
+        background-position: 10%;
+    }
+    .textDaftar{
+        font-size: 32px;
+    }
+    .daftarBtn{
+        right: 0%;
+    }
+    .daftarImg{
+        width: 120%;
+    }
+    .btn_jual{
+        width: 40%;
+        left: 30%;
+    }
+
+}
+
+@media only screen and (max-width: 1199px) {
+    .hero3d{
+        display: none
+    }
+    .atau{
+        position: static;
+        text-align: center;
+        margin-top: 12%;
+        margin-bottom: 12%;
+
+    }
+    .hero_title_2{
+        position: static;
+        text-align: end;
+        margin-right: 20px;
+    }
+
+    .benefitCard{
+        height: 85%;
+        margin: 20px 0px;
+    }
+}
+

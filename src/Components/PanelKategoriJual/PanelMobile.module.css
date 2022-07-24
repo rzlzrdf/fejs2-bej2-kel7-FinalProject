@@ -1,0 +1,31 @@
+.panel{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   gap: 10px;
+}
+.mobile{
+   width: 30%;
+   height: 40px;
+   border: 1px solid #E2D4F0;
+   background-color: #E2D4F0;
+   color: #7126B5;
+   border-radius: 16px;
+   font-size: 11px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.mobile:hover{
+   border-color: #7126B5;
+   background-color: #7126B5;
+   color: #eeeeee;
+}
+
+
+@media only screen and (min-width: 992px){
+   .mobile{
+      display: none;
+   }
+}

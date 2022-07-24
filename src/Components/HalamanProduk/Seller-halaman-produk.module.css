@@ -1,0 +1,122 @@
+.cards{
+    border-radius: 16px;
+    margin: 20px 0px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+}
+
+.wishlistOn{
+    width: 30px;
+    height: 30px;
+    color: #7126B5;
+    cursor: pointer;
+}
+
+.wishlistOff{
+    width: 30px;
+    height: 30px;
+    color: grey;
+    cursor: pointer;
+}
+
+.cards p{
+    margin-left: 10px;
+}
+.swiper{
+    width: 100%;
+    height: 430px;
+    border-radius: 20px;
+    margin: 20px 0px;
+}
+.swiper img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+}
+
+.buttonCards{
+    background-color: #7126B5;
+    border-radius: 16px;
+    border:none;
+    border-color: #7126B5;
+    color: #eeeeee;
+    padding: 14px 24px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+}
+.buttonCards:hover{
+    color: #7126B5;
+    background-color: #eeeeee;
+
+}
+.buttonCardsEdit{
+    background-color: #ffffff;
+    border-radius: 16px;
+    border:1px solid;
+    border-color: #7126B5;
+    color: #7126B5;
+    font-weight: 500;
+    padding: 14px 24px;
+    display: flex;
+    justify-content: center;
+}
+.buttonCardsEdit:hover{
+    background-color: #eeeeee;
+}
+.Card_Profile{
+    padding: 16px;
+    border: 4px solid white;
+    border-radius: 16px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+}
+.profile{
+    margin-left: 16px;
+}
+
+.deskripsi{
+    padding: 15px;
+    text-align: justify;
+    border-radius: 16px;
+    margin: 10px 0px;
+}
+
+.back_{
+    display: none;
+}
+
+@media only screen and (max-width: 425px){
+    .swiper{
+        height: 300px;
+    }
+
+    .cards{
+        margin: 0px;
+    }
+    .cards p{
+        margin: 0px;
+    }
+
+    .Card_Profile{
+        margin: 10px 0px;
+    }
+    
+    .deskripsi{
+        font-size: 14px;
+
+    }    
+}
+
+@media only screen and (max-width: 768px){
+
+    .swiper{
+        border-radius: 16px;
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+
+    .back_{
+        display: block;
+    }
+}
