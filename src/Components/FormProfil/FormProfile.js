@@ -9,8 +9,6 @@ import jwtDecode from 'jwt-decode'
 import {useSelector} from 'react-redux'
 import LogoutButton from '../NavbarSearch/LogoutButton'
 import Loading from '../../Components/Loading/Loading'
-import { set } from 'react-hook-form'
-
 
 const FormProfile = (props) => {
    
@@ -49,7 +47,7 @@ const FormProfile = (props) => {
        setError(false)
        setData(res.data)
      })
-    },[])
+    },[decoded.id])
 
    
    //membuat object json dari form

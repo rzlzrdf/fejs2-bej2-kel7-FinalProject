@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import style from './Seller-halaman-produk.module.css'
-import { Button, Carousel, CarouselItem } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 

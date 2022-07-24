@@ -5,9 +5,9 @@ const Profile = (props) => {
   console.log(props.produk.user)
   return (
     <div className={`d-flex ${style.Card_Profile} align-items-center`}>
-      <div className='pict'>
+      <div className={style.pict}>
         { props.produk.user.foto_profil !== null &&
-          <img src={props.produk.user.foto_profil}  alt=''/>
+          <img  src={props.produk.user.foto_profil}  alt=''/>
         }
       </div>
       <div className={`${style.profile}`}>

@@ -24,7 +24,7 @@ const Terjual = () => {
         setLoading(false)
         setProducts(response.data.product)
       });
-  }, []);
+  }, [user]);
 
 
   return (
@@ -32,7 +32,7 @@ const Terjual = () => {
        {loading ? (<Loading/>) :(
     <div className={style.wrapper_card}>
     {
-      products.length==0 ?
+      products.length===0 ?
        (<h5 className="fw-light text-muted">Belum ada produk disini</h5>) : 
       products?.map((data,index) => {
         return(

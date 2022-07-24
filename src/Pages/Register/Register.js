@@ -9,7 +9,7 @@ import { register } from "../../Features/authSlice";
 const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isLoading, user, error } = useSelector((state) => state.auth);
+  const { user, error } = useSelector((state) => state.auth);
   const location = useLocation();
   const from = location.state ? location.state.from : "/";
   const [data, setData] = useState({
@@ -33,7 +33,7 @@ const Register = () => {
     if (user) {
       navigate(from, { replace: true });
     }
-  }, [user]);
+  }, [user, from, navigate]);
 
   return (
     <div className={"d-flex " + style.register_container}>

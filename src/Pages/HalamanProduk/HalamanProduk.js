@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Cards from '../../Components/HalamanProduk/SellerCard'
 import Corousel from '../../Components/HalamanProduk/Corousel'
 import Deskripsi from '../../Components/HalamanProduk/Deskripsi'
 import Profile from '../../Components/HalamanProduk/Profile'
@@ -29,7 +28,7 @@ const SellerHalamanProduk = () => {
         console.log(res)
         setProduct(res.data)
       })
-  }, [])
+  }, [id])
 
   return (
     <>
