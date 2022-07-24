@@ -10,6 +10,23 @@
    margin-top: 3%;
 
 }
+.upload{
+   width: 150px;
+   height: 250px;
+   border: 1px dashed #dedede;
+   border-radius: 6px;
+   background-color: transparent;
+   cursor: pointer;
+   transition: 0.4s;
+}
+
+.upload:hover{
+   border-color: #dedede;
+   background-color: #dedede;
+   -webkit-transform: scale(1.03, 1.03);
+  transform: scale(1.03, 1.03);
+}
+
 
 
 

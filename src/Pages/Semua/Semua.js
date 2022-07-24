@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import { Col, Container, Pagination, Row } from "react-bootstrap";
+import {AiOutlineFileAdd} from 'react-icons/ai'
+import { Button, Col, Container, Pagination, Row } from "react-bootstrap";
 import style from "./Semua.module.css";
 import NavbarSearch from "../../Components/NavbarSearch/NavbarSearch";
 import Cardss from "../../Components/Card/Cardss";
 import KategoriButton from "../../Components/Category/KategoriButton";
 import styleFilter from "./Filter.module.css";
 import Loading from "../../Components/Loading/Loading";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Semua = () => {
   const { user } = useSelector((state) => state.auth);
@@ -196,6 +197,13 @@ const Semua = () => {
             <Loading />
           ) : (
             <Col lg={10} className={style.all}>
+              {user !== null && (
+              <Link to='/info-produk'>
+                  <Button className={style.upload + ' fw-light text-muted'}>
+                    <AiOutlineFileAdd className={style.next}/>
+                    <p>Tambah Produk</p>
+                  </Button>
+              </Link>)}
               {loading ? (
                 <Loading />
               ) : (
