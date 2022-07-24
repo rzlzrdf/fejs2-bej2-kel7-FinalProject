@@ -22,7 +22,7 @@ const NavLogin = () => {
         console.log(res.data.notif);
         setData(res.data.notif);
       });
-  }, []);
+  }, [user]);
 
   return (
     <>
@@ -57,15 +57,6 @@ const NavLogin = () => {
               ></span> */}
             </Dropdown.Toggle>
             <Dropdown.Menu className={`p-3 w-auto ${style.dropdownMenu}`}>
-              {/* <AppDropdownList
-                img={"./Img/xperia.jpg"}
-                title={"Penawaran produk"}
-                date={"20 Jan 22"}
-                name={"Xperia 1 mark iii"}
-                price={"22"}
-                desc={"Ditawar Rp 4.200.000"}
-                link={"#/action-1"}
-              /> */}
               {data.map((item, i) => {
                 return (
                   <AppDropdownList
@@ -78,7 +69,7 @@ const NavLogin = () => {
                       currency: "IDR",
                     }).format(item.harga)}
                     // desc={"Ditawar Rp 4.200.000"}
-                    link={"#/action-1"}
+                    link={"/notifikasi"}
                   />
                 );
               })}

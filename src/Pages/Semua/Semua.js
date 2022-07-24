@@ -3,7 +3,6 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { Col, Container, Pagination, Row } from "react-bootstrap";
 import style from "./Semua.module.css";
-import Filter from "../../Components/Filter/Filter";
 import NavbarSearch from "../../Components/NavbarSearch/NavbarSearch";
 import Cardss from "../../Components/Card/Cardss";
 import KategoriButton from "../../Components/Category/KategoriButton";
@@ -41,7 +40,7 @@ const Semua = () => {
     } else if (product) {
       axios
         .get(
-          `https://secondhandapp.herokuapp.com/api/product/search-produk?q=nissan`,
+          `https://secondhandapp.herokuapp.com/api/product/search-produk?q=${product}`,
           {
             headers: {
               Authorization: user,
@@ -52,7 +51,6 @@ const Semua = () => {
           setLoading(false);
           //  console.log(response.data.data);
           setProducts(response.data.data);
-          //  setPagination(response.data.totalPages);
         });
     } else {
       axios
@@ -66,7 +64,7 @@ const Semua = () => {
           setPagination(response.data.totalPages);
         });
     }
-  }, []);
+  }, [product, user]);
 
   const changePage = (event) => {
     if (user) {

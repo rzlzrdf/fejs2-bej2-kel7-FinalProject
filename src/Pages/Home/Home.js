@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux/es/exports";
+import { useSelector } from "react-redux/es/exports";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 import KategoriButton from "../../Components/Category/KategoriButton";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import {
@@ -49,7 +48,7 @@ const Home = () => {
           setProduct(response.data.content);
         });
     }
-  }, []);
+  }, [user]);
 
   const changeCategory = (event) => {
     if (event === "all") {

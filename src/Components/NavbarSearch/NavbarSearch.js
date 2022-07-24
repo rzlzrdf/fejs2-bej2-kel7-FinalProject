@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import style from "./NavbarSearch.module.css";
 import { Container, Navbar } from "react-bootstrap";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import {FaSearch} from 'react-icons/fa'
+import {SiHotelsdotcom, SiScrutinizerci} from 'react-icons/si'
 import NavLogin from "../NavLogin/NavLogin";
 import LoginButton from "../NavbarSearch/LoginButton";
-import jwtDecode from "jwt-decode";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -26,19 +27,18 @@ const NavbarSearch = () => {
     >
       <Container>
         <Navbar.Brand>
-          <Link id="RouterNavLink" to="/">
-            <img src="./Img/logo.svg" alt="" className={style.logo} />
+          <Link id="RouterNavLink" to="/" className={style.logo}>
+            <SiScrutinizerci/><SiHotelsdotcom/>and
           </Link>
         </Navbar.Brand>
         <Navbar.Brand className={style.search_container}>
           <input
-            type={"search"}
+            type={"text"}
             placeholder="Cari di sini ..."
             className={style.search}
-            onSubmit={(e) => console.log("daskjdaskj")}
-            onChange={(e) => setInput(e.target.value)}
+            onChange={(e) => setInput(e.target.value.toLowerCase())}
           />
-          <button onClick={() => goToSearch(input)}>Search</button>
+          <button className={style.cari} onClick={() => goToSearch(input)}><FaSearch/></button>
         </Navbar.Brand>
         {user == null && <LoginButton />}
         {user !== null && <NavLogin />}

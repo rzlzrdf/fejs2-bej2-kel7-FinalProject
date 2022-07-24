@@ -15,14 +15,15 @@ li{
 }
 
 .btn_ .btn_dropdown {
-   color: #28242c;
+   color: #7126B5;
    border: none;
    background-color: transparent;
 }
 
 .btn_dropdown{
    position: relative;
-   top: -0.75vh;
+   top: -0.95vh;
+   color: #7126B5;
 }
 
 .btn_ .btn_dropdown :hover{
